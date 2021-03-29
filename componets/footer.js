@@ -23,6 +23,7 @@ export default function Footer() {
             left: 50%;
             transform: translateX(-50%);
             transition: .3s;
+            z-index: 10;
           }
           .logo-github:hover {
             transform: scale(1.2) translateX(-49%);

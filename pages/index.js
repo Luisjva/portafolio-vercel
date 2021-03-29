@@ -28,7 +28,6 @@ export default function Index() {
         <div className="proyectos">
           <h2>Proyectos</h2>
           <Proyectos />
-          <p className="proyectos-text">Si quiere ver el proyecto, solo haga click en el slider</p>
         </div>
 
 
@@ -134,15 +133,6 @@ export default function Index() {
         /*    Proyectos    */
         .proyectos {
           grid-area: proyectos;
-        }
-
-        .proyectos-text {
-          text-align: center;
-          width: 80%;
-          margin: auto;
-          font-size: 0.8rem;
-          color: #0009;
-          margin-top: .5rem;
         }
 
         /*    Habilidades    */

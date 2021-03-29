@@ -1,6 +1,7 @@
 export default function Proyectos() {
   return (
     <div>
+      <p className="proyectos-text">Si quiere ver el proyecto, solo haga click en el slider</p>
       <div className="slider-contenedor">
         <div className="vistas">
           <button className="vistas-btn vistas__telefono vista-btn--activo">Telefono</button>
@@ -117,6 +118,15 @@ export default function Proyectos() {
           position: relative;
           top: 40%;
           transform: translateX(-50%)
+        }
+
+        .proyectos-text {
+          text-align: center;
+          width: 80%;
+          margin: auto;
+          font-size: 0.8rem;
+          color: #0009;
+          padding-bottom: .5rem;
         }
 
         /*    Vistas    */
