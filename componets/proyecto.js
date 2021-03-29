@@ -1,7 +1,7 @@
 export default function Proyectos() {
   return (
     <div>
-      <p className="proyectos-text">Si quiere ver el proyecto, solo haga click en el slider</p>
+      <p className="proyectos-text">Si quiere ver el proyecto, solo haga click en la imagen</p>
       <div className="slider-contenedor">
         <div className="vistas">
           <button className="vistas-btn vistas__telefono vista-btn--activo">Telefono</button>
@@ -11,6 +11,21 @@ export default function Proyectos() {
 
         <div className="slider-absoluto">
           <div className="slider-contenedor-telefono">
+
+            
+            <div className="pag-telefono fade">
+              <img src="/proyecto4.jpg"/>
+              <a href="https://portafolio-kappa.vercel.app/" target="_blank">
+                <div className="espesificaciones">
+                  <div className="espesificaciones-der">
+                    <span>Next Js</span>
+                  </div>
+                  <div className="espesificaciones-izq">
+                    <p>Portafolio</p>
+                  </div>
+                </div>
+              </a>
+            </div>
 
 
             <div className="pag-telefono fade">
@@ -51,7 +66,7 @@ export default function Proyectos() {
                   <div className="espesificaciones-der">
                     <span>HTML</span>
                     <span>CSS</span>
-                    <span>JS</span>
+                    <span>JavaScript</span>
                   </div>
                   <div className="espesificaciones-izq">
                     <p>Juego</p>
@@ -74,7 +89,11 @@ export default function Proyectos() {
 
         <div className="slider-absoluto">
           <div className="slider-contenedor-pc slider-contenedor--cerrado">
-            
+            <div className="pag-pc fade">
+              <a href="https://portafolio-kappa.vercel.app/" target="_blank">
+                <img className="img-pc" src="/proyecto4-pc.jpg"/>
+              </a>
+            </div>            
 
             <div className="pag-pc fade">
               <a href="https://luisjva.github.io/Maqueta1/" target="_blank">
