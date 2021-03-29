@@ -7,7 +7,11 @@ export default function Footer() {
           <img className="logo-github" src="/logo-github.png" alt="footer"/>
         </a>
         <img className="footer-fondo" src="/footer.png" alt="footer"/>
+
+        
         <script src="/btnnav.js"></script>
+        <script src="/slider.js"></script>
+        <script src="/vistas.js"></script>
         <style jsx>{`
           footer {
             background: #fff;

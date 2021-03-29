@@ -108,11 +108,6 @@ export default function Proyectos() {
         </div>
 
       </div>
-      
-      <script src="/slider.js"></script>
-      <script src="/vistas.js"></script>
-
-
       <style jsx>{`
         .center-y {
           position: relative;
