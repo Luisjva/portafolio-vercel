@@ -1,26 +1,68 @@
 import React from 'react'
-let paso = 0; 
+let paso = 0;
+let pcTelefono;
+
 
 class Proyectos extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {pagActual: 0};    
+    this.state = {
+      pagActual: 0,
+      vista: "telefono"
+    };    
 
     this.mostrarPagAntes = this.mostrarPagAntes.bind(this);
     this.mostrarPagDespues =this.mostrarPagDespues.bind(this);
+
+    this.vistas = this.vistas.bind(this);
   }
 
   componentDidMount() {
     if(paso == 0) {
+
+      this.vistas();
       this.tiempo = setTimeout(
           () => {
           this.mostrarPagDespues();
-          clearTimeout(this.tiempo)
+          clearTimeout(this.tiempo);
+          
         },
         10000
       );
     }
+  }
+  
+
+  vistas() {
+    console.log(this.state.vista)
+
+    let btnTelefono = document.querySelector(".vistas__telefono");
+    let btnPc = document.querySelector(".vistas__pc");
+    let sliderTelefono = document.querySelector(".slider-contenedor-telefono");
+    let sliderPc = document.querySelector(".slider-contenedor-pc");
+    let sliderContenedor = document.querySelector(".slider-contenedor");
+
+    if (this.state.vista == "pc") {
+      btnPc.disabled = true;
+      btnTelefono.disabled = false;
+      btnTelefono.classList.remove("vista-btn--activo");
+      btnPc.classList.add("vista-btn--activo");
+      sliderTelefono.classList.add("slider-contenedor--cerrado");
+      sliderContenedor.classList.add("slider-contenedor--pc");
+      sliderPc.classList.remove("slider-contenedor--cerrado");
+      this.setState({vista: "telefono"});
+    } else if (this.state.vista == "telefono"){
+      btnTelefono.disabled = true;
+      btnPc.disabled = false;
+      btnPc.classList.remove("vista-btn--activo");
+      btnTelefono.classList.add("vista-btn--activo");
+      sliderTelefono.classList.remove("slider-contenedor--cerrado");
+      sliderContenedor.classList.remove("slider-contenedor--pc");
+      sliderPc.classList.add("slider-contenedor--cerrado");
+      this.setState({vista: "pc"});    
+    }
+
   }
   
   mostrarPagAntes() {
@@ -94,17 +136,17 @@ class Proyectos extends React.Component {
   
   render() {
     return (
-      <div>
+      <div rel="proyecto">
         <p className="proyectos-text">Si quiere ver el proyecto, solo haga click en la imagen<br/><br/> Las tecnolocias usadas en cada proyecto estan al final de la imagen</p>
         <div className="slider-contenedor">
           <div className="vistas">
-            <button  className="vistas-btn vistas__telefono vista-btn--activo">Telefono</button>
-            <button className="vistas-btn vistas__pc">Pc</button>
+            <button onClick={this.vistas} className="vistas-btn vistas__telefono vista-btn--activo">Telefono</button>
+            <button onClick={this.vistas} className="vistas-btn vistas__pc">Pc</button>
           </div>
 
 
           <div className="slider-absoluto">
-            <div className="slider-contenedor-telefono">
+            <div className="slider-contenedor-telefono slider-contenedor--cerrado">
 
 
               <div className="pag-telefono fade">
@@ -315,6 +357,7 @@ class Proyectos extends React.Component {
             width: 100%;
             position: absolute;
             z-index: 10;
+            opacity: 1;
           }
 
           .espesificaciones {

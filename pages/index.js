@@ -247,11 +247,11 @@ export default function Index() {
         @media screen and (min-width: 500px) {
           main {
           grid-template-columns: 1fr 1fr;
-          grid-template-rows: 210px repeat(2, auto);
+          grid-template-rows: repeat(3, auto);
           grid-template-areas: 
-            "tarjeta     proyectos"
-            "habilidades proyectos"
-            "contacto contacto";
+            "tarjeta   habilidades"
+            "proyectos proyectos"
+            "contacto  contacto";
           }
           
           .tarjeta {
@@ -264,6 +264,7 @@ export default function Index() {
             margin-bottom: auto;
             font-size: 1.5rem;
             margin-top: 0.83em;
+            margin-left: .5rem;
           }
 
           .tarjeta__img {
@@ -279,6 +280,7 @@ export default function Index() {
           }
           .habilidades {
             margin-right: 0.25rem;
+            margin-left: .5rem;
           }
         }
 

@@ -10,8 +10,6 @@ export default function Footer() {
 
         
         <script src="/btnnav.js"></script>
-        {/* <script src="/slider.js"></script> */}
-        <script src="/vistas.js"></script>
         <style jsx>{`
           footer {
             background: #fff;
