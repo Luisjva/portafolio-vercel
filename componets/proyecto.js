@@ -43,18 +43,23 @@ class Proyectos extends React.Component {
     let sliderPc = document.querySelector(".slider-contenedor-pc");
     let sliderContenedor = document.querySelector(".slider-contenedor");
 
-    if (this.state.vista == "pc") {
+    if (this.state.vista == "pc") 
+    {
       btnPc.disabled = true;
       btnTelefono.disabled = false;
+
       btnTelefono.classList.remove("vista-btn--activo");
       btnPc.classList.add("vista-btn--activo");
       sliderTelefono.classList.add("slider-contenedor--cerrado");
       sliderContenedor.classList.add("slider-contenedor--pc");
       sliderPc.classList.remove("slider-contenedor--cerrado");
       this.setState({vista: "telefono"});
-    } else if (this.state.vista == "telefono"){
+    } 
+    else if (this.state.vista == "telefono")
+    {
       btnTelefono.disabled = true;
       btnPc.disabled = false;
+
       btnPc.classList.remove("vista-btn--activo");
       btnTelefono.classList.add("vista-btn--activo");
       sliderTelefono.classList.remove("slider-contenedor--cerrado");
@@ -149,7 +154,7 @@ class Proyectos extends React.Component {
             <div className="slider-contenedor-telefono slider-contenedor--cerrado">
 
 
-              <div className="pag-telefono fade">
+              <div className="pag-telefono fade none">
                 <img src="/proyecto3.jpg"/>
                 <a href="https://luisjva.github.io/Maqueta1/" target="_blank">
                   <div className="espesificaciones">
@@ -232,7 +237,7 @@ class Proyectos extends React.Component {
                 </a>
               </div>
 
-              <div className="pag-pc fade">
+              <div className="pag-pc fade none">
                 <a href="http://a2ndocean.herokuapp.com/" target="_blank">
                   <img className="img-pc" src="/proyecto2-pc.jpg"/>
                 </a>
@@ -358,6 +363,7 @@ class Proyectos extends React.Component {
             position: absolute;
             z-index: 10;
             opacity: 1;
+            transition: .3s;
           }
 
           .espesificaciones {
@@ -438,10 +444,6 @@ class Proyectos extends React.Component {
             -webkit-background-clip: text;
           }
 
-          .none {
-            display: none;
-          }
-
           .fade {
             animation-name: fade;
             animation-duration: .5s;
@@ -467,10 +469,10 @@ class Proyectos extends React.Component {
             height: 100%;
             width: 100%;
             position: absolute;
+            opacity: 1;
+            transition: .3s;
           }
           
-
-
           .flecha-pc-antes {
             left: 15px;
             z-index:200;
@@ -500,8 +502,9 @@ class Proyectos extends React.Component {
             top: 30px;
           }
 
-
-
+          .none {
+            opacity: 0;
+          }
           @keyframes fade{
             from {opacity: .4}
             to {opacity: .1}
