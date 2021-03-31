@@ -1,4 +1,4 @@
-let pagActual = 0;
+let pagActual = 0; /* usado */
 let btnAnteriorTlfn = document.querySelector(".flecha-telefono-antes")
 let btnDespuesTlfn = document.querySelector(".flecha-telefono-despues")
 

@@ -105,6 +105,7 @@ export default function Index() {
             "img titulo"
             "img texto";
           color: #fff;
+          border-radius: 7px;
         }
 
         .tarjeta__img {
