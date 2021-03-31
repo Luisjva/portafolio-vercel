@@ -24,6 +24,7 @@ class Proyectos extends React.Component {
   }
   
   mostrarPagAntes() {
+    clearTimeout(this.tiempo)
     clearInterval(this.timerID);
 
 
@@ -44,7 +45,6 @@ class Proyectos extends React.Component {
       pagTlfn[i].classList.add("none");
       pagPc[i].classList.add("none");
     }
-  
     pagTlfn[ahora].classList.remove("none");
     pagTlfn[ahora].setAttribute("className", "none");
   
@@ -58,6 +58,7 @@ class Proyectos extends React.Component {
   }
 
   mostrarPagDespues(){
+    clearTimeout(this.tiempo)
     clearInterval(this.timerID);
 
 
