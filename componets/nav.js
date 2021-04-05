@@ -117,6 +117,7 @@ export default function Nav() {
         </div>
         <ul className="nav__pages pages-none">
           <Li href="/" nombre="Inicio" />
+          <Li href="/portafolio" nombre="Portafolio" />
           <Li href="/#contacta" nombre="Contactame"/>
         </ul>
       </div>
