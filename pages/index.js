@@ -19,6 +19,7 @@ export default function Index() {
       </Head>
       <Nav />
       <main>
+        <h2>Hola mundo</h2>
         <Formulario />
       </main>
       

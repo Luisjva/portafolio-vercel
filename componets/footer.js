@@ -1,6 +1,5 @@
-
-
 export default function Footer() {
+  
   return(
       <footer>
         <a href="https://github.com/Luisjva" target="_blank">
@@ -8,8 +7,7 @@ export default function Footer() {
         </a>
         <img className="footer-fondo" src="/footer.png" alt="footer"/>
 
-        
-        <script src="/btnnav.js"></script>
+
         <style jsx>{`
           footer {
             background: #fff;
