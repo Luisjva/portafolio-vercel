@@ -154,9 +154,10 @@ class Nav extends React.Component {
             background: linear-gradient(to right, #373b44, #4286f4);
             height: 41.09px;
             box-shadow: 0px 0px 10px #333;
-            position: fixed;
+            position: sticky;
             width: 100%;
             z-index: 1000;
+            top: 0;
           }
 
           .nav__izquierdo {
