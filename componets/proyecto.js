@@ -1,6 +1,5 @@
 import React from 'react'
 let paso = 0;
-let pcTelefono;
 
 
 class Proyectos extends React.Component {
@@ -9,34 +8,48 @@ class Proyectos extends React.Component {
 
     this.state = {
       pagActual: 0,
-      vista: "telefono"
+      vista: "pc"
     };    
 
     this.mostrarPagAntes = this.mostrarPagAntes.bind(this);
     this.mostrarPagDespues =this.mostrarPagDespues.bind(this);
 
     this.vistas = this.vistas.bind(this);
+    this.vistasRecarga = this.vistasRecarga.bind(this)
   }
 
   componentDidMount() {
-    if(paso == 0) {
+    this.timerID = setInterval(
+      () => this.mostrarPagDespues(),
+      10000
+    );
 
-      this.vistas();
-      this.tiempo = setTimeout(
-          () => {
-          this.mostrarPagDespues();
-          clearTimeout(this.tiempo);
-          
-        },
-        10000
-      );
-    }
+    if(paso == 0) {
+      this.vistasRecarga();
+      
+      let pagTlfn = document.querySelectorAll('.pag-telefono');
+      let pagPc = document.querySelectorAll(".pag-pc");
+    
+      for(let i = 0; i < pagTlfn.length; i++) {
+        pagTlfn[i].classList.add("none");
+        pagPc[i].classList.add("none");
+      }
+      pagTlfn[0].classList.remove("none");
+      pagTlfn[0].setAttribute("className", "none");
+    
+      pagPc[0].classList.remove("none");
+      pagPc[0].setAttribute("className", "none");
+
+      paso = 1;
+    }   
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
   }
   
 
   vistas() {
-    console.log(this.state.vista)
-
     let btnTelefono = document.querySelector(".vistas__telefono");
     let btnPc = document.querySelector(".vistas__pc");
     let sliderTelefono = document.querySelector(".slider-contenedor-telefono");
@@ -69,10 +82,39 @@ class Proyectos extends React.Component {
     }
 
   }
+
+  vistasRecarga() {
+    let btnTelefono = document.querySelector(".vistas__telefono");
+    let btnPc = document.querySelector(".vistas__pc");
+    let sliderTelefono = document.querySelector(".slider-contenedor-telefono");
+    let sliderPc = document.querySelector(".slider-contenedor-pc");
+    let sliderContenedor = document.querySelector(".slider-contenedor");
+
+    if (this.state.vista == "telefono") 
+    {
+      btnPc.disabled = true;
+      btnTelefono.disabled = false;
+
+      btnTelefono.classList.remove("vista-btn--activo");
+      btnPc.classList.add("vista-btn--activo");
+      sliderTelefono.classList.add("slider-contenedor--cerrado");
+      sliderContenedor.classList.add("slider-contenedor--pc");
+      sliderPc.classList.remove("slider-contenedor--cerrado");
+    } 
+    else if (this.state.vista == "pc")
+    {
+      btnTelefono.disabled = true;
+      btnPc.disabled = false;
+
+      btnPc.classList.remove("vista-btn--activo");
+      btnTelefono.classList.add("vista-btn--activo");
+      sliderTelefono.classList.remove("slider-contenedor--cerrado");
+      sliderContenedor.classList.remove("slider-contenedor--pc");
+      sliderPc.classList.add("slider-contenedor--cerrado");
+    }
+  }
   
   mostrarPagAntes() {
-    clearTimeout(this.tiempo)
-    clearInterval(this.timerID);
 
 
     let estado = this.state.pagActual
@@ -97,46 +139,40 @@ class Proyectos extends React.Component {
   
     pagPc[ahora].classList.remove("none");
     pagPc[ahora].setAttribute("className", "none");
-    
-    this.timerID = setInterval(
-      () => this.mostrarPagDespues(),
-      10000
-    );
   }
 
   mostrarPagDespues(){
-    clearTimeout(this.tiempo)
-    clearInterval(this.timerID);
-
-
+        
     let estado = this.state.pagActual
     let ahora = estado + 1;
-    this.setState({pagActual: ahora})
+    this.setState({ pagActual: ahora });
     
     let pagTlfn = document.querySelectorAll('.pag-telefono');
     let pagPc = document.querySelectorAll(".pag-pc");
+
+    console.log(pagTlfn.length);
+
+    if(pagTlfn.length === 0) {
+      console.log("no se muestra");
+    }else{  
+      this.vistasRecarga();
+
+      if(ahora >= pagTlfn.length) {
+        this.setState({pagActual: 0});
+        ahora = 0
+      }
     
-    if(ahora >= pagTlfn.length) {
-      this.setState({pagActual: 0});
-      ahora = 0
-    }
-  
-    for(let i = 0; i < pagTlfn.length; i++) {
-      pagTlfn[i].classList.add("none");
-      pagPc[i].classList.add("none");
-    }
-  
-    pagTlfn[ahora].classList.remove("none");
-    pagTlfn[ahora].setAttribute("className", "none");
-  
-    pagPc[ahora].classList.remove("none");
-    pagPc[ahora].setAttribute("className", "none");
+      for(let i = 0; i < pagTlfn.length; i++) {
+        pagTlfn[i].classList.add("none");
+        pagPc[i].classList.add("none");
+      }
     
+      pagTlfn[ahora].classList.remove("none");
+      pagTlfn[ahora].setAttribute("className", "none");
     
-    this.timerID = setInterval(
-      () => this.mostrarPagDespues(),
-      10000
-    );
+      pagPc[ahora].classList.remove("none");
+      pagPc[ahora].setAttribute("className", "none");
+    } 
   }
   
   render() {
@@ -469,6 +505,7 @@ class Proyectos extends React.Component {
             height: 100%;
             width: 100%;
             position: absolute;
+            z-index: 10;
             opacity: 1;
             transition: .3s;
           }
@@ -504,6 +541,7 @@ class Proyectos extends React.Component {
 
           .none {
             opacity: 0;
+            z-index: 0;
           }
           @keyframes fade{
             from {opacity: .4}

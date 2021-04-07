@@ -11,7 +11,7 @@ class Index extends React.Component {
     return (
       <div className="cuerpo">
         <Head>
-          <title>Portafolio | Luis Villegas</title>
+          <title>Inicio | Luis Villegas</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <meta name="theme-color" content="#4286f4" />
           <link rel="shortcut icon" href="fav.ico" />
@@ -37,7 +37,7 @@ class Index extends React.Component {
   
               <p>Mi misión es ayudar a EMPRENDEDORES AUTÓNOMOS y PEQUEÑAS EMPRESAS a tener una web moderna y fresca para mejorar su imagen y sus ventas.</p>
   
-              <p>¡Entonces, qué!… ¿<a href="/#contacta">hablamos?</a></p>
+              <p>¡Entonces, qué!… ¿<a href="/#contacta">hablamos</a>?</p>
             </div>
           </section>
           <section className="en-trabajos">
