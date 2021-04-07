@@ -1,23 +1,14 @@
-import Nav from "../componets/nav"
 import Head from "next/head"
-import Proyectos from "../componets/proyecto"
+import Proyecto from "../componets/proyecto"
 import Formulario from "../componets/formulario"
-import Footer from "../componets/footer"
 
 
-export default function Index() {
+export default function Portafolio() {
   return (
     <div className="cuerpo">
       <Head>
         <title>Portafolio | Luis Villegas</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="theme-color" content="#4286f4" />
-        <link rel="shortcut icon" href="fav.ico" />
-        <style>
-          @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&family=Yanone+Kaffeesatz&display=swap');
-        </style>
       </Head>
-      <Nav />
       <main>
         <div className="tarjeta">
           <img className="tarjeta__img" src="/yo.png" />
@@ -27,7 +18,7 @@ export default function Index() {
         </div>
         <div className="proyectos">
           <h2>Proyectos</h2>
-          <Proyectos />
+          <Proyecto />
         </div>
 
 
@@ -70,8 +61,6 @@ export default function Index() {
         </div>
         <Formulario />
       </main>
-      
-      <Footer />
       <style jsx>{`
         main {
           margin: .5rem;

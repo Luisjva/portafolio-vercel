@@ -1,25 +1,13 @@
-import Nav from "../componets/nav"
 import Head from "next/head"
-import Formulario from "../componets/formulario"
-import Footer from "../componets/footer"
 import Proyectos from "../componets/proyectos-index"
-import React from "react"
 
 
-class Index extends React.Component {
-  render() {
+export default function Index() {
     return (
       <div className="cuerpo">
         <Head>
           <title>Inicio | Luis Villegas</title>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <meta name="theme-color" content="#4286f4" />
-          <link rel="shortcut icon" href="fav.ico" />
-          <style>
-            @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&family=Yanone+Kaffeesatz&display=swap');
-          </style>
         </Head>
-        <Nav />
         <main>
           <header>
             <div>
@@ -54,11 +42,8 @@ class Index extends React.Component {
           </section>
           <div className="div">
             <h1>Llamada a la accion</h1>
-          <Formulario />
           </div>
         </main>
-  
-        <Footer />
         <style jsx>{`
           main {
             display: grid;
@@ -131,7 +116,4 @@ class Index extends React.Component {
         `}</style>
       </div>
     )
-  }
 }
-
-export default Index;

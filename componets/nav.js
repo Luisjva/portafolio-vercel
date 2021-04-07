@@ -7,52 +7,7 @@ function Li(props) {
   const router = useRouter();
   const pagActual = router.asPath;
 
-  if(pagActual == props.href) {
-    return (
-      <li className="nav__li ">
-        <Link href={props.href}>
-          <a className="nav__a nav__actual">{props.nombre}</a>
-        </Link>
-        <style jsx>{`
-
-        .nav__actual {
-          background: #ddd3;          
-        }  
-        
-        .nav__li {
-          transition: .2s
-        }
-
-        .nav__li:hover {
-          background: #ddd5;
-        }
-
-        .nav__a {
-          display: block;
-          text-align: center;
-          text-decoration: none;
-          color: #fff;
-          font-size: 1.1rem;
-          padding: .6em;
-          transition: .3s;
-        }
-        @media screen and (min-width: 500px) {
-          .nav__a {
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.1rem;
-            padding: .6em;
-          }
-          .nav__li {
-            display: inline-block;
-          }
-        }
-        `}</style>
-      </li>
-    )
-  }
+  
   return (
     <li className="nav__li">
       <Link href={props.href}>

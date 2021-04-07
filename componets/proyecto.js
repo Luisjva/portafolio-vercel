@@ -2,7 +2,7 @@ import React from 'react'
 let paso = 0;
 
 
-class Proyectos extends React.Component {
+class Proyecto extends React.Component {
   constructor(props) {
     super(props);
 
@@ -584,4 +584,4 @@ class Proyectos extends React.Component {
   }
 }
 
-export default Proyectos;
+export default Proyecto;

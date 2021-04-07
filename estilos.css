@@ -14,9 +14,8 @@ h6 {
 .cuerpo {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 41.09px auto 1.5rem;
+  grid-template-rows: auto 1.5rem;
   grid-template-areas:
-    "nav"
     "main"
     "footer";
   background-color: #fff;
