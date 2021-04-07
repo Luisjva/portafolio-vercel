@@ -1,54 +1,6 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import Image from 'next/image'
-import React from 'React'
-
-function Li(props) {
-  const router = useRouter();
-  const pagActual = router.asPath;
-
-  
-  return (
-    <li className="nav__li">
-      <Link href={props.href}>
-        <a className="nav__a">{props.nombre}</a>
-      </Link>
-      <style jsx>{`
-        .nav__li {
-          transition: .2s
-        }
-
-        .nav__li:hover {
-          background: #fff4;
-        }
-
-        .nav__a {
-          display: block;
-          text-align: center;
-          text-decoration: none;
-          color: #fff;
-          font-size: 1.1rem;
-          padding: .6em;
-          transition: .3s;
-        }
-        @media screen and (min-width: 500px) {
-          .nav__a {
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.1rem;
-            padding: .6em;
-          }
-          .nav__li {
-            display: inline-block;
-          }
-        }
-      `}</style>
-   </li>
-
-  )
-}
+import React from 'react';
 
 class Nav extends React.Component {
   constructor(props) {
@@ -58,7 +10,6 @@ class Nav extends React.Component {
 
 
   clickBtnNav() {
-    let navBtn = document.querySelector(".nav__btn");
     let navBtn1 = document.querySelector(".nav__btn__1");
     let navBtn2 = document.querySelector(".nav__btn__2");
     let navBtn3 = document.querySelector(".nav__btn__3");
@@ -67,10 +18,8 @@ class Nav extends React.Component {
     navBtn1.classList.toggle("nav__btn__1__x");
     navBtn2.classList.toggle("nav__btn__2__x");
     navBtn3.classList.toggle("nav__btn__3__x");
-    navPages.classList.toggle("pages-none");
+    navPages.classList.toggle("pages-none")
   }
-
-
 
   render() {
     return (
@@ -94,9 +43,16 @@ class Nav extends React.Component {
             <div className="nav__btn__3"></div>
           </div>
           <ul className="nav__pages pages-none">
-            <Li href="/" nombre="Inicio" />
-            <Li href="/portafolio" nombre="Portafolio" />
-            <Li href="/#contacta" nombre="Contactame"/>
+            <li className="nav__li">
+              <Link href= "/">
+                <a className="nav__a">Inicio</a>
+              </Link>
+            </li>
+            <li className="nav__li">
+              <Link href= "/portafolio">
+                <a className="nav__a">Portafolio</a>
+              </Link>
+            </li>
           </ul>
         </div>
         <style jsx>{`
@@ -109,32 +65,33 @@ class Nav extends React.Component {
             background: linear-gradient(to right, #373b44, #4286f4);
             height: 41.09px;
             box-shadow: 0px 0px 10px #333;
-            position: sticky;
+            position: fixed;
             width: 100%;
             z-index: 1000;
-            top: 0;
           }
-
+  
           .nav__izquierdo {
             grid-area: izquierdo;
             display: inline;
             color: #fff;
             display: flex;
             align-items: center;
-            padding-left: .5em
+            padding-left: .5em;
+            height: 41.09px;
           }
-
+  
           .nav__nombre {
             font-size: 1.2rem
           }
-
+  
           .nav__derecho {
             padding-right: .5em;
             grid-area: derecho;
             position: relative;
             display: flex;
+            height: 41.09px;
           }
-
+  
           .nav__btn {
             width: 2.3rem;
             height: 2.3rem;
@@ -152,34 +109,34 @@ class Nav extends React.Component {
             position: absolute;
             transition: .2s; 
           }
-
+  
           .nav__btn__1 {
             top: 5px;
           }
-
+  
           .nav__btn__2 {
             top: 16.4px;
           } 
-
+  
           .nav__btn__3 {
             bottom: 5px;
           }
-
+  
           .nav__btn__1__x {
             top: 16.4px;
             transform: rotate(45deg);
-
+  
           }
-
+  
           .nav__btn__2__x {
             display: none;
           } 
-
+  
           .nav__btn__3__x {
             top: 16.4px;
             transform: rotate(-45deg);
           }
-
+  
           .nav__pages {
             position: absolute;
             list-style-type: none;
@@ -192,15 +149,48 @@ class Nav extends React.Component {
             width: 100vw;
             transition: .2s;
           }
-
+  
           .pages-none {
             top: -333%;
           }
+  
+          /*     itemns    */
+  
+          .nav__li {
+            transition: .2s;
+            height: 41.09px;
+          }
+  
+          .nav__li:hover {
+            background: #fff4;
+          }
+  
+          .nav__a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.1rem;
+            padding: .6em;
+            transition: .3s;
+          }
           @media screen and (min-width: 500px) {
+            .nav__a {
+              display: inline-block;
+              text-align: center;
+              text-decoration: none;
+              color: #fff;
+              font-size: 1.1rem;
+              padding: .6em;
+            }
+            .nav__li {
+              display: inline-block;
+            }
+  
             nav {
               grid-template-columns: 1fr 2fr;;
             }
-
+  
             .nav__btn {
               display: none;
             }
@@ -213,9 +203,10 @@ class Nav extends React.Component {
               display: flex;
               justify-content: flex-end;
               width: 100%;
+              height: 41.09px;
             }
           }
-
+  
           @media screen and (min-width: 1200px) {
             nav {
               width: 1200px;

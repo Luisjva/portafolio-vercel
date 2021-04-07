@@ -575,8 +575,8 @@ class Proyecto extends React.Component {
             }
 
             .slider-flecha-pc {
-            top: 25%;
-          }
+              top: 25%;
+            }
           }
         `}</style>
       </div>
