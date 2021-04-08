@@ -54,6 +54,13 @@ class Proyectos extends React.Component {
                 "tit proy1 proy2 proy2"
                 "tit proy1 proy3 proy4";
               height: 500px;
+              padding-right: 5%;
+            }
+          }
+
+          @media screen and (min-width: 900px) {
+            .proyectos {
+              grid-template-columns: 5% 2fr 1.5fr 1.5fr;
             }
           }
 

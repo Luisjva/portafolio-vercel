@@ -152,7 +152,7 @@ export default function Index() {
           .incluye-contenedor-1 {
             padding-top: 3rem;
             padding-bottom: 3rem; 
-            background: linear-gradient(to right, #373b4480, #373b4480), url("/mujer.jpg");
+            background: linear-gradient(to right, #373b4480, #373b4480), url("/proyecto4-pc.jpg");
             background-size: cover;
             background-position: center;
           }
@@ -197,6 +197,13 @@ export default function Index() {
               grid-area: cuatro;
             }
 
+          }
+
+          @media screen and (min-width: 900px) {
+            .incluye {
+              width: 90%;
+              margin: auto;
+            }
           }
   
           @media screen and (min-width: 1200px) {
