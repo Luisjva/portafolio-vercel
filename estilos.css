@@ -21,6 +21,17 @@ h6 {
   background-color: #fff;
 }
 
+.body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 41.09px auto 1.5rem;
+  grid-template-areas:
+    "nav"
+    "contenedor"
+    "footer";
+  background-color: #fff;
+}
+
 main {
   grid-area: main;
   padding-bottom: 50px;
@@ -37,4 +48,17 @@ html {
 
 body {
   background: #eee;
+}
+
+.contenedor {
+  grid-area: contenedor;
+}
+
+@media screen and (min-width: 1200px) {
+  .cuerpo,
+  .body {
+    width: 1200px;
+    margin: auto;
+    box-shadow: 0px 0px 5px #333;
+  }
 }

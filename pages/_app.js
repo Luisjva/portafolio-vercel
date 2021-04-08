@@ -8,7 +8,7 @@ import Footer from "../componets/footer"
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <div className="body">
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="theme-color" content="#4286f4" />
@@ -18,7 +18,9 @@ export default function MyApp({ Component, pageProps }) {
         </style>
       </Head>
       <Nav />
-      <Component {...pageProps} />
+      <div className="contenedor">
+        <Component {...pageProps} />
+      </div>
       <Footer/>
     </div>
   )

@@ -311,14 +311,6 @@ export default function Portafolio() {
             grid-template-columns: 1fr 2fr;
           }
         }
-
-        @media screen and (min-width: 1200px) {
-          .cuerpo {
-            width: 1200px;
-            margin: auto;
-            box-shadow: 0px 0px 5px #333;
-          }
-        }
       `}</style>
     </div>
   )
