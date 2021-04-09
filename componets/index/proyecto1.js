@@ -9,12 +9,12 @@ class Proyecto1 extends React.Component {
     this.nuevaPublicacion = this.nuevaPublicacion.bind(this)
   }
 
-  componentDidMount() {
+  /* componentDidMount() {
     this.timerID = setInterval(
       () => this.nuevaPublicacion(),
       this.tiempoAleatorio()
     );
-  }
+  } */
 
   componentWillUnmount() {
     clearInterval(this.timerID);
@@ -69,6 +69,7 @@ class Proyecto1 extends React.Component {
             grid-area: proy1;
             background: #000;
             position: relative;
+            margin: 0rem .2rem .2rem 0rem
           }
 
           .proyecto1--a {
@@ -133,6 +134,12 @@ class Proyecto1 extends React.Component {
           @keyframes fade{
             from {opacity: .4}
             to {opacity: .1}
+          }
+
+          @media screen and (min-width: 500px) {
+            .proyecto1 {
+              margin: 0 .2rem 0 0;
+            }
           }
         `}</style>
       </div>

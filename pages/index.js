@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Proyectos from "../componets/proyectos-index"
+import Formulario from "../componets/formulario"
 
 
 export default function Index() {
@@ -34,23 +35,24 @@ export default function Index() {
 
 
               <div className="incluye-contenedor-1 incluye-1">
-                <h3>Uso sus colores corporativos para la creacion de la pagina</h3>
-                <p>si no tiene, lo ayudare a crear una paleta de colores</p>
+                <h3>Creo una web que se vea bien si la abres desde cualquier dispositivo</h3>
+                <p>Cuando tenemos una web queremos que todos entren y pare eso es necesario que se vea correctamente si se habre desde un telefono tablet o una computadora</p>                 
               </div>
 
               <div className="incluye-contenedor-2 incluye-2">
-                <h3>Despues de finalizar la web, tendre una reunion con el cliente para acordar los ultimos cambios</h3>
-                <p>si no tiene, lo ayudare a crear una paleta de colores</p>
+                <h3>Uso sus colores corporativos para la creacion de la pagina</h3>
+                <p>Si no tiene, lo ayudare a crear una paleta de colores acorde a su negocio</p>   
               </div>
 
               <div className="incluye-contenedor-1 incluye-3">
-                <h3>Imagenes sin derecho de autor.</h3>
-                <p>si no tiene, lo ayudare a crear una paleta de colores</p>
+                <h3>Imagenes sin derecho de autor</h3>
+                <p>Cuando tiene una pagina para su negocio o proyecto es necesario que las igamenes contengas derecho de autor para evitar demandas</p>
               </div>
 
               <div className="incluye-contenedor-2 incluye-4">
-                <h3>Creo una web que se vea bien si la abres desde cualquier dispositivo.</h3>
-                <p>si no tiene, lo ayudare a crear una paleta de colores</p>
+                <h3>Despues de finalizar la web, tendre una reunion con el cliente</h3>
+                <p>Esto con el fin de cambiar los detalles finales de la pagina a su gusto</p>
+
               </div>
             </div>
 
@@ -61,6 +63,7 @@ export default function Index() {
           </section>
           <div className="div">
             <h1>Llamada a la accion</h1>
+            <Formulario/>
           </div>
         </main>
         <style jsx>{`
@@ -150,16 +153,16 @@ export default function Index() {
           }
 
           .incluye-contenedor-1 {
-            padding-top: 3rem;
-            padding-bottom: 3rem; 
+            padding-top: 2rem;
+            padding-bottom: 2rem; 
             background: linear-gradient(to right, #373b4480, #373b4480), url("/proyecto4-pc.jpg");
             background-size: cover;
             background-position: center;
           }
 
           .incluye-contenedor-2 {
-            padding-top: 2rem;
-            padding-bottom: 2rem; 
+            padding-top: 1rem;
+            padding-bottom: 1rem; 
             background: linear-gradient(to right, #373b4480, #373b4480), url("/proyecto1.jpg");
             background-size: cover;
           }
@@ -184,6 +187,7 @@ export default function Index() {
               justify-content: center;
               align-content: center;
             }
+
             .incluye-1 {
               grid-area: uno;
             }
@@ -199,10 +203,31 @@ export default function Index() {
 
           }
 
+          @media screen and (min-width: 600px) {
+            .incluye-contenedor-1,
+            .incluye-contenedor-2 {
+              height: 13rem;
+            }
+          }
+
+          @media screen and (min-width: 750px) {
+            .incluye-contenedor-1,
+            .incluye-contenedor-2 {
+              height: 11rem;
+            }
+          }
+
           @media screen and (min-width: 900px) {
             .incluye {
               width: 90%;
               margin: auto;
+            }
+          }
+
+          @media screen and (min-width: 1000px) {
+            .incluye-contenedor-1,
+            .incluye-contenedor-2 {
+              height: 9rem;
             }
           }
   

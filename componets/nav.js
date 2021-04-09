@@ -5,7 +5,9 @@ import React from 'react';
 class Nav extends React.Component {
   constructor(props) {
     super(props);
-    this.clickBtnNav = this.clickBtnNav.bind(this)
+
+    this.clickBtnNav = this.clickBtnNav.bind(this);
+    this.clickDesplegable = this.clickDesplegable.bind(this)
   }
 
 
@@ -20,6 +22,20 @@ class Nav extends React.Component {
     navBtn3.classList.toggle("nav__btn__3__x");
     navPages.classList.toggle("pages-none")
   }
+
+  clickDesplegable() {
+    let navBtn1 = document.querySelector(".nav__btn__1");
+    let navBtn2 = document.querySelector(".nav__btn__2");
+    let navBtn3 = document.querySelector(".nav__btn__3");
+    let navPages = document.querySelector(".nav__pages"); 
+
+    navBtn1.classList.remove("nav__btn__1__x");
+    navBtn2.classList.remove("nav__btn__2__x");
+    navBtn3.classList.remove("nav__btn__3__x");    
+    navPages.classList.add("pages-none")   
+  }
+
+
 
   render() {
     return (
@@ -45,12 +61,12 @@ class Nav extends React.Component {
           <ul className="nav__pages pages-none">
             <li className="nav__li">
               <Link href= "/">
-                <a className="nav__a">Inicio</a>
+                <a onClick={this.clickDesplegable} className="nav__a">Inicio</a>
               </Link>
             </li>
             <li className="nav__li">
               <Link href= "/portafolio">
-                <a className="nav__a">Portafolio</a>
+                <a onClick={this.clickDesplegable} className="nav__a">Portafolio</a>
               </Link>
             </li>
           </ul>
@@ -107,7 +123,7 @@ class Nav extends React.Component {
             width: 100%;
             border-radius: 2px;
             position: absolute;
-            transition: .2s; 
+            transition: .3s; 
           }
   
           .nav__btn__1 {
@@ -147,7 +163,7 @@ class Nav extends React.Component {
             top: 100%;
             left: -100%;
             width: 100vw;
-            transition: .2s;
+            transition: .3s;
           }
   
           .pages-none {
@@ -157,7 +173,7 @@ class Nav extends React.Component {
           /*     itemns    */
   
           .nav__li {
-            transition: .2s;
+            transition: .3s;
             height: 41.09px;
           }
   
