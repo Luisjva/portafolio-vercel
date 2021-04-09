@@ -115,6 +115,7 @@ class Proyecto extends React.Component {
   }
   
   mostrarPagAntes() {
+    clearInterval(this.timerID);
 
 
     let estado = this.state.pagActual
@@ -139,9 +140,15 @@ class Proyecto extends React.Component {
   
     pagPc[ahora].classList.remove("none");
     pagPc[ahora].setAttribute("className", "none");
+    
+    this.timerID = setInterval(
+      () => this.mostrarPagDespues(),
+      10000
+    );
   }
 
   mostrarPagDespues(){
+    clearInterval(this.timerID);
         
     let estado = this.state.pagActual
     let ahora = estado + 1;
@@ -172,7 +179,15 @@ class Proyecto extends React.Component {
     
       pagPc[ahora].classList.remove("none");
       pagPc[ahora].setAttribute("className", "none");
+      
+      this.timerID = setInterval(
+        () => this.mostrarPagDespues(),
+        10000
+      );
     } 
+
+    
+    
   }
   
   render() {
@@ -460,8 +475,12 @@ class Proyecto extends React.Component {
           }
 
           .flecha-telefono-antes {
-            left: 15px;
+            left: 35px;
             z-index:200;
+
+            padding: 2.2rem 2rem 2.2rem 15px;
+            margin-block-start: 0;
+            margin-block-end: 0;
 
             background: linear-gradient(to bottom, #373b44, #4286f4);
 
@@ -471,10 +490,14 @@ class Proyecto extends React.Component {
           }
 
           .flecha-telefono-despues {
-            right: 5px;
+            right: -35px;
             z-index:200;
             background: linear-gradient(to bottom, #4286f4, #373b44);
 
+            
+            padding: 2.2rem 15px 2.2rem 2rem;
+            margin-block-start: 0;
+            margin-block-end: 0;
 
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
@@ -511,21 +534,28 @@ class Proyecto extends React.Component {
           }
           
           .flecha-pc-antes {
-            left: 15px;
+            left: 35px;
             z-index:200;
 
             background: linear-gradient(to bottom, #373b44, #4286f4);
 
+            
+            padding: 2.2rem 2rem 2.2rem 15px;
+            margin-block-start: 0;
+            margin-block-end: 0;
 
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
           }
 
           .flecha-pc-despues {
-            right: 5px;
+            right: -35px;
             z-index:200;
             background: linear-gradient(to bottom, #4286f4, #373b44);
 
+            padding: 2.2rem 15px 2.2rem 2rem;
+            margin-block-start: 0;
+            margin-block-end: 0;
 
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;

@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Proyectos from "../componets/proyectos-index"
 import Formulario from "../componets/formulario"
+import HeaderIndex from "../componets/index/header-index"
 
 
 export default function Index() {
@@ -10,15 +11,7 @@ export default function Index() {
           <title>Inicio | Luis Villegas</title>
         </Head>
         <main>
-          <header>
-            <div>
-              <h1>De tu idea a una pagina web</h1>
-              <h1>Te ayudo a tener la pagina de tus sueños</h1>
-            </div>
-            <div>
-  
-            </div>
-          </header>
+          <HeaderIndex/>
           <section className="sobre-mi">
             <h2>Sobre mi</h2>
             <div>
@@ -91,22 +84,12 @@ export default function Index() {
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: repeat(2, auto);
-          }
-  
-          header {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: auto;
-            grid-template-areas: "izq der";            background: linear-gradient(to right, #373b4449, #4286f449), url("/header-index.jpg");
-            background-size: cover;
-            color: #fff;
-          }
-  
+          }  
   
           /*    Sobre mi    */
           .sobre-mi {
             grid-area: mi;
-            margin: 0 2rem;
+            padding: 0 2rem;
             text-align: center;
           }
   
@@ -210,10 +193,22 @@ export default function Index() {
             }
           }
 
+          @media screen and (min-width: 640px) {
+            .sobre-mi {
+              padding: 5%;
+            }
+          }
+
           @media screen and (min-width: 750px) {
             .incluye-contenedor-1,
             .incluye-contenedor-2 {
               height: 11rem;
+            }
+          }
+
+          @media screen and (min-width: 800px) {
+            .sobre-mi {
+              padding: 5% 10%;
             }
           }
 
