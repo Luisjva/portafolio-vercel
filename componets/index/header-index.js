@@ -42,8 +42,8 @@ class HeaderIndex extends React.Component {
     return(
       <header>
         <div>
-          <h1 className="header-h1">De una idea, a una pagina web</h1>
-          <h1 className="header-h1 none">Te ayudo a tener la pagina de tus sueños</h1>
+          <h1 className="header-h1">De una idea, a tu nueva pagina web</h1>
+          <h1 className="header-h1 none">Te ayudo a tener la mejor pagina web para tus necesidades</h1>
         </div>
         <div>
 

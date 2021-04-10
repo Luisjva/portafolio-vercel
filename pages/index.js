@@ -19,7 +19,7 @@ export default function Index() {
   
               <p>Mi misión es ayudar a EMPRENDEDORES AUTÓNOMOS y PEQUEÑAS EMPRESAS a tener una web moderna y fresca para mejorar su imagen y sus ventas.</p>
   
-              <p>¡Entonces, qué!… ¿<a href="/#contacta">hablamos</a>?</p>
+              <p>¡Entonces, qué!… <a className="sobre-mi--a" href="/#contacta">¿Hablamos?</a></p>
             </div>
           </section>
           <section className="en-trabajos">
@@ -97,6 +97,28 @@ export default function Index() {
             font-size: 2rem;
             text-align: center;
             grid-area: titulo;
+          }
+
+          .sobre-mi--a {
+            font-family: "Yanone Kaffeesatz", sans-serif;
+            color: #3d609b;
+            font-size: 1.3rem;
+            
+            background: linear-gradient(to right, #373b44, #4286f4);
+
+
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+
+            text-decoration: none;
+            transition: .3s;
+          }
+
+          .sobre-mi--a:hover {
+            background: linear-gradient(to left, #373b44, #4286f4);
+
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
           }
   
           /*    Trabajos    */
