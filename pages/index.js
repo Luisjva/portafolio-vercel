@@ -29,22 +29,22 @@ export default function Index() {
 
               <div className="incluye-contenedor-1 incluye-1">
                 <h3>Creo una web que se vea bien si la abres desde cualquier dispositivo</h3>
-                <p>Cuando tenemos una web queremos que todos entren y pare eso es necesario que se vea correctamente si se habre desde un telefono tablet o una computadora</p>                 
+                <p>Cuando tenemos una web queremos que todos entren y para eso es necesario que se vea correctamente si se abre desde un teléfono tablet o una computadora</p>                 
               </div>
 
               <div className="incluye-contenedor-2 incluye-2">
-                <h3>Uso sus colores corporativos para la creacion de la pagina</h3>
+                <h3>Uso sus colores corporativos para la creación de la página</h3>
                 <p>Si no tiene, lo ayudare a crear una paleta de colores acorde a su negocio</p>   
               </div>
 
               <div className="incluye-contenedor-1 incluye-3">
-                <h3>Imagenes sin derecho de autor</h3>
-                <p>Cuando tiene una pagina para su negocio o proyecto es necesario que las igamenes contengas derecho de autor para evitar demandas</p>
+                <h3>Imágenes sin derecho de autor</h3>
+                <p>Cuando tiene una página para su negocio o proyecto es necesario que las imagenes no contengas derecho de autor para evitar demandas</p>
               </div>
 
               <div className="incluye-contenedor-2 incluye-4">
-                <h3>Despues de finalizar la web, tendre una reunion con el cliente</h3>
-                <p>Esto con el fin de cambiar los detalles finales de la pagina a su gusto</p>
+                <h3>Después de finalizar la web, tendre una reunión con el cliente</h3>
+                <p>Esto con el fin de cambiar los detalles finales de la página a su gusto</p>
 
               </div>
             </div>
@@ -55,8 +55,8 @@ export default function Index() {
             <Proyectos/>
           </section>
           <div id="contacta" className="div">
-            <p className="div-p-1">No esperes mas para tener la página que quires.</p>
-            <p className="div-p-2">Contactame ahora!!!</p>
+            <p className="div-p-1">No esperes más para tener la página que quieres.</p>
+            <p className="div-p-2">Contáctame ahora!!!</p>
             <Formulario/>
           </div>
         </main>
