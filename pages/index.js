@@ -54,7 +54,7 @@ export default function Index() {
           <section className="proyectos">
             <Proyectos/>
           </section>
-          <div id="#contacta" className="div">
+          <div id="contacta" className="div">
             <p className="div-p-1">No esperes mas para tener la página que quires.</p>
             <p className="div-p-2">Contactame ahora!!!</p>
             <Formulario/>
