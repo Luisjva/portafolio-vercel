@@ -3,7 +3,6 @@ import React from "react";
 export default function Formulario() {
     return (
       <div className="contacto">
-        <h2 id="contacta">Contacto</h2>
         <div className="contenedor-gmail">
            <h3 className="gmail">Luisjva16@gmail.com</h3>
         </div>

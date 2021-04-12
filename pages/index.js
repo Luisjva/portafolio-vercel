@@ -55,7 +55,8 @@ export default function Index() {
             <Proyectos/>
           </section>
           <div className="div">
-            <h1>Llamada a la accion</h1>
+            <p className="div-p-1">No esperes mas para tener la página que quires.</p>
+            <p className="div-p-2">Contactame ahora!!!</p>
             <Formulario/>
           </div>
         </main>
@@ -78,7 +79,20 @@ export default function Index() {
   
           .div {
             grid-area: div;
+            text-align: center;  
+            padding: 0 2rem          
           }
+
+          .div-p-1 {
+            font-family: "Yanone Kaffeesatz", sans-serif;
+            font-size: 2rem;
+          }
+
+          .div-p-2 {
+            font-family: "Yanone Kaffeesatz", sans-serif;
+            font-size: 1.7rem;            
+          }
+
           .body {
             background: #fff;
             display: grid;
@@ -143,6 +157,34 @@ export default function Index() {
             text-align: center;
           }
 
+          .incluye-1 {
+            background: linear-gradient(to right, #373b4490, #373b4490), url("/responsive.png");
+            background-size: cover;
+            background-position: center;
+            margin: .3rem 0;
+          }
+
+          .incluye-2 {
+            background: linear-gradient(to right, #373b4490, #373b4490), url("/colores.png");
+            background-size: cover;
+            background-position: center;
+            margin: .3rem 0;
+          }
+          
+          .incluye-3 {
+            background: linear-gradient(to right, #373b4490, #373b4490), url("/fotos.png");
+            background-size: cover;
+            background-position: center;
+            margin: .3rem 0;
+          }
+
+          .incluye-4 {
+            background: linear-gradient(to right, #373b4490, #373b4490), url("/reunion.png");
+            background-size: cover;
+            background-position: center;
+            margin: .3rem 0;
+          }
+
           .incluye-contenedor-1 h3,
           .incluye-contenedor-2 h3,
           .incluye-contenedor-1 p,
@@ -160,7 +202,6 @@ export default function Index() {
           .incluye-contenedor-1 {
             padding-top: 2rem;
             padding-bottom: 2rem; 
-            background: linear-gradient(to right, #373b4480, #373b4480), url("/proyecto4-pc.jpg");
             background-size: cover;
             background-position: center;
           }
@@ -168,7 +209,6 @@ export default function Index() {
           .incluye-contenedor-2 {
             padding-top: 1rem;
             padding-bottom: 1rem; 
-            background: linear-gradient(to right, #373b4480, #373b4480), url("/proyecto1.jpg");
             background-size: cover;
           }
 
@@ -195,15 +235,22 @@ export default function Index() {
 
             .incluye-1 {
               grid-area: uno;
+              margin: 0 .2rem .2rem 0;
             }
+
             .incluye-2 {
               grid-area: dos;
+              margin: 0 0 .2rem .2rem;
             }
+          
             .incluye-3 {
               grid-area: tres;
+              margin: .2rem .2rem 0 0;
             }
+
             .incluye-4 {
               grid-area: cuatro;
+              margin: .2rem 0 0 .2rem;
             }
 
           }
@@ -219,6 +266,10 @@ export default function Index() {
             .sobre-mi {
               padding: 5%;
             }
+
+            .div {
+              padding: 5%;
+            }
           }
 
           @media screen and (min-width: 750px) {
@@ -230,6 +281,10 @@ export default function Index() {
 
           @media screen and (min-width: 800px) {
             .sobre-mi {
+              padding: 5% 10%;
+            }
+
+            .div {
               padding: 5% 10%;
             }
           }
