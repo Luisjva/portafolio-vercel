@@ -3,10 +3,10 @@ import React from 'react';
 class HeaderIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {tituloActual: 0};
+    this.state = { tituloActual: 0 };
 
     this.cambio = this.cambio.bind(this);
-  }componentDidMount() {
+  } componentDidMount() {
     this.timerID = setInterval(
       () => this.cambio(),
       10000
@@ -26,11 +26,11 @@ class HeaderIndex extends React.Component {
 
     let todoH1 = document.querySelectorAll(".header-h1");
 
-    if(ahora >= todoH1.length) {
-      this.setState({tituloActual: 0});
+    if (ahora >= todoH1.length) {
+      this.setState({ tituloActual: 0 });
       ahora = 0
     }
-    for(let i = 0; i < todoH1.length; i++) {
+    for (let i = 0; i < todoH1.length; i++) {
       todoH1[i].classList.add("none");
       console.log("pase" + i)
     }
@@ -39,24 +39,24 @@ class HeaderIndex extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <header>
         <div>
           <h1 className="header-h1">De una idea, a tu nueva pagina web</h1>
           <h1 className="header-h1 none">Te ayudo a tener la mejor pagina web para tus necesidades</h1>
         </div>
-        <div>
-
+        <div className="div-img">
+          <img src="/yo2.png" className="img" />
         </div>
         <style jsx>{`
           header {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 3fr 2fr;
             grid-template-rows: auto;
             grid-template-areas: "izq der";            background: linear-gradient(to right, #373b4449, #4286f449), url("/header-index.jpg");
             background-size: cover;
             color: #fff;
-            height: 170px;
+            height: 250px;
             position: relative;
           }
 
@@ -75,11 +75,27 @@ class HeaderIndex extends React.Component {
           .none {
             opacity: 0;
           }
+          
+          .div-img {
+            position: relative;
+          }
+
+          .img {
+            position: absolute;
+            height: 250px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%)
+          }
 
           @media screen and (min-width: 640px) {
             header {
               height: 250px;
-              padding: 5%;
+              padding: 0 5%;
+            }
+
+            .img {
+              height: 250px
             }
 
             .header-h1 {
@@ -90,7 +106,12 @@ class HeaderIndex extends React.Component {
 
           @media screen and (min-width: 800px) {
             header {
-              padding: 10%;
+              padding: 0 15%;
+              height: 280px
+            }
+
+            .img {
+              height: 280px;
             }
 
             .header-h1 {

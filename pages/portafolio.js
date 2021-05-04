@@ -22,7 +22,7 @@ export default function Portafolio() {
         </div>
 
 
-        
+
         <div className="habilidades">
           <h2 className="habilidades__titulo">Habilidades</h2>
 
@@ -33,12 +33,12 @@ export default function Portafolio() {
             </div>
 
             <div className="habilidad habilidad-2">
-              <span>Next</span> 
+              <span>Next</span>
               <div className="habilidad-progreso-2"><div className="falta-2"></div></div>
             </div>
 
             <div className="habilidad habilidad-4">
-              <span>Pug</span> 
+              <span>Pug</span>
               <div className="habilidad-progreso-4"><div className="falta-4"></div></div>
             </div>
 
@@ -54,7 +54,7 @@ export default function Portafolio() {
 
             <div className="habilidad habilidad-7">
               <span>Git</span>
-               <div className="habilidad-progreso-7"><div className="falta-7"></div></div>
+              <div className="habilidad-progreso-7"><div className="falta-7"></div></div>
             </div>
 
           </div>
@@ -278,6 +278,11 @@ export default function Portafolio() {
             grid-template-columns: 2fr 3fr;
           }
         }
+
+        @media screen and (min-width: 600px) {
+          .tarjeta {
+            grid-template-columns: 2fr 3fr;
+          }
 
         @media screen and (min-width: 720px) {
           main {

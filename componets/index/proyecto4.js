@@ -21,23 +21,23 @@ class Proyecto4 extends React.Component {
   }
 
   tiempoAleatorio() {
-    let aleatorio = Math.floor(Math.random() * (10 - 4) ) + 4;
+    let aleatorio = Math.floor(Math.random() * (10 - 4)) + 4;
     console.log(aleatorio)
     return aleatorio * 1000;
   }
 
   publicacionAleatoria() {
     let numeroDeProyectos = document.querySelectorAll(".proyecto4--a")
-    let aleatorio = Math.floor(Math.random() * numeroDeProyectos.length );  
+    let aleatorio = Math.floor(Math.random() * numeroDeProyectos.length);
     return aleatorio
   }
 
   nuevaPublicacion() {
     let numeroDeProyectos = document.querySelectorAll(".proyecto4--a")
-    if(numeroDeProyectos.length === 0) {
+    if (numeroDeProyectos.length === 0) {
       console.log("no se muestra");
-    }else{
-      for(let i = 0; i < numeroDeProyectos.length; i++) {
+    } else {
+      for (let i = 0; i < numeroDeProyectos.length; i++) {
         numeroDeProyectos[i].classList.add("none");
       }
 
@@ -52,18 +52,27 @@ class Proyecto4 extends React.Component {
   render() {
     return (
       <div className="proyecto4">
+
+        <a className="proyecto-numero-5 proyecto4--a fade" href="https://wind-flame.vercel.app" target="_blank">
+          <img src="/maqueta.png" />
+        </a>
+
         <a className="proyecto-numero-1 proyecto4--a fade none" href="https://luisjva.github.io/Maqueta1/" target="_blank">
-          <img src="/maqueta.png"/>
+          <img src="/maqueta.png" />
         </a>
+
         <a className="proyecto-numero-2 proyecto4--a fade none" href="http://a2ndocean.herokuapp.com/" target="_blank">
-          <img src="/2ndocean.png"/>
+          <img src="/2ndocean.png" />
         </a>
+
         <a className="proyecto-numero-3 proyecto4--a fade none" href="https://luisjva.github.io/tren-en-linea/" target="_blank">
-          <img src="/tresenlinea.png"/>
+          <img src="/tresenlinea.png" />
         </a>
-        <a className="proyecto-numero-4 proyecto4--a fade " href="https://portafolio-kappa.vercel.app/" target="_blank">
-          <img src="/lv.png"/>
+
+        <a className="proyecto-numero-4 proyecto4--a fade none" href="https://portafolio-kappa.vercel.app/" target="_blank">
+          <img src="/lv.png" />
         </a>
+
         <style jsx>{`
           .proyecto4 {
             background: #fff;
@@ -119,7 +128,13 @@ class Proyecto4 extends React.Component {
             background: linear-gradient(to right, #373b4480, #373b4480), url("/proyecto4.jpg");
             background-size: cover;
             background-position: top;
-          }
+          } 
+
+          .proyecto-numero-5 {
+            background: linear-gradient(to right, #373b4480, #373b4480), url("/proyecto5.jpg");
+            background-size: cover;
+            background-position: top;
+          }         
 
           .none {
             opacity: 0;

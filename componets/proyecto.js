@@ -9,10 +9,10 @@ class Proyecto extends React.Component {
     this.state = {
       pagActual: 0,
       vista: "pc"
-    };    
+    };
 
     this.mostrarPagAntes = this.mostrarPagAntes.bind(this);
-    this.mostrarPagDespues =this.mostrarPagDespues.bind(this);
+    this.mostrarPagDespues = this.mostrarPagDespues.bind(this);
 
     this.vistas = this.vistas.bind(this);
     this.vistasRecarga = this.vistasRecarga.bind(this)
@@ -24,30 +24,30 @@ class Proyecto extends React.Component {
       10000
     );
 
-    if(paso == 0) {
+    if (paso == 0) {
       this.vistasRecarga();
-      
+
       let pagTlfn = document.querySelectorAll('.pag-telefono');
       let pagPc = document.querySelectorAll(".pag-pc");
-    
-      for(let i = 0; i < pagTlfn.length; i++) {
+
+      for (let i = 0; i < pagTlfn.length; i++) {
         pagTlfn[i].classList.add("none");
         pagPc[i].classList.add("none");
       }
       pagTlfn[0].classList.remove("none");
       pagTlfn[0].setAttribute("className", "none");
-    
+
       pagPc[0].classList.remove("none");
       pagPc[0].setAttribute("className", "none");
 
       paso = 1;
-    }   
+    }
   }
 
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
-  
+
 
   vistas() {
     let btnTelefono = document.querySelector(".vistas__telefono");
@@ -56,8 +56,7 @@ class Proyecto extends React.Component {
     let sliderPc = document.querySelector(".slider-contenedor-pc");
     let sliderContenedor = document.querySelector(".slider-contenedor");
 
-    if (this.state.vista == "pc") 
-    {
+    if (this.state.vista == "pc") {
       btnPc.disabled = true;
       btnTelefono.disabled = false;
 
@@ -66,10 +65,9 @@ class Proyecto extends React.Component {
       sliderTelefono.classList.add("slider-contenedor--cerrado");
       sliderContenedor.classList.add("slider-contenedor--pc");
       sliderPc.classList.remove("slider-contenedor--cerrado");
-      this.setState({vista: "telefono"});
-    } 
-    else if (this.state.vista == "telefono")
-    {
+      this.setState({ vista: "telefono" });
+    }
+    else if (this.state.vista == "telefono") {
       btnTelefono.disabled = true;
       btnPc.disabled = false;
 
@@ -78,7 +76,7 @@ class Proyecto extends React.Component {
       sliderTelefono.classList.remove("slider-contenedor--cerrado");
       sliderContenedor.classList.remove("slider-contenedor--pc");
       sliderPc.classList.add("slider-contenedor--cerrado");
-      this.setState({vista: "pc"});    
+      this.setState({ vista: "pc" });
     }
 
   }
@@ -90,8 +88,7 @@ class Proyecto extends React.Component {
     let sliderPc = document.querySelector(".slider-contenedor-pc");
     let sliderContenedor = document.querySelector(".slider-contenedor");
 
-    if (this.state.vista == "telefono") 
-    {
+    if (this.state.vista == "telefono") {
       btnPc.disabled = true;
       btnTelefono.disabled = false;
 
@@ -100,9 +97,8 @@ class Proyecto extends React.Component {
       sliderTelefono.classList.add("slider-contenedor--cerrado");
       sliderContenedor.classList.add("slider-contenedor--pc");
       sliderPc.classList.remove("slider-contenedor--cerrado");
-    } 
-    else if (this.state.vista == "pc")
-    {
+    }
+    else if (this.state.vista == "pc") {
       btnTelefono.disabled = true;
       btnPc.disabled = false;
 
@@ -113,87 +109,87 @@ class Proyecto extends React.Component {
       sliderPc.classList.add("slider-contenedor--cerrado");
     }
   }
-  
+
   mostrarPagAntes() {
     clearInterval(this.timerID);
 
 
     let estado = this.state.pagActual
     let ahora = estado - 1;
-    this.setState({pagActual: ahora})
-    
+    this.setState({ pagActual: ahora })
+
     let pagTlfn = document.querySelectorAll('.pag-telefono');
     let pagPc = document.querySelectorAll(".pag-pc");
-    
-    
-    if(ahora < 0) {
-      this.setState({pagActual: pagTlfn.length - 1});
+
+
+    if (ahora < 0) {
+      this.setState({ pagActual: pagTlfn.length - 1 });
       ahora = pagTlfn.length - 1;
     }
-  
-    for(let i = 0; i < pagTlfn.length; i++) {
+
+    for (let i = 0; i < pagTlfn.length; i++) {
       pagTlfn[i].classList.add("none");
       pagPc[i].classList.add("none");
     }
     pagTlfn[ahora].classList.remove("none");
     pagTlfn[ahora].setAttribute("className", "none");
-  
+
     pagPc[ahora].classList.remove("none");
     pagPc[ahora].setAttribute("className", "none");
-    
+
     this.timerID = setInterval(
       () => this.mostrarPagDespues(),
       10000
     );
   }
 
-  mostrarPagDespues(){
+  mostrarPagDespues() {
     clearInterval(this.timerID);
-        
+
     let estado = this.state.pagActual
     let ahora = estado + 1;
     this.setState({ pagActual: ahora });
-    
+
     let pagTlfn = document.querySelectorAll('.pag-telefono');
     let pagPc = document.querySelectorAll(".pag-pc");
 
     console.log(pagTlfn.length);
 
-    if(pagTlfn.length === 0) {
+    if (pagTlfn.length === 0) {
       console.log("no se muestra");
-    }else{  
+    } else {
       this.vistasRecarga();
 
-      if(ahora >= pagTlfn.length) {
-        this.setState({pagActual: 0});
+      if (ahora >= pagTlfn.length) {
+        this.setState({ pagActual: 0 });
         ahora = 0
       }
-    
-      for(let i = 0; i < pagTlfn.length; i++) {
+
+      for (let i = 0; i < pagTlfn.length; i++) {
         pagTlfn[i].classList.add("none");
         pagPc[i].classList.add("none");
       }
-    
+
       pagTlfn[ahora].classList.remove("none");
       pagTlfn[ahora].setAttribute("className", "none");
-    
+
       pagPc[ahora].classList.remove("none");
       pagPc[ahora].setAttribute("className", "none");
-      
+
       this.timerID = setInterval(
         () => this.mostrarPagDespues(),
         10000
       );
-    } 
+    }
 
-    
-    
+
+
   }
-  
+
   render() {
     return (
       <div rel="proyecto">
-        <p className="proyectos-text">Si quiere ver el proyecto, solo haga click en la imagen<br/><br/> Las tecnolocias usadas en cada proyecto estan al final de la imagen</p>
+        <p className="proyectos-text">Si quiere ver el proyecto, solo haga click en la imagen<br /><br /> Las tecnolocias usadas en cada proyecto estan al final de la imagen</p>
         <div className="slider-contenedor">
           <div className="vistas">
             <button onClick={this.vistas} className="vistas-btn vistas__telefono vista-btn--activo">Telefono</button>
@@ -204,9 +200,25 @@ class Proyecto extends React.Component {
           <div className="slider-absoluto">
             <div className="slider-contenedor-telefono slider-contenedor--cerrado">
 
+              <div className="pag-telefono fade none">
+                <img src="/proyecto5.jpg" />
+                <a href="https://wind-flame.vercel.app" target="_blank">
+                  <div className="espesificaciones">
+                    <div className="espesificaciones-der">
+                      <span>Next js</span>
+                      <span>CSS</span>
+                    </div>
+                    <div className="espesificaciones-izq">
+                      <p>Buscador</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+
 
               <div className="pag-telefono fade none">
-                <img src="/proyecto3.jpg"/>
+                <img src="/proyecto3.jpg" />
                 <a href="https://luisjva.github.io/Maqueta1/" target="_blank">
                   <div className="espesificaciones">
                     <div className="espesificaciones-der">
@@ -221,7 +233,7 @@ class Proyecto extends React.Component {
               </div>
 
               <div className="pag-telefono fade none">
-                <img src="/proyecto2.jpg"/>
+                <img src="/proyecto2.jpg" />
                 <a href="http://a2ndocean.herokuapp.com/" target="_blank">
                   <div className="espesificaciones">
                     <div className="espesificaciones-der">
@@ -237,7 +249,7 @@ class Proyecto extends React.Component {
               </div>
 
               <div className="pag-telefono fade none">
-                <img src="/proyecto1.jpg"/>
+                <img src="/proyecto1.jpg" />
                 <a href="https://luisjva.github.io/tren-en-linea/" target="_blank">
                   <div className="espesificaciones">
                     <div className="espesificaciones-der">
@@ -253,7 +265,7 @@ class Proyecto extends React.Component {
               </div>
 
               <div className="pag-telefono fade none">
-                <img src="/proyecto4.jpg"/>
+                <img src="/proyecto4.jpg" />
                 <a href="https://portafolio-kappa.vercel.app/" target="_blank">
                   <div className="espesificaciones">
                     <div className="espesificaciones-der">
@@ -280,32 +292,39 @@ class Proyecto extends React.Component {
 
           <div className="slider-absoluto">
             <div className="slider-contenedor-pc slider-contenedor--cerrado">
-                        
+
+              <div className="pag-pc fade none">
+                <a href="https://wind-flame.vercel.app" target="_blank">
+                  <img className="img-pc" src="/proyecto5-pc.jpg" />
+                </a>
+              </div>
+
+
 
               <div className="pag-pc fade none">
                 <a href="https://luisjva.github.io/Maqueta1/" target="_blank">
-                  <img className="img-pc" src="/proyecto3-pc.jpg"/>
+                  <img className="img-pc" src="/proyecto3-pc.jpg" />
                 </a>
               </div>
 
               <div className="pag-pc fade none">
                 <a href="http://a2ndocean.herokuapp.com/" target="_blank">
-                  <img className="img-pc" src="/proyecto2-pc.jpg"/>
+                  <img className="img-pc" src="/proyecto2-pc.jpg" />
                 </a>
               </div>
 
               <div className="pag-pc fade none">
                 <a href="https://luisjva.github.io/tren-en-linea/" target="_blank">
-                  <img className="img-pc" src="/proyecto1-pc.jpg"/>
+                  <img className="img-pc" src="/proyecto1-pc.jpg" />
                 </a>
               </div>
 
 
               <div className="pag-pc fade none">
                 <a href="https://portafolio-kappa.vercel.app/" target="_blank">
-                  <img className="img-pc" src="/proyecto4-pc.jpg"/>
+                  <img className="img-pc" src="/proyecto4-pc.jpg" />
                 </a>
-              </div>  
+              </div>
 
 
               <div className="flecha-pc">
