@@ -18,7 +18,6 @@ class Proyectos extends React.Component {
         <style jsx>{`
           .proyectos {
             grid-area: proyectos;
-            background: linear-gradient(#394966, #4077d1);
             height: 700px;
             display: grid;
             grid-template-columns: 40px 1fr 1fr;
@@ -34,7 +33,6 @@ class Proyectos extends React.Component {
           }
 
           .proyectos p {
-            color: #fff;
             text-align: center;
             grid-area: indic;
             margin-block-start: 0;
@@ -48,7 +46,6 @@ class Proyectos extends React.Component {
             margin-block-end: 0;
             left: -100;
             top: 0;
-            color: #fff;
             font-size: 2rem;
           }
 

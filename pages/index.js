@@ -138,13 +138,17 @@ export default function Index() {
           /*    Trabajos    */
           .en-trabajos {
             grid-area: trabajos;
-            background: linear-gradient(#373b44, #394966);
+            background: linear-gradient(#373b44, #4077d1);
             color:#fff;
           }
   
           .en-trabajos h2 {
             font-size: 2rem;
             text-align: center;
+          }
+
+          .incluye {
+            padding-bottom: 2rem;
           }
 
           .incluye-contenedor-1,
