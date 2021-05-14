@@ -57,8 +57,10 @@ class Slider extends React.Component {
             transform: translate(-50%, -50%)
           }
 
-          .proyecto:hover {
-            box-shadow: 2px 2px 10px #000;
+          @media screen and (min-width: 500px) {
+            .proyecto:hover {
+              box-shadow: 2px 2px 10px #000;
+            }
           }
         `}</style>
       </div>
