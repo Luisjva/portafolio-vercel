@@ -32,7 +32,6 @@ class HeaderIndex extends React.Component {
     }
     for (let i = 0; i < todoH1.length; i++) {
       todoH1[i].classList.add("none");
-      console.log("pase" + i)
     }
     todoH1[ahora].classList.remove("none");
     todoH1[ahora].setAttribute("className", "none");

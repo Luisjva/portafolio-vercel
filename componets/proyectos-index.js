@@ -1,19 +1,84 @@
 import React from "react"
-import Proyecto1 from "./index/proyecto1"
-import Proyecto2 from "./index/proyecto2"
-import Proyecto3 from "./index/proyecto3"
-import Proyecto4 from "./index/proyecto4"
+import Slider from "./index/slider"
+
+let proyectos ={
+  proyecto1: {
+    link: "https://luisjva.github.io/tren-en-linea/",
+    nombre: "proyecto1"
+  },
+  proyecto2: {
+    link: "http://a2ndocean.herokuapp.com/",
+    nombre: "proyecto2"
+  },
+  proyecto3: {
+    link: "https://luisjva.github.io/Maqueta1/",
+    nombre: "proyecto3"
+  },
+  proyecto4: {
+    link: "https://portafolio-kappa.vercel.app/",
+    nombre: "proyecto4"
+  },
+  proyecto5: {
+    link: "https://wind-flame.vercel.app",
+    nombre: "proyecto5"
+  },
+  proyecto6: {
+    link: "https://luisjva.github.io/weather-app/",
+    nombre: "proyecto6"
+  }
+}
 
 class Proyectos extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      slider1: {
+        tipo: "telefono",
+        posicion: "proy1",
+        proyActual: proyectos.proyecto6
+      },
+      slider2: {
+        tipo: "pc",
+        posicion: "proy2",
+        proyActual: proyectos.proyecto5
+      },
+      slider3: {
+        tipo: "telefono",
+        posicion: "proy3",
+        proyActual: proyectos.proyecto4
+      },
+      slider4: {
+        tipo: "telefono",
+        posicion: "proy4",
+        proyActual: proyectos.proyecto3
+      },
+    }
+  }
   render() {
     return (
       <div className="proyectos">
         <h2>Proyectos</h2>
         <p>Si desea ver alguno de las proyectos completos, solo haga click</p>
-        <Proyecto1/>
-        <Proyecto2/>
-        <Proyecto3/>
-        <Proyecto4/>
+        <Slider
+          tipo={this.state.slider1.tipo}
+          posicion={this.state.slider1.posicion}
+          proyActual={this.state.slider1.proyActual}
+        />
+        <Slider
+          tipo={this.state.slider2.tipo}
+          posicion={this.state.slider2.posicion}
+          proyActual={this.state.slider2.proyActual}
+        />
+        <Slider
+          tipo={this.state.slider3.tipo}
+          posicion={this.state.slider3.posicion}
+          proyActual={this.state.slider3.proyActual}
+        />
+        <Slider
+          tipo={this.state.slider4.tipo}
+          posicion={this.state.slider4.posicion}
+          proyActual={this.state.slider4.proyActual}
+        />
 
         <style jsx>{`
           .proyectos {
@@ -44,7 +109,7 @@ class Proyectos extends React.Component {
             transform: translate(-30%, 290%) rotate(-90deg);
             margin-block-start: 0;
             margin-block-end: 0;
-            left: -100;
+            left: -1.5%;
             top: 0;
             font-size: 2rem;
           }
@@ -56,7 +121,7 @@ class Proyectos extends React.Component {
           @media screen and (min-width: 500px) {
             .proyectos {
               grid-template-columns: 40px 2fr 1.5fr 1.5fr;
-              grid-template-rows: 1.4rem auto auto;
+              grid-template-rows: 4% 48% 48%;
               grid-template-areas: 
                 "tit indic indic indic"
                 "tit proy1 proy2 proy2"
@@ -65,13 +130,13 @@ class Proyectos extends React.Component {
             }
 
             .proyectos h2 {
-              transform: translate(-30%, 240%) rotate(-90deg);
+              transform: translate(-20%, 265%) rotate(-90deg);
             }
           }
 
           @media screen and (min-width: 750px) {
             .proyectos {
-              height: 600px;
+              height: 750px;
             }
 
           }
@@ -80,12 +145,9 @@ class Proyectos extends React.Component {
             .proyectos {
               grid-template-columns: 5% 2fr 1.5fr 1.5fr;
             }
-          }
 
-          @media screen and (min-width: 950px) {
-            .proyectos {
-              height: 650px;
-            }
+            .proyectos h2 {
+            transform: translate(-5%, 290%) rotate(-90deg);
           }
 
           @media screen and (min-width: 1200px) {
