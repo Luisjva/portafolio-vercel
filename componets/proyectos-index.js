@@ -106,7 +106,7 @@ class Proyectos extends React.Component {
         
           .proyectos h2 {
             position: absolute;
-            transform: translate(-30%, 290%) rotate(-90deg);
+            transform: translate(-22%, 290%) rotate(-90deg);
             margin-block-start: 0;
             margin-block-end: 0;
             left: -1.5%;
@@ -136,7 +136,7 @@ class Proyectos extends React.Component {
 
           @media screen and (min-width: 750px) {
             .proyectos {
-              height: 750px;
+              height: 700px;
             }
 
           }
