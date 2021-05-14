@@ -40,12 +40,12 @@ class Proyectos extends React.Component {
       slider2: {
         tipo: "pc",
         posicion: "proy2",
-        proyActual: proyectos.proyecto5
+        proyActual: proyectos.proyecto2
       },
       slider3: {
         tipo: "telefono",
         posicion: "proy3",
-        proyActual: proyectos.proyecto4
+        proyActual: proyectos.proyecto5
       },
       slider4: {
         tipo: "telefono",
@@ -58,7 +58,7 @@ class Proyectos extends React.Component {
     return (
       <div className="proyectos">
         <h2>Proyectos</h2>
-        <p>Si desea ver alguno de las proyectos completos, solo haga click</p>
+        <p>Si desea ver alguno de las proyectos completo, solo haga click</p>
         <Slider
           tipo={this.state.slider1.tipo}
           posicion={this.state.slider1.posicion}
