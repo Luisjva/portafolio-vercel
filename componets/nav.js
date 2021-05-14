@@ -82,7 +82,7 @@ class Nav extends React.Component {
             height: 41.09px;
             box-shadow: 0px 0px 10px #333;
             position: fixed;
-            width: 100%;
+            width: 100vw;
             z-index: 1000;
           }
   
@@ -204,7 +204,7 @@ class Nav extends React.Component {
             }
   
             nav {
-              grid-template-columns: 1fr 2fr;;
+              grid-template-columns: 1fr 2fr;;width: 100%;
             }
   
             .nav__btn {

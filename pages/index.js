@@ -162,28 +162,28 @@ export default function Index() {
           }
 
           .incluye-1 {
-            background: linear-gradient(to right, #373b4490, #373b4490), url("/responsive.png");
+            background: linear-gradient(to right, #000a, #000a), url("/responsive.png");
             background-size: cover;
             background-position: center;
             margin: .3rem 0;
           }
 
           .incluye-2 {
-            background: linear-gradient(to right, #373b4490, #373b4490), url("/colores.png");
+            background: linear-gradient(to right, #000a, #000a), url("/colores.png");
             background-size: cover;
             background-position: center;
             margin: .3rem 0;
           }
           
           .incluye-3 {
-            background: linear-gradient(to right, #373b4490, #373b4490), url("/fotos.png");
+            background: linear-gradient(to right, #000a, #000a), url("/fotos.png");
             background-size: cover;
             background-position: center;
             margin: .3rem 0;
           }
 
           .incluye-4 {
-            background: linear-gradient(to right, #373b4490, #373b4490), url("/reunion.png");
+            background: linear-gradient(to right, #000a, #000a), url("/reunion.png");
             background-size: cover;
             background-position: center;
             margin: .3rem 0;

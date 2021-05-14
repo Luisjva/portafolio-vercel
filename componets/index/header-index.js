@@ -68,7 +68,7 @@ class HeaderIndex extends React.Component {
             transform: translateY(-50%);
             margin-block-start: 0;
             margin-block-end: 0;
-            width: 65%;
+            width: 60%;
           }
 
           .none {
@@ -81,9 +81,9 @@ class HeaderIndex extends React.Component {
 
           .img {
             position: absolute;
-            height: 250px;
+            height: 230px;
             bottom: 0;
-            left: 50%;
+            left: 55%;
             transform: translateX(-50%)
           }
 
