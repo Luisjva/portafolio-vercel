@@ -1,5 +1,133 @@
 import React from 'react'
-let paso = 0;
+let paso = 0,
+  ProyectosTelefono = (props) => (
+    <div className="pag-telefono fade none">
+      <img src={`/${props.nombre}.jpg`} />
+      <a href={props.link} target="_blank">
+        <div className="espesificaciones">
+          <div className="espesificaciones-der">
+            <span>Next js</span>
+            <span>CSS</span>
+          </div>
+          <div className="espesificaciones-izq">
+            <p>{props.titulo}</p>
+          </div>
+        </div>
+      </a>
+      <style jsx>{`
+        .pag-telefono {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          z-index: 10;
+          opacity: 1;
+          transition: .3s;
+        }  
+
+        .pag-telefono img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .espesificaciones {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: linear-gradient(to bottom, transparent 70%, #333);
+          z-index: 100;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .espesificaciones-der {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-end;
+          padding-bottom: 1.5rem;
+        }
+
+        .espesificaciones-der span {
+          color: #fff;
+          background: #373b44;
+          background: linear-gradient(to right, #373b44, #3c619d);
+          margin-top: .25rem;
+          padding: .2rem;
+          border-radius: 3px;
+        }
+
+        .espesificaciones-izq {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-end;
+          padding-bottom: 1.5rem;
+        }
+
+        .espesificaciones-izq p {
+          color: #fff;
+          font-size: 1.7em;
+          font-family: 'Yanone Kaffeesatz', sans-serif;
+        }
+
+        .fade {
+          animation-name: fade;
+          animation-duration: .5s;
+        }
+
+        .none {
+          opacity: 0;
+          z-index: 0;
+        }
+
+        @keyframes fade{
+          from {opacity: .4}
+          to {opacity: .1}
+        }
+      `}</style>
+    </div>
+  ),
+  ProyectosPc = (props) => (
+    <div className="pag-pc fade none">
+      <a href={props.link} target="_blank">
+        <img className="img-pc" src={`/${props.nombre}-pc.jpg`} />
+      </a>
+      <style jsx>{`
+        .pag-pc {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          z-index: 10;
+          opacity: 1;
+          transition: .3s;
+        }
+
+        .img-pc {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .fade {
+          animation-name: fade;
+          animation-duration: .5s;
+        }
+
+        .none {
+          opacity: 0;
+          z-index: 0;
+        }
+        
+        @keyframes fade{
+          from {opacity: .4}
+          to {opacity: .1}
+        }
+      `}</style>
+    </div>
+  )
 
 
 class Proyecto extends React.Component {
@@ -8,7 +136,9 @@ class Proyecto extends React.Component {
 
     this.state = {
       pagActual: 0,
-      vista: "pc"
+      vista: "pc",
+      proyectos: [],
+      renderisado: false
     };
 
     this.mostrarPagAntes = this.mostrarPagAntes.bind(this);
@@ -19,35 +149,42 @@ class Proyecto extends React.Component {
   }
 
   componentDidMount() {
-    this.timerID = setInterval(
-      () => this.mostrarPagDespues(),
-      10000
-    );
+    fetch("/proyectos.json")
+      .then((res) => { return res.json() })
+      .then((res) => {
+        console.log(res.proyectos)
+        this.setState({ proyectos: res.proyectos })
 
-    if (paso == 0) {
-      this.vistasRecarga();
 
-      let pagTlfn = document.querySelectorAll('.pag-telefono');
-      let pagPc = document.querySelectorAll(".pag-pc");
+        this.timerID = setInterval(
+          () => this.mostrarPagDespues(),
+          10
+        );
 
-      for (let i = 0; i < pagTlfn.length; i++) {
-        pagTlfn[i].classList.add("none");
-        pagPc[i].classList.add("none");
-      }
-      pagTlfn[0].classList.remove("none");
-      pagTlfn[0].setAttribute("className", "none");
+        if (paso == 0 && this.state.renderisado) {
+          this.vistasRecarga();
 
-      pagPc[0].classList.remove("none");
-      pagPc[0].setAttribute("className", "none");
+          let pagTlfn = document.querySelectorAll('.pag-telefono');
+          let pagPc = document.querySelectorAll(".pag-pc");
 
-      paso = 1;
-    }
+          for (let i = 0; i < pagTlfn.length; i++) {
+            pagTlfn[i].classList.add("none");
+            pagPc[i].classList.add("none");
+          }
+          pagTlfn[0].classList.remove("none");
+          pagTlfn[0].setAttribute("className", "none");
+
+          pagPc[0].classList.remove("none");
+          pagPc[0].setAttribute("className", "none");
+
+          paso = 1;
+        }
+      })
   }
 
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
-
 
   vistas() {
     let btnTelefono = document.querySelector(".vistas__telefono");
@@ -200,83 +337,11 @@ class Proyecto extends React.Component {
           <div className="slider-absoluto">
             <div className="slider-contenedor-telefono slider-contenedor--cerrado">
 
-              <div className="pag-telefono fade none">
-                <img src="/proyecto5.jpg" />
-                <a href="https://wind-flame.vercel.app" target="_blank">
-                  <div className="espesificaciones">
-                    <div className="espesificaciones-der">
-                      <span>Next js</span>
-                      <span>CSS</span>
-                    </div>
-                    <div className="espesificaciones-izq">
-                      <p>Buscador</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-
-
-              <div className="pag-telefono fade none">
-                <img src="/proyecto3.jpg" />
-                <a href="https://luisjva.github.io/Maqueta1/" target="_blank">
-                  <div className="espesificaciones">
-                    <div className="espesificaciones-der">
-                      <span>HTML</span>
-                      <span>CSS</span>
-                    </div>
-                    <div className="espesificaciones-izq">
-                      <p >Maqueta</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="pag-telefono fade none">
-                <img src="/proyecto2.jpg" />
-                <a href="http://a2ndocean.herokuapp.com/" target="_blank">
-                  <div className="espesificaciones">
-                    <div className="espesificaciones-der">
-                      <span>Express</span>
-                      <span>Pug</span>
-                      <span>CSS</span>
-                    </div>
-                    <div className="espesificaciones-izq">
-                      <p>Blog</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="pag-telefono fade none">
-                <img src="/proyecto1.jpg" />
-                <a href="https://luisjva.github.io/tren-en-linea/" target="_blank">
-                  <div className="espesificaciones">
-                    <div className="espesificaciones-der">
-                      <span>HTML</span>
-                      <span>CSS</span>
-                      <span>JavaScript</span>
-                    </div>
-                    <div className="espesificaciones-izq">
-                      <p>Juego</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div className="pag-telefono fade none">
-                <img src="/proyecto4.jpg" />
-                <a href="https://portafolio-kappa.vercel.app/" target="_blank">
-                  <div className="espesificaciones">
-                    <div className="espesificaciones-der">
-                      <span>Next Js</span>
-                    </div>
-                    <div className="espesificaciones-izq">
-                      <p>Portafolio</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              {
+                this.state.proyectos.map((proyecto) => (
+                  <ProyectosTelefono key={proyecto.link} {...proyecto} />
+                ))
+              }
 
 
               <div className="flecha-telefono">
@@ -293,38 +358,9 @@ class Proyecto extends React.Component {
           <div className="slider-absoluto">
             <div className="slider-contenedor-pc slider-contenedor--cerrado">
 
-              <div className="pag-pc fade none">
-                <a href="https://wind-flame.vercel.app" target="_blank">
-                  <img className="img-pc" src="/proyecto5-pc.jpg" />
-                </a>
-              </div>
-
-
-
-              <div className="pag-pc fade none">
-                <a href="https://luisjva.github.io/Maqueta1/" target="_blank">
-                  <img className="img-pc" src="/proyecto3-pc.jpg" />
-                </a>
-              </div>
-
-              <div className="pag-pc fade none">
-                <a href="http://a2ndocean.herokuapp.com/" target="_blank">
-                  <img className="img-pc" src="/proyecto2-pc.jpg" />
-                </a>
-              </div>
-
-              <div className="pag-pc fade none">
-                <a href="https://luisjva.github.io/tren-en-linea/" target="_blank">
-                  <img className="img-pc" src="/proyecto1-pc.jpg" />
-                </a>
-              </div>
-
-
-              <div className="pag-pc fade none">
-                <a href="https://portafolio-kappa.vercel.app/" target="_blank">
-                  <img className="img-pc" src="/proyecto4-pc.jpg" />
-                </a>
-              </div>
+              {this.state.proyectos.map((proyecto) => (
+                <ProyectosPc key={proyecto.link} {...proyecto} />
+              ))}
 
 
               <div className="flecha-pc">
@@ -427,65 +463,6 @@ class Proyecto extends React.Component {
             box-shadow: 0px 0px 5px #333;
           }
 
-          .pag-telefono {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            z-index: 10;
-            opacity: 1;
-            transition: .3s;
-          }
-
-          .espesificaciones {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: linear-gradient(to bottom, transparent 70%, #333);
-            z-index: 100;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-          }
-
-          .espesificaciones-der {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding-bottom: 1.5rem;
-          }
-
-          .espesificaciones-der span {
-            color: #fff;
-            background: #373b44;
-            background: linear-gradient(to right, #373b44, #3c619d);
-            margin-top: .25rem;
-            padding: .2rem;
-            border-radius: 3px;
-          }
-
-          .espesificaciones-izq {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding-bottom: 1.5rem;
-          }
-
-          .espesificaciones-izq p {
-            color: #fff;
-            font-size: 1.7em;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
-          }
-
-          .pag-telefono img,
-          .img-pc {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-
           .slider-flecha {
             color: #fff;
             font-size: 40px;
@@ -540,15 +517,6 @@ class Proyecto extends React.Component {
             position: relative;
             overflow: hidden;
             border-radius: 0px 0px 10px 10px;
-            transition: .3s;
-          }
-
-          .pag-pc {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            z-index: 10;
-            opacity: 1;
             transition: .3s;
           }
           

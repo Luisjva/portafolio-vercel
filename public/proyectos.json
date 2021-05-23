@@ -1,28 +1,59 @@
 {
   "proyectos": [
     {
+      "link": "https://portafolio-kappa.vercel.app/",
+      "nombre": "proyecto4",
+      "tecnologias": [
+        "Next js"
+      ],
+      "titulo": "Portafolio"
+    },
+    {
       "link": "https://luisjva.github.io/weather-app/",
-      "nombre": "proyecto6"
+      "nombre": "proyecto6",
+      "tecnologias": [
+        "React",
+        "CSS"
+      ],
+      "titulo": "App del clima"
     },
     {
       "link": "https://wind-flame.vercel.app",
-      "nombre": "proyecto5"
-    },
-    {
-      "link": "https://portafolio-kappa.vercel.app/",
-      "nombre": "proyecto4"
+      "nombre": "proyecto5",
+      "tecnologias": [
+        "Next js",
+        "CSS"
+      ],
+      "titulo": "Buscador"
     },
     {
       "link": "https://luisjva.github.io/Maqueta1/",
-      "nombre": "proyecto3"
+      "nombre": "proyecto3",
+      "tecnologias": [
+        "HTML",
+        "CSS"
+      ],
+      "titulo": "Maqueta"
     },
     {
       "link": "http://a2ndocean.herokuapp.com/",
-      "nombre": "proyecto2"
+      "nombre": "proyecto2",
+      "tecnologias": [
+        "Express",
+        "Pug",
+        "CSS"
+      ],
+      "titulo": "Blog"
     },
     {
       "link": "https://luisjva.github.io/tren-en-linea/",
-      "nombre": "proyecto1"
+      "nombre": "proyecto1",
+      "tecnologias": [
+        "HTML",
+        "CSS",
+        "Javascript"
+      ],
+      "titulo": "Juego"
     }
   ]
 }
