@@ -1,7 +1,7 @@
 import React from "react"
 import Slider from "./index/slider"
 
-let proyectos ={
+let proyectos = {
   proyecto1: {
     link: "https://luisjva.github.io/tren-en-linea/",
     nombre: "proyecto1"
@@ -45,7 +45,7 @@ class Proyectos extends React.Component {
       slider3: {
         tipo: "telefono",
         posicion: "proy3",
-        proyActual: proyectos.proyecto5
+        proyActual: proyectos.proyecto1
       },
       slider4: {
         tipo: "telefono",
