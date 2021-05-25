@@ -4,7 +4,8 @@
       "link": "https://portafolio-kappa.vercel.app/",
       "nombre": "proyecto4",
       "tecnologias": [
-        "Next js"
+        "Next js",
+        "CSS"
       ],
       "titulo": "Portafolio"
     },
