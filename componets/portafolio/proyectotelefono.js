@@ -1,19 +1,28 @@
+{/* {props.tecnologias.map((tecnologia) => (
+      <span>{tecnologia}</span>
+    ))} 
+*/}
+
 export default function ProyectosTelefono(props) {
   return (
     <div className="pag-telefono fade none">
       <img src={`/${props.nombre}.jpg`} />
-      <a href={props.link} target="_blank">
-        <div className="espesificaciones">
-          <div className="espesificaciones-der">
-            {props.tecnologias.map((tecnologia) => (
-              <span>{tecnologia}</span>
-            ))}
-          </div>
-          <div className="espesificaciones-izq">
-            <p>{props.titulo}</p>
-          </div>
+      <div className="espesificaciones">
+        <div className="espesificaciones-izq">
+          <h3>{props.titulo}</h3>
+          {props.tecnologias.map((tecnologia) => (
+            <span>{tecnologia}</span>
+          ))}
         </div>
-      </a>
+        <div className="espesificaciones-der">
+          <a href={props.link} target="_blank">
+            <img src="/open.svg" alt="Logo de Github" />
+          </a>
+          <a href={props.github} target="_blank">
+            <img src="/github.svg" alt="Logo de Github" />
+          </a>
+        </div>
+      </div>
       <style jsx>{`
         .pag-telefono {
           height: 100%;
@@ -36,41 +45,56 @@ export default function ProyectosTelefono(props) {
           height: 100%;
           top: 0;
           left: 0;
-          background: linear-gradient(to bottom, transparent 70%, #333);
+          background: linear-gradient(to bottom, transparent 60%, #333);
           z-index: 100;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-        }
-
-        .espesificaciones-der {
+          padding-top: 160%;
+          padding-bottom: 2rem;
           display: flex;
-          flex-direction: column;
           align-items: center;
-          justify-content: flex-end;
-          padding-bottom: 1.5rem;
         }
 
-        .espesificaciones-der span {
-          color: #fff;
-          background: #373b44;
-          background: linear-gradient(to right, #373b44, #3c619d);
-          margin-top: .25rem;
-          padding: .2rem;
-          border-radius: 3px;
+        .espesificaciones-izq,
+        .espesificaciones-der {
+          width: 50%;
         }
 
         .espesificaciones-izq {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          justify-content: flex-end;
-          padding-bottom: 1.5rem;
+          justify-content: center;
+          align-items:center;
         }
 
-        .espesificaciones-izq p {
+        .espesificaciones-izq h3 {
+          text-align: center;
           color: #fff;
-          font-size: 1.7em;
-          font-family: 'Yanone Kaffeesatz', sans-serif;
+          font-size: 1.5rem;
+          margin-block-start: 0;
+          margin-block-end: 0;
+        }
+
+        .espesificaciones-izq span {
+          text-align: center;
+          background: #fff;
+          margin-block-start: .5rem;
+          margin-block-end: .3rem;
+          padding: .25rem;
+          border-radius: 5px;
+          font-weight: 900;
+        }
+
+        .espesificaciones-der {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .espesificaciones-der img {
+          height: 2.6rem;
+          width: 2.6rem;
+          padding: .4rem;
+          margin: .3rem;
         }
 
         .fade {
