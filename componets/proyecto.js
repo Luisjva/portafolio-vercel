@@ -237,7 +237,7 @@ class Proyecto extends React.Component {
   render() {
     return (
       <div rel="proyecto">
-        <p className="proyectos-text">Si quiere ver el proyecto, solo haga click en la imagen<br /><br /> Las tecnolocias usadas en cada proyecto estan al final de la imagen</p>
+        <p className="proyectos-text">Las tecnolocias usadas en cada proyecto estan al final de la imagen</p>
         <div className="slider-contenedor">
           <div className="vistas">
             <button onClick={this.vistas} className="vistas-btn vistas__telefono vista-btn--activo">Telefono</button>
