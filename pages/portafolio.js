@@ -32,6 +32,7 @@ export default function Portafolio() {
               <div className="habilidad-progreso-1"><div className="falta-1"></div></div>
             </div>
 
+
             <div className="habilidad habilidad-2">
               <span>Next</span>
               <div className="habilidad-progreso-2"><div className="falta-2"></div></div>
@@ -42,9 +43,19 @@ export default function Portafolio() {
               <div className="habilidad-progreso-4"><div className="falta-4"></div></div>
             </div>
 
+            <div className="habilidad habilidad-1">
+              <span>Angular</span>
+              <div className="habilidad-progreso-5"><div className="falta-1"></div></div>
+            </div>
+
             <div className="habilidad habilidad-5">
               <span>Sass</span>
               <div className="habilidad-progreso-5"><div className="falta-5"></div></div>
+            </div>
+
+            <div className="habilidad habilidad-5">
+              <span>Node js</span>
+              <div className="habilidad-progreso-5"><div className="falta-2"></div></div>
             </div>
 
             <div className="habilidad habilidad-6">
