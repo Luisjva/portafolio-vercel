@@ -17,6 +17,7 @@ export default function Tarjeta() {
             "img nada1"
             "img izq"
             "img nada2";
+          height: 200px;
         }
 
         .tarjeta__izquierda {
@@ -26,7 +27,7 @@ export default function Tarjeta() {
         .tarjeta__img {
           grid-area: img;
           object-fit: cover;
-          height: 220px;
+          height: 200px;
           margin: auto;
           margin-bottom: 0;
         }

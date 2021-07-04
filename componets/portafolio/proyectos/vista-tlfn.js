@@ -1,22 +1,35 @@
 import { Component } from "react";
 
 class VistaTlfn extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
+
+    const tecnologias = this.props.proyecto.tecnologias.map((tecnologia) =>
+     <li key={tecnologia} >{tecnologia}</li>
+    );
+
     return(
-      <div className="proyecto"> 
-        <img src="/proyecto6.jpg" className="img-proyecto"/>
+      <div className={this.props.proyecto.actual ? "proyecto fade" : "proyecto fade none"}> 
+        <img src={`/${this.props.proyecto.nombre}.jpg`} className="img-proyecto"/>
         <div className="proyecto__der">
-          <p>Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual </p>
-          <h3>Tecnologias usadas</h3>
+          <p>{this.props.proyecto.descripcion}</p>
+          <h3>Tecnologias</h3>
           <ul>
-            <li>Tecnologia 1</li>
-            <li>Tecnologia 2</li>
-            <li>Tecnologia 3</li>
+            {tecnologias}
           </ul>
           <h3>Visita el proyecto</h3>
           <div className="visita"> 
-            <img src="/open.svg" alt="Abrir en otro pagina" title="Abrir en otro pagina" />
-            <img src="/github.svg" alt="Abrir en otro pagina" title="Abrir en otro pagina" fill="#3B4358"/>
+            
+            <a href={this.props.proyecto.link}>
+              <img src="/open.svg" alt="Abrir en otro pagina" title="Abrir proyecto en otra pagina" />
+            </a>
+            
+            <a href={this.props.proyecto.github}>
+              <img src="/github.svg" alt="Abrir en otro pagina" title="Ver repositorio del proyecto en github" fill="#3B4358"/>
+            </a>
           </div>
           
         </div>
@@ -26,6 +39,9 @@ class VistaTlfn extends Component {
             display: grid;
             grid-template-columns: 45% auto;
             text-align: center;
+            position: absolute;
+            width: 80%;
+            transition: .3s;
           }
 
           .img-proyecto {
@@ -54,6 +70,21 @@ class VistaTlfn extends Component {
           .visita img {
             margin: 0 1rem;
             width: 2.7rem;
+          }
+
+          .fade {
+            animation-name: fade;
+            animation-duration: .5s;
+          }
+
+          .none {
+            opacity: 0;
+            z-index: 0;
+          }
+          
+          @keyframes fade{
+            from {opacity: .4}
+            to {opacity: .1}
           }
         `}</style>
       </div>

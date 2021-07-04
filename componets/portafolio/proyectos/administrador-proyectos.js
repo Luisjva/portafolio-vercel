@@ -4,10 +4,24 @@ import VistaTlfn from "./vista-tlfn";
 import VistaPc from "./vista-pc";
 
 class AdminProyecto extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
+    let proyectos = this.props.proyectos.map((proyecto) => 
+      <VistaTlfn key={proyecto.nombre} proyecto={proyecto} />
+    )
+
     return(
       <div>
-        <VistaPc/>
+        {proyectos}
+
+        <style jsx>{`
+          div {
+            height: 475px
+          }
+        `}</style>
       </div>
     )
   }
