@@ -2,9 +2,11 @@ export default function Tarjeta() {
   return(
     <div className="tarjeta">
       <img className="tarjeta__img" src="/yo.png" />
-      <h2 className="tarjeta__nombre">Luis Villegas</h2>
-      <h3 className="tarjeta__sub">Programador Web</h3>
-      <p className="tarjeta__texto">Desarrollador web con conocimientos en React, Next, Express y otras tecnologias</p>
+      <div className="tarjeta__izquierda">
+        <h2 className="tarjeta__nombre">Luis <h2 className="nombre-identado">Villegas</h2></h2>
+        <h3 className="tarjeta__sub">Desarrollador Web</h3>
+        <p className="tarjeta__texto">Desarrollador web con conocimientos en React, Next, Express y otras tecnologias</p>
+      </div>
       <style jsx>{`
         .tarjeta {
           grid-area: tarjeta;
@@ -12,93 +14,53 @@ export default function Tarjeta() {
           grid-template-columns: 1fr 2fr;
           grid-template-rows: repeat(3, auto);
           grid-template-areas: 
-            "img nombre"
-            "img titulo"
-            "img texto";
+            "img nada1"
+            "img izq"
+            "img nada2";
+        }
+
+        .tarjeta__izquierda {
+          grid-area: izq
         }
 
         .tarjeta__img {
           grid-area: img;
           object-fit: cover;
-          height: 190px;
+          height: 220px;
           margin: auto;
           margin-bottom: 0;
         }
 
         .tarjeta__nombre {
-          grid-area: nombre;
           text-align: left;
-          font-size: 1.5rem;
+          font-size: 2.2rem;
+          color: #979184;
+          margin-block-start: 0;
+          margin-block-end: 0;
+          position: relative;
         }
 
-        .tarjeta__sub {
-          grid-area: titulo;
-          font-size: 1.17rem;
+        .nombre-identado {
+          font-size: 2.2rem;
+          color: #979184;
+          margin-block-start: 0;
+          margin-block-end: 0;
+          position: absolute;
+          top: .9rem;
+          left: 50px;
+        }
+
+        .tarjeta__sub {    
+          font-size: 1.2rem;
+          color: #979184;
+          margin-block-start: 0;
+          margin-block-end: 0;
+          margin-top: 1rem;
+          font-weight: 200;
         }
 
         .tarjeta__texto {
-          grid-area: texto;
           font-size: 1rem;
-        }
-
-        @media screen and (min-width: 500px) {          
-          .tarjeta {
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: repeat(3, auto);
-            grid-template-areas: 
-              "img   nombre"
-              "img   titulo"
-              "texto texto";
-            margin-bottom: auto;
-            font-size: 1.5rem;
-            margin-top: 0.83em;
-            margin-left: .5rem;
-          }
-
-          .tarjeta__img {
-            height: 125px;
-          }
-
-          .tarjeta__texto {
-            margin: .5rem;
-          }
-        }
-
-        @media screen and (min-width: 600px) {
-          .tarjeta {
-            grid-template-columns: 2fr 3fr;
-          }
-        }
-
-        @media screen and (min-width: 600px) {
-          .tarjeta {
-            grid-template-columns: 2fr 3fr;
-          }
-        }
-
-        @media screen and (min-width: 720px) {
-          .tarjeta {
-            grid-template-columns: 1fr 2fr;
-            grid-template-areas: 
-              "img nombre"
-              "img titulo"
-              "img texto";
-          }
-
-          .tarjeta__img {
-            height: 170px;
-          }
-
-          .tarjeta__texto {
-            margin: 0 .5rem .5rem 0;
-          }
-
-        }
-
-        @media screen and (min-width: 900px) {
-          .tarjeta {
-            grid-template-columns: 1fr 2fr;
-          }
         }
       `}</style>
     </div>
