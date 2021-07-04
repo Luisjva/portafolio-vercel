@@ -51,9 +51,19 @@ class Proyectos extends Component {
 
   componentDidMount() {
 
+    this.timerID = setInterval(
+      () => this.siguiente(),
+      10000
+    );
+
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
   }
   
   anterior() {
+    clearInterval(this.timerID);
     let actual = this.state.proyectoActual - 1;
     let nuevo = []
 
@@ -89,9 +99,15 @@ class Proyectos extends Component {
       proyectoActual: actual,
       proyectos: nuevo
     })
+
+    this.timerID = setInterval(
+      () => this.siguiente(),
+      10000
+    );
   }
   
   siguiente() {
+    clearInterval(this.timerID);
     let actual = this.state.proyectoActual + 1;
     let nuevo = []
 
@@ -127,6 +143,11 @@ class Proyectos extends Component {
       proyectoActual: actual,
       proyectos: nuevo
     })
+
+    this.timerID = setInterval(
+      () => this.siguiente(),
+      10000
+    );
   }
 
   render() {
