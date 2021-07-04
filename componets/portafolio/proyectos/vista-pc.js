@@ -2,31 +2,36 @@ import { Component } from "react";
 
 class VistaPc extends Component {
   render() {
+    let tecnologias = this.props.proyecto.tecnologias.map((tecnologia) => <li>{tecnologia}</li>)
     return(
-      <div className="proyecto">
-        <img className="img-proyecto" src="/proyecto6-pc.jpg" alt="Poryecto de la vista de pc"/>
+      <div className={this.props.proyecto.actual ? " proyecto fade" : " proyecto fade none"}>
+        <img className="img-proyecto" src={`/${this.props.proyecto.nombre}-pc.jpg`} alt="Poryecto de la vista de pc"/>
         
         <div className="texto">
 
 
           <div>
-            <p>Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual </p>
+            <p>{this.props.proyecto.descripcion}</p>
           </div>
 
           <div>
             <h3>Tecnologias usadas</h3>
             <ul>
-              <li>Tecnologia 1</li>
-              <li>Tecnologia 2</li>
-              <li>Tecnologia 3</li>
+              {tecnologias}
             </ul>
           </div>
 
           <div className="visita-div">
             <h3>Visita el proyecto</h3>
             <div className="visita"> 
-              <img src="/open.svg" alt="Abrir en otro pagina" title="Abrir en otro pagina" />
-              <img src="/github.svg" alt="Abrir en otro pagina" title="Abrir en otro pagina" fill="#3B4358"/>
+
+              <a href={this.props.proyecto.link}>
+                <img src="/open.svg" alt="Abrir en otro pagina" title="Abrir en otro pagina" />
+              </a>
+              
+              <a href={this.props.proyecto.github}>
+                <img src="/github.svg" alt="Abrir en otro pagina" title="Abrir en otro pagina" fill="#3B4358"/>
+              </a>
             </div>
           </div>
 
@@ -35,6 +40,10 @@ class VistaPc extends Component {
         <style jsx>{`
           .proyecto {
             text-align: center;
+            z-index: 100;
+            position: absolute;
+            transition: .3s;
+            width: 80%;
           }
 
           h3 {
@@ -83,6 +92,20 @@ class VistaPc extends Component {
             width: 2.7rem;
           }
 
+          .fade {
+            animation-name: fade;
+            animation-duration: .5s;
+          }
+
+          .none {
+            opacity: 0;
+            z-index: 0;
+          }
+          
+          @keyframes fade{
+            from {opacity: .4}
+            to {opacity: .1}
+          }
         `}</style>
       </div>
     )

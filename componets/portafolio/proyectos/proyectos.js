@@ -7,6 +7,8 @@ class Proyectos extends Component {
     super(props);
     this.siguiente = this.siguiente.bind(this);
     this.anterior = this.anterior.bind(this);
+    this.vistaTlfn = this.vistaTlfn.bind(this);
+    this.vistaPc = this.vistaPc.bind(this);
     this.state = {
       proyectos: [
         {
@@ -50,16 +52,40 @@ class Proyectos extends Component {
   }
 
   componentDidMount() {
+    this.timerID = setInterval(
+      () => this.siguiente(),
+      10000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  vistaTlfn() {
+    clearInterval(this.timerID);
+
+    this.setState({
+      vista: true
+    })
 
     this.timerID = setInterval(
       () => this.siguiente(),
       10000
     );
-
   }
 
-  componentWillUnmount() {
+  vistaPc() {
     clearInterval(this.timerID);
+
+    this.setState({
+      vista: false
+    })
+
+    this.timerID = setInterval(
+      () => this.siguiente(),
+      10000
+    );
   }
   
   anterior() {
@@ -155,8 +181,14 @@ class Proyectos extends Component {
       <div className="proyectos">
         <h2>Proyectos</h2>
 
+        <div className="vistas">
+          <img className={this.state.vista?"vistas__img":"vistas__img vistas__img__pc"} src="/bola.svg"/>
+          <button onClick={this.vistaTlfn}>Telefono</button>
+          <button onClick={this.vistaPc}>Computadora</button>
+        </div>
+
         <p onClick={this.anterior}>&#10094;</p>
-        <AdminProyecto proyectos={this.state.proyectos}/>
+        <AdminProyecto vista={this.state.vista} proyectos={this.state.proyectos}/>
         <p onClick={this.siguiente}>&#10095;</p>
 
         <style jsx>{`
@@ -165,11 +197,46 @@ class Proyectos extends Component {
 
             display: grid;
             grid-template-columns: 10% auto 10%;
-            grid-template-rows: auto auto;
+            grid-template-rows: auto auto auto;
             grid-template-areas: 
               "titu titu titu"
+              "vist vist vist"
               "fder proy fizq";
             position: relative;
+          }
+
+          .vistas {
+            grid-area: vist;
+            margin: 1rem auto;
+            position: relative;
+          }
+
+          .vistas button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            font-family: "Yanone Kaffeesatz", sans-serif;
+            color: #3B4358;
+            transition: .3s;
+            position: relative;
+            z-index: 10;
+          }
+
+          .vistas button:hover {
+            background: #97918485;
+          }
+          
+          .vistas__img {
+            position: absolute;
+            width: 2.5rem; 
+            left: 1rem;
+            z-index: 0;
+            transition: .3s;
+          }
+          
+          .vistas__img__pc {
+            left: 6rem;
+            transition: .3s;
           }
 
           h2 {
@@ -187,6 +254,7 @@ class Proyectos extends Component {
           p {
             font-size: 2.5rem;
             margin: auto;
+            cursor: pointer;
           }
         `}</style>
       </div>

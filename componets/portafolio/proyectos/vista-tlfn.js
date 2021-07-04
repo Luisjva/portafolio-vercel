@@ -42,6 +42,7 @@ class VistaTlfn extends Component {
             position: absolute;
             width: 80%;
             transition: .3s;
+            z-index: 100;
           }
 
           .img-proyecto {
