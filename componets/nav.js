@@ -159,7 +159,7 @@ class Nav extends React.Component {
             margin-block-start: 0;
             margin-block-end: 0;
             padding-inline-start: 0;
-            background: linear-gradient(to right, #373b44, #4286f4);
+            background: #3B4358;
             top: 100%;
             left: -100%;
             width: 100vw;

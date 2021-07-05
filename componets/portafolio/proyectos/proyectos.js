@@ -266,6 +266,7 @@ class Proyectos extends Component {
             transition: .3s;
             position: relative;
             z-index: 10;
+            margin: 0 .7rem;
           }
 
           .vistas button:hover {
