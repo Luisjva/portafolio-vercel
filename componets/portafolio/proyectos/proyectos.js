@@ -224,7 +224,6 @@ class Proyectos extends Component {
         </div>
         <p className="fizq" onClick={this.siguiente}>&#10095;</p>
 
-        <div className="no11"></div>
 
         <style jsx>{`
           .proyectos {
@@ -240,10 +239,6 @@ class Proyectos extends Component {
               "fder proy fizq";
             position: relative;
             padding: auto;
-          }
-
-          .no11 {
-            grid-area: no11;
           }
 
           .fder {
@@ -313,27 +308,15 @@ class Proyectos extends Component {
           @media screen and (min-width: 720px) {
             .proyectos {
               /* Si cambias este valor tambien cambia el mismo en portafolio.js */ 
-              height: 95vh;
-              grid-template-rows: repeat(5, auto);
-              grid-template-areas: 
-                "no11 no11 no11"
+              min-height: 95vh;
+              display: grid;
+              grid-template-rows: repeat(3, auto);
+              grid-template-areas:                 "no   na   nu"
                 "titu titu titu"
                 "vist vist vist"
                 "fder proy fizq"
-                "no22 no22 no22";
+
             }
-          }
-
-          @media screen and (min-width: 840px) {
-            .proyectos {
-              /* Si cambias este valor tambien cambia el mismo en portafolio.js */ 
-              height: 105vh;
-          }
-
-          @media screen and (min-width: 1080px) {
-            .proyectos {
-              /* Si cambias este valor tambien cambia el mismo en portafolio.js */ 
-              height: 110vh;
           }
         `}</style>
       </div>

@@ -167,7 +167,7 @@ class AdminProyecto extends Component {
 
           @media screen and (min-width: 840px) {
             .div {
-              height: 575px;
+              height: 700px;
               transition: .3s;
             }
             

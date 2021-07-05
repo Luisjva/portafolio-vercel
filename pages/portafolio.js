@@ -35,6 +35,10 @@ export default function Portafolio() {
           grid-area: tarjeta
         }
 
+        .main {
+          padding-bottom: 0
+        }
+
         .proyectos {
           grid-area: proyectos
         }
@@ -50,10 +54,10 @@ export default function Portafolio() {
         @media screen and (min-width: 720px) {
           .main {
             /* Si cambias este valor tambien cambia el mismo en proyectos */ 
-            height: 95vh;
+            min-height: 95vh;
             display: grid;
             grid-template-columns: 50% auto;
-            grid-template-rows: repeat(3, auto);
+            grid-template-rows: repeat(5, auto);
             grid-template-areas: 
               "nada        proyectos"
               "tarjeta     proyectos"
