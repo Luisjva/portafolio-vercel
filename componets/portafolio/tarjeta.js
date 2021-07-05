@@ -63,6 +63,12 @@ export default function Tarjeta() {
         .tarjeta__texto {
           font-size: 1rem;
         }
+
+        @media screen and (min-width: 720px) {
+          .tarjeta__img {
+            height: 200px;
+          }
+        }
       `}</style>
     </div>
   )

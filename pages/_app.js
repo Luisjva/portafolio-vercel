@@ -21,7 +21,6 @@ export default function MyApp({ Component, pageProps }) {
       <div className="contenedor">
         <Component {...pageProps} />
       </div>
-      <Footer/>
     </div>
   )
 }

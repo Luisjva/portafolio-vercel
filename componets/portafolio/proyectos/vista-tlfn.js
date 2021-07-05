@@ -14,30 +14,38 @@ class VistaTlfn extends Component {
     return(
       <div className={this.props.proyecto.actual ? "proyecto fade" : "proyecto fade none"}> 
         <img src={`/${this.props.proyecto.nombre}.jpg`} className="img-proyecto"/>
-        <div className="proyecto__der">
-          <p>{this.props.proyecto.descripcion}</p>
+
+
+        <p className="p">{this.props.proyecto.descripcion}</p>
+
+        <div className="tecnologias">
           <h3>Tecnologias</h3>
           <ul>
             {tecnologias}
           </ul>
-          <h3>Visita el proyecto</h3>
-          <div className="visita"> 
-            
-            <a href={this.props.proyecto.link}>
-              <img src="/open.svg" alt="Abrir en otro pagina" title="Abrir proyecto en otra pagina" />
-            </a>
-            
-            <a href={this.props.proyecto.github}>
-              <img src="/github.svg" alt="Abrir en otro pagina" title="Ver repositorio del proyecto en github" fill="#3B4358"/>
-            </a>
-          </div>
-          
         </div>
+        
+        <div className="visita"> 
+          <h3>Visitar</h3>
+
+          <a href={this.props.proyecto.github} target="_blank">
+            <img src="/github.svg" alt="Abrir en otro pagina" title="Ver repositorio del proyecto en github" fill="#3B4358"/>
+          </a>
+
+          <a href={this.props.proyecto.link} target="_blank">
+            <img src="/open.svg" alt="Abrir en otro pagina" title="Abrir proyecto en otra pagina" />
+          </a>
+        </div>
+          
 
         <style jsx>{`
           .proyecto {
             display: grid;
             grid-template-columns: 45% auto;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+              "img txt"
+              "vis tec";
             text-align: center;
             position: absolute;
             width: 80%;
@@ -46,16 +54,24 @@ class VistaTlfn extends Component {
           }
 
           .img-proyecto {
+            grid-area: img;
             width: 100%;
           }
+          
+          .tecnologias {
+            grid-area: tec;
+          }
 
-          .proyecto__der {
-            padding: .5rem;
+          .p {
+            grid-area: txt;
+            margin-left: .5rem;
           }
 
           h3 {
             font-size: 1.5rem;
             color: #3B4358;
+            margin-block-start: .2rem;
+            margin-block-end: .2rem;
           }
 
           ul {
@@ -64,13 +80,22 @@ class VistaTlfn extends Component {
           }
 
           .visita {
-            display: contents;
-            align-items: center;
+            grid-area: vis;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+              "titu titu"
+              "img1 img2";
+          }
+
+          .visita h3 {
+            grid-area: titu;
           }
 
           .visita img {
             margin: 0 1rem;
-            width: 2.7rem;
+            width: 2.2rem;
           }
 
           .fade {
@@ -86,6 +111,38 @@ class VistaTlfn extends Component {
           @keyframes fade{
             from {opacity: .4}
             to {opacity: .1}
+          }
+
+          @media screen and (min-width: 315px) {
+            .proyecto {
+              grid-template-rows: auto auto auto;
+              grid-template-areas:
+                "img txt"
+                "img tec"
+                "vis vis";
+            }
+          }
+
+          @media screen and (min-width: 400px) {
+            .proyecto {
+              grid-template-rows: auto auto auto;
+              grid-template-areas:
+                "img txt"
+                "img tec"
+                "img vis";
+            }
+          }
+
+          @media screen and (min-width: 600px) {
+            .proyecto {
+              grid-template-rows: repeat(5, auto);
+              grid-template-areas:
+                "img na1"
+                "img txt"
+                "img tec"
+                "img vis"
+                "img na2";
+            }
           }
         `}</style>
       </div>

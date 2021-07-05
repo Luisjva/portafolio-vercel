@@ -28,12 +28,12 @@ class AdminProyecto extends Component {
 
         <style jsx>{`
           .div {
-            height: 475px;
+            height: 350px;
             transition: .3s;
           }
 
           .div__pc {
-            height: 575px;
+            height: 500px;
           }
 
           .div div {
@@ -53,6 +53,127 @@ class AdminProyecto extends Component {
           @keyframes fade{
             from {opacity: .4}
             to {opacity: .1}
+          }
+
+          @media screen and (min-width: 315px) {
+            .div {
+              height: 375px;
+              transition: .3s;
+            }
+
+            .div__pc {
+              height: 500px;
+            }
+          }
+
+          @media screen and (min-width: 375px) {
+            .div {
+              height: 395px;
+              transition: .3s;
+            }
+            
+            .div__pc {
+              height: 520px;
+            }
+          }
+
+          @media screen and (min-width: 400px) {
+            .div {
+              height: 420px;
+              transition: .3s;
+            }
+            
+            .div__pc {
+              height: 530px;
+            }
+          }
+
+          @media screen and (min-width: 450px) {
+            .div {
+              height: 420px;
+              transition: .3s;
+            }
+            
+            .div__pc {
+              height: 550px;
+            }
+          }
+
+          @media screen and (min-width: 475px) {
+            .div {
+              height: 420px;
+              transition: .3s;
+            }
+            
+            .div__pc {
+              height: 575px;
+            }
+          }
+
+          @media screen and (min-width: 530px) {
+            .div {
+              height: 440px;
+              transition: .3s;
+            }
+            
+            .div__pc {
+              height: 600px;
+            }
+          }
+
+          @media screen and (min-width: 560px) {
+            .div {
+              height: 480px;
+              transition: .3s;
+            }
+            
+            .div__pc {
+              height: 600px;
+            }
+          }
+
+          @media screen and (min-width: 615px) {
+            .div {
+              height: 500px;
+              transition: .3s;
+            }
+            
+            .div__pc {
+              height: 625px;
+            }
+          }
+
+          @media screen and (min-width: 630px) {
+            .div {
+              height: 540px;
+              transition: .3s;
+            }
+            
+            .div__pc {
+              height: 625px;
+            }
+          }
+
+          @media screen and (min-width: 680px) {
+            .div {
+              height: 575px;
+              transition: .3s;
+            }
+            
+            .div__pc {
+              height: 625px;
+            }
+          }
+
+          @media screen and (min-width: 840px) {
+            .div {
+              height: 575px;
+              transition: .3s;
+            }
+            
+            .div__pc {
+              height: 700px;
+            }
           }
         `}</style>
       </div>

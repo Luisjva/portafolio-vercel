@@ -11,6 +11,7 @@ class Proyectos extends Component {
     this.vistaPc = this.vistaPc.bind(this);
     this.state = {
       proyectos: [
+        //El primer objeto tiene que estar en TRUE
         {
           actual: true,
           nombre: "proyecto6",
@@ -18,20 +19,10 @@ class Proyectos extends Component {
           github: "https://github.com/Luisjva/weather-app",
           tecnologias: [
             "React Js",
-            "CSS"
+            "CSS",
+            "API de weatherbit.io"
           ],
-          descripcion: "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual"
-        },
-        {
-          actual: false,
-          nombre: "proyecto5",
-          link: "https://wind-flame.vercel.app/",
-          github: "https://github.com/Luisjva/Wind",
-          tecnologias: [
-            "Next Js",
-            "CSS"
-          ],
-          descripcion: "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual"
+          descripcion: 'Una aplicación del clima que muestra información del tiempo actual en 5 ciudades. La aplicación fue creada con React y las respuestas fueron hechas a travez de fetch a la API de weatherbit.io.'
         },
         {
           actual: false,
@@ -42,7 +33,42 @@ class Proyectos extends Component {
             "HTML",
             "CSS"
           ],
-          descripcion: "Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual"
+          descripcion: "Esta maqueta de un sitio web simple fue creada con solo HTML y CSS. Está hecha con la simple finalidad de maquetar una web con responsive design que se vea bien desde cualquier dispositivo.  "
+        },
+        {
+          actual: false,
+          nombre: "proyecto2",
+          link: "http://a2ndocean.herokuapp.com/",
+          github: "https://github.com/Luisjva/2ndOcean",
+          tecnologias: [
+            "Node Js",
+            "Express Js"
+          ],
+          descripcion: "Es un blog donde se puede navegar entre varias publicaciones, creado con Express Js con el motor de plantilla Pug."
+        },
+        {
+          actual: false,
+          nombre: "proyecto1",
+          link: "https://luisjva.github.io/tren-en-linea/",
+          github: "https://github.com/Luisjva/tren-en-linea",
+          tecnologias: [
+            "HTML",
+            "CSS",
+            "JavaScript"
+          ],
+          descripcion: "Juego de tres en línea creado con HTML, CSS y JavaScript, con la finalidad de practicar lógica de programación en el front-end. "
+        },
+        {
+          actual: false,
+          nombre: "proyecto4",
+          link: "https://portafolio-kappa.vercel.app/portafolio",
+          github: "https://github.com/Luisjva/portafolio-vercel",
+          tecnologias: [
+            "HTML",
+            "CSS",
+            "JavaScript"
+          ],
+          descripcion: "Juego de tres en línea creado con HTML, CSS y JavaScript, con la finalidad de practicar lógica de programación en el front-end. "
         }
       ],
       proyectoActual: 0,
@@ -56,6 +82,10 @@ class Proyectos extends Component {
       () => this.siguiente(),
       10000
     );
+
+    if(window.innerWidth >= 720) {
+      this.setState({vista: false})
+    }
   }
 
   componentWillUnmount() {
@@ -179,7 +209,7 @@ class Proyectos extends Component {
   render() {
     return(
       <div className="proyectos">
-        <h2>Proyectos</h2>
+        <h2 className="h2">Proyectos</h2>
 
         <div className="vistas">
           <img className={this.state.vista?"vistas__img":"vistas__img vistas__img__pc"} src="/bola.svg"/>
@@ -187,22 +217,45 @@ class Proyectos extends Component {
           <button onClick={this.vistaPc}>Computadora</button>
         </div>
 
-        <p onClick={this.anterior}>&#10094;</p>
-        <AdminProyecto vista={this.state.vista} proyectos={this.state.proyectos}/>
-        <p onClick={this.siguiente}>&#10095;</p>
+        <p className="fder" onClick={this.anterior}>&#10094;</p>
+
+        <div className="proy">
+          <AdminProyecto vista={this.state.vista} proyectos={this.state.proyectos}/>
+        </div>
+        <p className="fizq" onClick={this.siguiente}>&#10095;</p>
+
+        <div className="no11"></div>
 
         <style jsx>{`
           .proyectos {
+            grid-area: proyectos;
             background: #DFE0E0;
 
             display: grid;
-            grid-template-columns: 10% auto 10%;
+            grid-template-columns: 10% 80% 10%;
             grid-template-rows: auto auto auto;
             grid-template-areas: 
               "titu titu titu"
               "vist vist vist"
               "fder proy fizq";
             position: relative;
+            padding: auto;
+          }
+
+          .no11 {
+            grid-area: no11;
+          }
+
+          .fder {
+            grid-area: fder
+          }
+
+          .fizq {
+            grid-area: fizq
+          }
+          
+          .proy {
+            grid-area:proy;
           }
 
           .vistas {
@@ -239,7 +292,7 @@ class Proyectos extends Component {
             transition: .3s;
           }
 
-          h2 {
+          .h2 {
             grid-area: titu;
             color: #3B4358;
             font-size: 1.8rem;
@@ -255,6 +308,32 @@ class Proyectos extends Component {
             font-size: 2.5rem;
             margin: auto;
             cursor: pointer;
+          }
+
+          @media screen and (min-width: 720px) {
+            .proyectos {
+              /* Si cambias este valor tambien cambia el mismo en portafolio.js */ 
+              height: 95vh;
+              grid-template-rows: repeat(5, auto);
+              grid-template-areas: 
+                "no11 no11 no11"
+                "titu titu titu"
+                "vist vist vist"
+                "fder proy fizq"
+                "no22 no22 no22";
+            }
+          }
+
+          @media screen and (min-width: 840px) {
+            .proyectos {
+              /* Si cambias este valor tambien cambia el mismo en portafolio.js */ 
+              height: 105vh;
+          }
+
+          @media screen and (min-width: 1080px) {
+            .proyectos {
+              /* Si cambias este valor tambien cambia el mismo en portafolio.js */ 
+              height: 110vh;
           }
         `}</style>
       </div>

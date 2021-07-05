@@ -2,7 +2,7 @@ import { Component } from "react";
 
 class VistaPc extends Component {
   render() {
-    let tecnologias = this.props.proyecto.tecnologias.map((tecnologia) => <li>{tecnologia}</li>)
+    let tecnologias = this.props.proyecto.tecnologias.map((tecnologia) => <li key={this.props.proyecto.nombre}>{tecnologia}</li>)
     return(
       <div className={this.props.proyecto.actual ? " proyecto fade" : " proyecto fade none"}>
         <img className="img-proyecto" src={`/${this.props.proyecto.nombre}-pc.jpg`} alt="Poryecto de la vista de pc"/>
@@ -25,11 +25,11 @@ class VistaPc extends Component {
             <h3>Visita el proyecto</h3>
             <div className="visita"> 
 
-              <a href={this.props.proyecto.link}>
+              <a href={this.props.proyecto.link} target="_blank">
                 <img src="/open.svg" alt="Abrir en otro pagina" title="Abrir en otro pagina" />
               </a>
               
-              <a href={this.props.proyecto.github}>
+              <a href={this.props.proyecto.github} target="_blank">
                 <img src="/github.svg" alt="Abrir en otro pagina" title="Abrir en otro pagina" fill="#3B4358"/>
               </a>
             </div>
@@ -51,6 +51,7 @@ class VistaPc extends Component {
             color: #3B4358;
             margin-block-start: 0;
             margin-block-end: 0;
+            padding-left: .3rem
           }
 
           .img-proyecto {
