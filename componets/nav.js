@@ -78,7 +78,7 @@ class Nav extends React.Component {
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto;
             grid-template-areas: "izquierdo derecho";
-            background: linear-gradient(to right, #373b44, #4286f4);
+            background: #3B4358;
             height: 41.09px;
             box-shadow: 0px 0px 10px #333;
             position: fixed;

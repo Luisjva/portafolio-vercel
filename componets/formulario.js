@@ -18,7 +18,7 @@ export default function Formulario() {
           }
 
           .contenedor-gmail {
-            background: linear-gradient(to right, #373b44, #4286f4);
+            background: #979184;
             padding-bottom: 4px;
             border-radius: 4px;
           }
