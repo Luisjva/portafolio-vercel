@@ -28,7 +28,7 @@ class AdminProyecto extends Component {
 
         <style jsx>{`
           .div {
-            height: 350px;
+            height: 400px;
             transition: .3s;
           }
 
@@ -57,7 +57,7 @@ class AdminProyecto extends Component {
 
           @media screen and (min-width: 315px) {
             .div {
-              height: 375px;
+              height: 400px;
               transition: .3s;
             }
 

@@ -22,7 +22,7 @@ class Proyectos extends Component {
             "CSS",
             "API de weatherbit.io"
           ],
-          descripcion: 'Una aplicación del clima que muestra información del tiempo actual en 5 ciudades. La aplicación fue creada con React y las respuestas fueron hechas a travez de fetch a la API de weatherbit.io.'
+          descripcion: 'Una aplicación del clima que muestra información del tiempo actual en 5 ciudades. La aplicación fue creada con React y la ayuda de la API de weatherbit.io.'
         },
         {
           actual: false,
@@ -33,7 +33,7 @@ class Proyectos extends Component {
             "HTML",
             "CSS"
           ],
-          descripcion: "Esta maqueta de un sitio web simple fue creada con solo HTML y CSS. Está hecha con la simple finalidad de maquetar una web con responsive design que se vea bien desde cualquier dispositivo.  "
+          descripcion: "Esta maqueta de un sitio web simple fue creada con solo HTML y CSS."
         },
         {
           actual: false,
