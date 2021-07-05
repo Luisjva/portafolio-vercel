@@ -64,11 +64,9 @@ class Proyectos extends Component {
           link: "https://portafolio-kappa.vercel.app/portafolio",
           github: "https://github.com/Luisjva/portafolio-vercel",
           tecnologias: [
-            "HTML",
-            "CSS",
-            "JavaScript"
+            "Next Js"
           ],
-          descripcion: "Juego de tres en línea creado con HTML, CSS y JavaScript, con la finalidad de practicar lógica de programación en el front-end. "
+          descripcion: "Mi portafolio (Esta página), fue creado con Next Js."
         }
       ],
       proyectoActual: 0,
