@@ -282,7 +282,7 @@ class Proyectos extends Component {
           }
           
           .vistas__img__pc {
-            left: 6rem;
+            left: 8.8rem;
             transition: .3s;
           }
 
