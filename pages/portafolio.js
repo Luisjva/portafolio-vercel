@@ -1,10 +1,8 @@
-import Head from "next/head"
-import Tarjeta from "../componets/portafolio/tarjeta"
-import Proyectos from "../componets/portafolio/proyectos/proyectos"
-import Habilidades from "../componets/portafolio/habilidades/habilidades"
-import Formulario from "../componets/formulario"
-
-
+import Head from "next/head";
+import Tarjeta from "../componets/portafolio/tarjeta";
+import Proyectos from "../componets/portafolio/proyectos/proyectos";
+import Habilidades from "../componets/portafolio/habilidades/habilidades";
+import Formulario from "../componets/formulario";
 
 export default function Portafolio() {
   return (
@@ -20,45 +18,44 @@ export default function Portafolio() {
         <div className="proyectos">
           <Proyectos />
         </div>
-        
+
         <div className="habilidades">
-          <Habilidades/>
+          <Habilidades />
         </div>
 
         <div className="formulario">
           <Formulario />
         </div>
-
       </main>
       <style jsx>{`
         .tarjeta {
-          grid-area: tarjeta
+          grid-area: tarjeta;
         }
 
         .main {
-          padding-bottom: 0
+          padding-bottom: 0;
         }
 
         .proyectos {
-          grid-area: proyectos
+          grid-area: proyectos;
         }
 
         .formulario {
-          grid-area: contacto
+          grid-area: contacto;
         }
 
         .habilidades {
-          grid-area: habilidades
+          grid-area: habilidades;
         }
 
         @media screen and (min-width: 720px) {
           .main {
-            /* Si cambias este valor tambien cambia el mismo en proyectos */ 
+            /* Si cambias este valor tambien cambia el mismo en proyectos */
             min-height: 95vh;
             display: grid;
             grid-template-columns: 50% auto;
             grid-template-rows: repeat(5, auto);
-            grid-template-areas: 
+            grid-template-areas:
               "nada        proyectos"
               "tarjeta     proyectos"
               "habilidades proyectos"
@@ -80,5 +77,5 @@ export default function Portafolio() {
         }
       `}</style>
     </div>
-  )
+  );
 }
