@@ -64,6 +64,12 @@ export default function Portafolio() {
           }
         }
 
+        @media screen and (min-width: 720px) {
+          .formulario {
+            margin-left: 10vw;
+          }
+        }
+
         @media screen and (min-width: 800px) {
           .main {
             grid-template-columns: 45% auto;

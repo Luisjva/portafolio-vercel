@@ -1,16 +1,17 @@
 import React from "react";
 
 export default function Formulario() {
-    return (
-      <div className="contacto">
-        <h2>Contacto</h2>
-        <div className="contenedor-gmail">
-           <h3 className="gmail">Luisjva16@gmail.com</h3>
-        </div>
-        <style jsx>{`
+  return (
+    <div className="contacto">
+      <h2>Contacto</h2>
+      <div className="contenedor-gmail">
+        <h3 className="gmail">Luisjva16@gmail.com</h3>
+      </div>
+      <style jsx>
+        {`
           .contacto {
             grid-area: contacto;
-            margin-top: .5rem;
+            margin-top: 0.5rem;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -36,8 +37,8 @@ export default function Formulario() {
             padding: 0 4px;
             background-color: #fff;
           }
-        `} </style>
-      </div>
-    )
+        `}
+      </style>
+    </div>
+  );
 }
-

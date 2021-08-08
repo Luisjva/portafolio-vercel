@@ -1,11 +1,16 @@
 export default function Tarjeta() {
-  return(
+  return (
     <div className="tarjeta">
       <img className="tarjeta__img" src="/yo.png" />
       <div className="tarjeta__izquierda">
-        <h2 className="tarjeta__nombre">Luis <h2 className="nombre-identado">Villegas</h2></h2>
+        <h2 className="tarjeta__nombre">
+          Luis <h2 className="nombre-identado">Villegas</h2>
+        </h2>
         <h3 className="tarjeta__sub">Desarrollador Web</h3>
-        <p className="tarjeta__texto">Desarrollador web con conocimientos en React, Next, Express y otras tecnologias</p>
+        <p className="tarjeta__texto">
+          Desarrollador web con conocimientos en React, Next, Express y otras
+          tecnologias
+        </p>
       </div>
       <style jsx>{`
         .tarjeta {
@@ -13,7 +18,7 @@ export default function Tarjeta() {
           display: grid;
           grid-template-columns: 1fr 2fr;
           grid-template-rows: repeat(3, auto);
-          grid-template-areas: 
+          grid-template-areas:
             "img nada1"
             "img izq"
             "img nada2";
@@ -21,7 +26,7 @@ export default function Tarjeta() {
         }
 
         .tarjeta__izquierda {
-          grid-area: izq
+          grid-area: izq;
         }
 
         .tarjeta__img {
@@ -47,11 +52,11 @@ export default function Tarjeta() {
           margin-block-start: 0;
           margin-block-end: 0;
           position: absolute;
-          top: .9rem;
+          top: 0.9rem;
           left: 50px;
         }
 
-        .tarjeta__sub {    
+        .tarjeta__sub {
           font-size: 1.2rem;
           color: #979184;
           margin-block-start: 0;
@@ -68,8 +73,12 @@ export default function Tarjeta() {
           .tarjeta__img {
             height: 200px;
           }
+
+          .tarjeta {
+            margin-left: 10vw;
+          }
         }
       `}</style>
     </div>
-  )
+  );
 }
