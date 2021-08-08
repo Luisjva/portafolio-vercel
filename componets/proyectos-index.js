@@ -1,58 +1,58 @@
-import React from "react"
-import Slider from "./index/slider"
+import React from "react";
+import Slider from "./index/slider";
 
 let proyectos = {
   proyecto1: {
     link: "https://luisjva.github.io/tren-en-linea/",
-    nombre: "proyecto1"
+    nombre: "proyecto1",
   },
   proyecto2: {
     link: "http://a2ndocean.herokuapp.com/",
-    nombre: "proyecto2"
+    nombre: "proyecto2",
   },
   proyecto3: {
     link: "https://luisjva.github.io/Maqueta1/",
-    nombre: "proyecto3"
+    nombre: "proyecto3",
   },
   proyecto4: {
     link: "https://portafolio-kappa.vercel.app/",
-    nombre: "proyecto4"
+    nombre: "proyecto4",
   },
   proyecto5: {
     link: "https://wind-flame.vercel.app",
-    nombre: "proyecto5"
+    nombre: "proyecto5",
   },
   proyecto6: {
     link: "https://luisjva.github.io/weather-app/",
-    nombre: "proyecto6"
-  }
-}
+    nombre: "proyecto6",
+  },
+};
 
 class Proyectos extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       slider1: {
         tipo: "telefono",
         posicion: "proy1",
-        proyActual: proyectos.proyecto6
+        proyActual: proyectos.proyecto6,
       },
       slider2: {
         tipo: "pc",
         posicion: "proy2",
-        proyActual: proyectos.proyecto2
+        proyActual: proyectos.proyecto2,
       },
       slider3: {
         tipo: "telefono",
         posicion: "proy3",
-        proyActual: proyectos.proyecto1
+        proyActual: proyectos.proyecto1,
       },
       slider4: {
         tipo: "telefono",
         posicion: "proy4",
-        proyActual: proyectos.proyecto3
+        proyActual: proyectos.proyecto3,
       },
-    }
+    };
   }
   render() {
     return (
@@ -134,9 +134,10 @@ class Proyectos extends React.Component {
             }
           }
 
-          @media screen and (min-width: 750px) {
+          @media screen and (min-width: 720px) {
             .proyectos {
               height: 700px;
+              margin: 1rem 10%;
             }
 
           }
@@ -149,16 +150,9 @@ class Proyectos extends React.Component {
             .proyectos h2 {
             transform: translate(-5%, 290%) rotate(-90deg);
           }
-
-          @media screen and (min-width: 1200px) {
-            .proyectos {
-              width: 1200px;
-              margin: auto;
-            }
-          }
         `}</style>
       </div>
-    )
+    );
   }
 }
 

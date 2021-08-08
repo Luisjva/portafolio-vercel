@@ -311,22 +311,24 @@ export default function Index() {
           .incluye-contenedor-2 {
             height: 11rem;
           }
+
+          .sobre-mi {
+            padding: 0 10%;
+          }
+
+          .en-trabajos {
+            padding: 0 10%;
+          }
+
+          .incluye {
+            width: 100%;
+            padding-bottom: 2rem;
+          }
         }
 
         @media screen and (min-width: 800px) {
-          .sobre-mi {
-            padding: 5% 10%;
-          }
-
           .div {
             padding: 5% 10%;
-          }
-        }
-
-        @media screen and (min-width: 900px) {
-          .incluye {
-            width: 90%;
-            margin: auto;
           }
         }
 

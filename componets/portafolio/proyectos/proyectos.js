@@ -293,12 +293,13 @@ class Proyectos extends Component {
               /* Si cambias este valor tambien cambia el mismo en portafolio.js */
               min-height: 95vh;
               display: grid;
-              grid-template-rows: repeat(3, auto);
+              grid-template-rows: 5% 4rem 4rem auto auto;
               grid-template-areas:
                 "no   na   nu"
                 "titu titu titu"
                 "vist vist vist"
-                "fder proy fizq";
+                "fder proy fizq"
+                "ta   tu   te";
               margin-right: 10vw;
             }
           }

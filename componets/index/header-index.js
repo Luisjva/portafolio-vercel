@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 class HeaderIndex extends React.Component {
   constructor(props) {
@@ -6,21 +6,17 @@ class HeaderIndex extends React.Component {
     this.state = { tituloActual: 0 };
 
     this.cambio = this.cambio.bind(this);
-  } componentDidMount() {
-    this.timerID = setInterval(
-      () => this.cambio(),
-      10000
-    );
+  }
+  componentDidMount() {
+    this.timerID = setInterval(() => this.cambio(), 10000);
   }
 
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
 
-
-
   cambio() {
-    let estado = this.state.tituloActual
+    let estado = this.state.tituloActual;
     let ahora = estado + 1;
     this.setState({ tituloActual: ahora });
 
@@ -28,7 +24,7 @@ class HeaderIndex extends React.Component {
 
     if (ahora >= todoH1.length) {
       this.setState({ tituloActual: 0 });
-      ahora = 0
+      ahora = 0;
     }
     for (let i = 0; i < todoH1.length; i++) {
       todoH1[i].classList.add("none");
@@ -42,7 +38,9 @@ class HeaderIndex extends React.Component {
       <header>
         <div>
           <h1 className="header-h1">De una idea, a tu nueva pagina web</h1>
-          <h1 className="header-h1 none">Te ayudo a tener la mejor pagina web para tus necesidades</h1>
+          <h1 className="header-h1 none">
+            Te ayudo a tener la mejor pagina web para tus necesidades
+          </h1>
         </div>
         <div className="div-img">
           <img src="/yo2.png" className="img" />
@@ -52,7 +50,9 @@ class HeaderIndex extends React.Component {
             display: grid;
             grid-template-columns: 3fr 2fr;
             grid-template-rows: auto;
-            grid-template-areas: "izq der";            background: linear-gradient(to right, #373b4449, #4286f449), url("/header-index.jpg");
+            grid-template-areas: "izq der";
+            background: linear-gradient(to right, #373b4449, #4286f449),
+              url("/header-index.jpg");
             background-size: cover;
             color: #fff;
             height: 250px;
@@ -61,9 +61,9 @@ class HeaderIndex extends React.Component {
 
           .header-h1 {
             opacity: 1;
-            transition: .3s;
+            transition: 0.3s;
             position: absolute;
-            top:50%;
+            top: 50%;
             left: 10px;
             transform: translateY(-50%);
             margin-block-start: 0;
@@ -74,7 +74,7 @@ class HeaderIndex extends React.Component {
           .none {
             opacity: 0;
           }
-          
+
           .div-img {
             position: relative;
           }
@@ -84,7 +84,7 @@ class HeaderIndex extends React.Component {
             height: 230px;
             bottom: 0;
             left: 55%;
-            transform: translateX(-50%)
+            transform: translateX(-50%);
           }
 
           @media screen and (min-width: 640px) {
@@ -94,7 +94,7 @@ class HeaderIndex extends React.Component {
             }
 
             .img {
-              height: 250px
+              height: 250px;
             }
 
             .header-h1 {
@@ -103,10 +103,10 @@ class HeaderIndex extends React.Component {
             }
           }
 
-          @media screen and (min-width: 800px) {
+          @media screen and (min-width: 720px) {
             header {
               padding: 0 15%;
-              height: 280px
+              height: 280px;
             }
 
             .img {
@@ -114,13 +114,13 @@ class HeaderIndex extends React.Component {
             }
 
             .header-h1 {
-              left: 10%;
-              padding-right: 10%;
+              left: 20%;
+              padding-right: 15%;
             }
           }
         `}</style>
       </header>
-    )
+    );
   }
 }
 
