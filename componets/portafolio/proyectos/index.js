@@ -56,11 +56,7 @@ export default function Proyectos() {
 
   const cambiar = (fin) => {
     //Scroll para la derecha
-    if (
-      touchInicio > fin &&
-      touchInicio - fin > widthAqui * 0.2 &&
-      scroll + widthAqui /** 0.95*/ < maxScroll
-    ) {
+    if (touchInicio > fin && scroll + widthAqui /** 0.95*/ < maxScroll) {
       let nuevoScroll = scroll + widthAqui * 0.95;
 
       setTimeout(() => {
@@ -69,7 +65,7 @@ export default function Proyectos() {
 
       setscroll(nuevoScroll);
       //Scroll para la izquierda
-    } else if (touchInicio < fin && fin - touchInicio > widthAqui * 0.22) {
+    } else if (touchInicio < fin) {
       let nuevoScroll;
       if (scroll - widthAqui * 0.95 > 0) {
         nuevoScroll = scroll - widthAqui * 0.95;
