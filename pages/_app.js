@@ -1,12 +1,22 @@
-import '../normalize.css';
-import '../estilos.css';
+import "../normalize.css";
+import "../estilos.css";
 import Nav from "../componets/nav";
 import Head from "next/head";
-import Footer from "../componets/footer"
+import { createContext, useContext, useEffect, useState } from "react";
 
-
+export const MedidasContext = createContext();
 
 export default function MyApp({ Component, pageProps }) {
+  const [medidas, setMedidas] = useState({ width: 300, height: 300 });
+
+  useEffect(() => {
+    setMedidas({ width: innerWidth, height: innerHeight });
+
+    window.addEventListener("resize", () => {
+      setMedidas({ width: innerWidth, height: innerHeight - 16 * 3 });
+    });
+  }, []);
+
   return (
     <div className="body">
       <Head>
@@ -14,13 +24,16 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content="#4286f4" />
         <link rel="shortcut icon" href="fav.ico" />
         <style>
-          @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&family=Yanone+Kaffeesatz&display=swap');
+          @import
+          url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&family=Yanone+Kaffeesatz&display=swap');
         </style>
       </Head>
       <Nav />
-      <div className="contenedor">
-        <Component {...pageProps} />
-      </div>
+      <MedidasContext.Provider value={medidas}>
+        <div className="contenedor">
+          <Component {...pageProps} />
+        </div>
+      </MedidasContext.Provider>
     </div>
-  )
+  );
 }

@@ -306,10 +306,10 @@ export default function Index() {
           }
         }
 
-        @media screen and (min-width: 720px) {
+        @media screen and (min-width: 700px) {
           .incluye-contenedor-1,
           .incluye-contenedor-2 {
-            height: 11rem;
+            height: 14rem;
           }
 
           .sobre-mi {

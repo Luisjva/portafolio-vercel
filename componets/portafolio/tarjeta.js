@@ -4,7 +4,7 @@ export default function Tarjeta() {
       <img className="tarjeta__img" src="/yo.png" />
       <div className="tarjeta__izquierda">
         <h2 className="tarjeta__nombre">
-          Luis <h2 className="nombre-identado">Villegas</h2>
+          Luis <span className="nombre-identado">Villegas</span>
         </h2>
         <h3 className="tarjeta__sub">Desarrollador Web</h3>
         <p className="tarjeta__texto">
@@ -46,6 +46,11 @@ export default function Tarjeta() {
           position: relative;
         }
 
+        .tarjeta__nombre > span {
+          font-weight: bold;
+          font-family: "Yanone Kaffeesatz", sans-serif;
+        }
+
         .nombre-identado {
           font-size: 2.2rem;
           color: #979184;
@@ -75,7 +80,13 @@ export default function Tarjeta() {
           }
 
           .tarjeta {
-            margin-left: 10vw;
+            margin-left: 5vw;
+          }
+        }
+
+        @media screen and (min-width: 950px) {
+          .tarjeta {
+            margin-left: 8vw;
           }
         }
       `}</style>

@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Tarjeta from "../componets/portafolio/tarjeta";
-import Proyectos from "../componets/portafolio/proyectos/proyectos";
-import Habilidades from "../componets/portafolio/habilidades/habilidades";
 import Formulario from "../componets/formulario";
+import Proyectos from "../componets/portafolio/proyectos";
+import Habilidades from "../componets/portafolio/habilidades";
 
 export default function Portafolio() {
   return (
@@ -32,53 +32,26 @@ export default function Portafolio() {
           grid-area: tarjeta;
         }
 
-        .main {
-          padding-bottom: 0;
-        }
-
         .proyectos {
           grid-area: proyectos;
-        }
-
-        .formulario {
-          grid-area: contacto;
         }
 
         .habilidades {
           grid-area: habilidades;
         }
 
-        @media screen and (min-width: 720px) {
+        .formulario {
+          grid-area: contacto;
+        }
+
+        @media screen and (min-width: 600px) {
           .main {
-            /* Si cambias este valor tambien cambia el mismo en proyectos */
-            min-height: 95vh;
             display: grid;
-            grid-template-columns: 50% auto;
-            grid-template-rows: repeat(5, auto);
             grid-template-areas:
-              "nada        proyectos"
               "tarjeta     proyectos"
               "habilidades proyectos"
-              "contacto    proyectos"
-              "todo        proyectos";
-          }
-        }
-
-        @media screen and (min-width: 720px) {
-          .formulario {
-            margin-left: 10vw;
-          }
-        }
-
-        @media screen and (min-width: 800px) {
-          .main {
-            grid-template-columns: 45% auto;
-          }
-        }
-
-        @media screen and (min-width: 850px) {
-          .main {
-            grid-template-columns: 40% auto;
+              "contacto    proyectos";
+            grid-template-columns: 1fr 1fr;
           }
         }
       `}</style>

@@ -136,7 +136,7 @@ class Proyectos extends React.Component {
 
           @media screen and (min-width: 720px) {
             .proyectos {
-              height: 700px;
+              height: 600px;
               margin: 1rem 10%;
             }
 
