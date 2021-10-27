@@ -130,8 +130,8 @@ export default function Proyectos() {
       </div>
       <div
         className="proyectos-s"
-        onTouchEnd={(e) => touch(e)}
-        onTouchStart={(e) => touch(e)}
+        /*onTouchEnd={(e) => touch(e)}
+        onTouchStart={(e) => touch(e)}*/
       >
         {widthAqui != null &&
           listProyectos.map((proyecto) => {
@@ -159,6 +159,11 @@ export default function Proyectos() {
         .proyectos__contenedor {
           background: linear-gradient(#373b44, #4077d1);
           border-radius: 10px;
+          display: grid;
+          grid-template-areas:
+            "flecha-iz titulo    flecha-de"
+            "flecha-iz proyectos flecha-de";
+          grid-template-columns: 6% auto 6%;
           margin: 0.5rem;
           padding: 1rem;
         }
@@ -176,7 +181,7 @@ export default function Proyectos() {
           display: grid;
           grid-area: proyectos;
           grid-auto-flow: column;
-          overflow-x: scroll;
+          overflow-x: hidden;
           overflow-y: hidden;
           scroll-behavior: smooth;
           width: ${widthAqui * 0.95}px;
@@ -189,7 +194,6 @@ export default function Proyectos() {
 
         .flecha-iz {
           color: #fff;
-          display: none;
           font-size: 2.7rem;
           grid-area: flecha-iz;
           margin: auto;
@@ -202,7 +206,6 @@ export default function Proyectos() {
 
         .flecha-de {
           color: #fff;
-          display: none;
           font-size: 2.7rem;
           grid-area: flecha-de;
           margin: auto;
@@ -223,19 +226,7 @@ export default function Proyectos() {
 
         @media screen and (min-width: 450px) {
           .proyectos__contenedor {
-            display: grid;
-            grid-template-areas:
-              "flecha-iz titulo    flecha-de"
-              "flecha-iz proyectos flecha-de";
             grid-template-columns: 6% auto 6%;
-          }
-
-          .flecha-iz {
-            display: block;
-          }
-
-          .flecha-de {
-            display: block;
           }
         }
 

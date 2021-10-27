@@ -18,7 +18,7 @@ export default function Habilidad({ tecnologia, recursos }) {
       <ul className={`habilidad__ul__${tecnologia}`}>
         {recursos.map((recurso) => {
           return (
-            <li>
+            <li key={recurso.nombre}>
               <a target="_blank" href={recurso.link}>
                 {recurso.nombre}
               </a>
