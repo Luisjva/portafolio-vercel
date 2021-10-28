@@ -145,6 +145,7 @@ export default function Proyectos() {
                 github={proyecto.github}
                 linkProyecto={proyecto.linkProyecto}
                 img={proyecto.img}
+                enProceso={proyecto.enProceso}
               />
             );
           })}

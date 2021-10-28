@@ -8,6 +8,7 @@ export default function Proyecto({
   github,
   linkProyecto,
   img,
+  enProceso,
 }) {
   return (
     <div className="proyecto__contenedor">
@@ -21,12 +22,18 @@ export default function Proyecto({
         </p>
         <p>{descripcion}</p>
 
-        <a href={github} target="_blank">
-          Ver código
-        </a>
-        <a href={linkProyecto} target="_blank">
-          Ver proyecto
-        </a>
+        {!enProceso ? (
+          <>
+            <a href={github} target="_blank">
+              Ver código
+            </a>
+            <a href={linkProyecto} target="_blank">
+              Ver proyecto
+            </a>
+          </>
+        ) : (
+          <button>En proceso</button>
+        )}
       </div>
 
       <style jsx>{`
@@ -63,7 +70,8 @@ export default function Proyecto({
         }
 
         .tecnologias > span,
-        a {
+        a,
+        button {
           background: #fff3;
           border: none;
           border-radius: 5px;

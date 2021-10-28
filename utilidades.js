@@ -1,5 +1,16 @@
 export const listProyectos = [
-  /*{
+  {
+    id: 7,
+    nombre: "Blog",
+    tecnologias: ["PHP", "CSS", "MySQL"],
+    github: "#",
+    linkProyecto: "#",
+    descripcion:
+      "Blog completamente funcional creado desde 0, con panel de control para el administrador",
+    img: ["proy7-1", "proy7-2", "proy7-3", "proy7-4"],
+    enProceso: true,
+  } /*
+  {
     id: 6,
     nombre: "Tienda online",
     tecnologias: ["Next js", "CSS", "MySQL"],
@@ -8,7 +19,8 @@ export const listProyectos = [
     descripcion:
       "###### ##### ### #### #### #### ### ##### ###### ###### ### #### ### ### ###### ## ###",
     img: ["proy6-1", "proy6-2", "proy6-3", "proy6-4"],
-  },*/
+    enProceso: true,
+  },*/,
   {
     id: 5,
     nombre: "Blog",
@@ -18,6 +30,7 @@ export const listProyectos = [
     descripcion:
       "Es un blog donde se puede navegar entre varias publicaciones, creado con Express Js con el motor de plantilla Pug.",
     img: ["proy5-1", "proy5-2", "proy5-3", "proy5-4"],
+    enProceso: false,
   },
   {
     id: 4,
@@ -26,8 +39,9 @@ export const listProyectos = [
     github: "https://github.com/Luisjva/weather-app",
     linkProyecto: "https://luisjva.github.io/weather-app/",
     descripcion:
-      "Una aplicación del clima que muestra información del tiempo actual en 5 ciudades. La aplicación fue creada con React y la ayuda de la API de weatherbit.io.",
+      "Una aplicación que muestra información del tiempo actual en 5 ciudades. Está fue creada con React y la ayuda de la API de weatherbit.io.",
     img: ["proy4-1", "proy4-2", "proy4-3", "proy4-4"],
+    enProceso: false,
   },
   {
     id: 3,
@@ -38,6 +52,7 @@ export const listProyectos = [
     descripcion:
       "Juego de tres en línea creado con HTML, CSS y JavaScript, con la finalidad de practicar lógica de programación en el front-end.",
     img: ["proy3-1", "proy3-2", "proy3-3", "proy3-4"],
+    enProceso: false,
   },
   {
     id: 2,
@@ -57,6 +72,7 @@ export const listProyectos = [
     linkProyecto: "https://portafolio-kappa.vercel.app/portafolio",
     descripcion: "Mi portafolio (Esta página), fue creado con Next Js.",
     img: ["proy1-1", "proy1-2", "proy1-3", "proy1-4"],
+    enProceso: false,
   },
 ];
 
