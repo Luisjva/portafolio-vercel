@@ -8,126 +8,51 @@ let contenedor;
 
 export default function Proyectos() {
   const { width } = useContext(MedidasContext);
-  const [maxScroll, setMaxScroll] = useState(0);
-  const [touchInicio, setTouchInicio] = useState(undefined);
-  const [scroll, setscroll] = useState(0);
   const [widthAqui, setWidthAqui] = useState(null);
-
-  const touch = (e) => {
-    if (e._reactName == "onTouchStart") {
-      setTouchInicio(e.changedTouches[0].clientX);
-    } else {
-      //contenedor.scroll(maxScroll, 0);
-      setTimeout(() => {
-        cambiar(e.changedTouches[0].clientX);
-      }, 200);
-    }
-  };
+  const [nSliderActual, setNSliderActual] = useState(0);
 
   const flecha = (e) => {
-    if (
-      e.target.innerHTML == "❯" &&
-      scroll + widthAqui < maxScroll - widthAqui * 0.3
-    ) {
-      if (scroll + widthAqui * 0.5 < maxScroll) {
-        let nuevoScroll = scroll + widthAqui * 0.95;
+    contenedor = document.querySelector(".proyectos-s");
+    let widthA = contenedor.clientWidth;
 
+    if (e.target.innerText == "❯") {
+      let nuevoSliderActual = nSliderActual + 1;
+      if (nSliderActual < listProyectos.length - 1) {
+        contenedor.scroll(widthA * nuevoSliderActual, 0);
+        setNSliderActual(nuevoSliderActual);
+      } else {
+        contenedor.scroll(widthA * (nuevoSliderActual - 0.5), 0);
         setTimeout(() => {
-          contenedor.scroll(nuevoScroll, 0);
-        }, 200);
-
-        setscroll(nuevoScroll);
+          contenedor.scroll(widthA * nSliderActual, 0);
+        }, 400);
       }
-    } else {
-      let nuevoScroll;
-      if (scroll - widthAqui * 0.95 > 0) {
-        nuevoScroll = scroll - widthAqui * 0.95;
-      } else {
-        nuevoScroll = 0;
+    } else if (e.target.innerText == "❮") {
+      if (nSliderActual > 0) {
+        let nuevoSliderActual = nSliderActual - 1;
+        contenedor.scroll(widthA * nuevoSliderActual, 0);
+        setNSliderActual(nuevoSliderActual);
       }
-      setTimeout(() => {
-        contenedor.scroll(nuevoScroll, 0);
-      }, 200);
-
-      setscroll(nuevoScroll);
-      //Si no se hace suficiente scroll
-    }
-  };
-
-  const cambiar = (fin) => {
-    //Scroll para la derecha
-    if (
-      touchInicio > fin &&
-      touchInicio - fin > widthAqui * 0.1 &&
-      scroll + widthAqui /** 0.95*/ < maxScroll
-    ) {
-      let nuevoScroll = scroll + widthAqui * 0.95;
-
-      setTimeout(() => {
-        contenedor.scroll(nuevoScroll, 0);
-      }, 200);
-
-      setscroll(nuevoScroll);
-      //Scroll para la izquierda
-    } else if (touchInicio < fin && fin - touchInicio > widthAqui * 0.1) {
-      let nuevoScroll;
-      if (scroll - widthAqui * 0.95 > 0) {
-        nuevoScroll = scroll - widthAqui * 0.95;
-      } else {
-        nuevoScroll = 0;
-      }
-      setTimeout(() => {
-        contenedor.scroll(nuevoScroll, 0);
-      }, 200);
-
-      setscroll(nuevoScroll);
-      //Si no se hace suficiente scroll
-    } else {
-      setTimeout(() => {
-        contenedor.scroll(scroll, 0);
-      }, 200);
     }
   };
 
   useEffect(() => {
     setWidthAqui(null);
-
-    let titulo = document.querySelector(".titulo");
     contenedor = document.querySelector(".proyectos-s");
-
-    let widthA = contenedor.clientWidth;
-
+    let titulo = document.querySelector(".titulo");
     setTimeout(() => {
       setWidthAqui(titulo.clientWidth);
-      setMaxScroll(contenedor.scrollWidth - widthA);
-    }, 100);
-  }, []);
-
-  useEffect(() => {
-    setWidthAqui(null);
-
-    let titulo = document.querySelector(".titulo");
-    contenedor = document.querySelector(".proyectos-s");
-
-    let widthA = contenedor.clientWidth;
-
-    contenedor.scroll(0, 0);
-
-    setTimeout(() => {
-      setWidthAqui(titulo.clientWidth);
-      setscroll(0);
-      setMaxScroll(contenedor.scrollWidth - widthA);
-    }, 100);
+      contenedor.scroll(nSliderActual * contenedor.clientWidth, 0);
+    }, 200);
   }, [width]);
 
   return (
     <div className="proyectos__contenedor">
       <h2 className="titulo">Proyectos</h2>
-      <div className="flecha-iz">
-        <p onClick={(e) => flecha(e)} value="der">
-          &#10094;
-        </p>
-      </div>
+      {nSliderActual !== 0 && (
+        <div className="flecha-iz">
+          <p onClick={(e) => flecha(e)}>&#10094;</p>
+        </div>
+      )}
       <div
         className="proyectos-s"
         /*onTouchEnd={(e) => touch(e)}
@@ -149,13 +74,13 @@ export default function Proyectos() {
               />
             );
           })}
-        <div style={{ width: widthAqui * 0.5 }}></div>
+        <div style={{ width: widthAqui, height: "50px" }}></div>
       </div>
-      <div className="flecha-de">
-        <p onClick={(e) => flecha(e)} value="izq">
-          &#10095;
-        </p>
-      </div>
+      {nSliderActual !== listProyectos.length - 1 && (
+        <div className="flecha-de">
+          <p onClick={(e) => flecha(e)}>&#10095;</p>
+        </div>
+      )}
       <style jsx>{`
         .proyectos__contenedor {
           background: linear-gradient(#373b44, #4077d1);
@@ -194,6 +119,8 @@ export default function Proyectos() {
         }
 
         .flecha-iz {
+          animation-duration: 0.5s;
+          animation-name: fade;
           color: #fff;
           font-size: 2.7rem;
           grid-area: flecha-iz;
@@ -206,6 +133,8 @@ export default function Proyectos() {
         }
 
         .flecha-de {
+          animation-duration: 0.5s;
+          animation-name: fade;
           color: #fff;
           font-size: 2.7rem;
           grid-area: flecha-de;
@@ -215,6 +144,15 @@ export default function Proyectos() {
           position: relative;
           text-align: center;
           cursor: pointer;
+        }
+
+        @keyframes fade {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
 
         .flecha-iz > p,
