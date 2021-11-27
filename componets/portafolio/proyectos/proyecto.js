@@ -1,4 +1,6 @@
-import Img from "./proyecto-img";
+import Img2 from "./proyecto-img-2";
+import Img3 from "./proyecto-img-3";
+import Img4 from "./proyecto-img-4";
 
 export default function Proyecto({
   width,
@@ -12,7 +14,9 @@ export default function Proyecto({
 }) {
   return (
     <div className="proyecto__contenedor">
-      <Img width={width} img={img} />
+      {img.length == 2 && <Img2 width={width} img={img} />}
+      {img.length == 3 && <Img3 width={width} img={img} />}
+      {img.length == 4 && <Img4 width={width} img={img} />}
       <div className="proyecto__info">
         <h3>{nombre}</h3>
         <p className="tecnologias">

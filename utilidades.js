@@ -29,7 +29,7 @@ export const listProyectos = [
     linkProyecto: "http://a2ndocean.herokuapp.com/",
     descripcion:
       "Es un blog donde se puede navegar entre varias publicaciones, creado con Express Js con el motor de plantilla Pug.",
-    img: ["proy5-1", "proy5-2", "proy5-3", "proy5-4"],
+    img: ["proy5-1", "proy5-2", "proy5-3"],
     enProceso: false,
   },
   {
@@ -40,7 +40,7 @@ export const listProyectos = [
     linkProyecto: "https://luisjva.github.io/weather-app/",
     descripcion:
       "Una aplicación que muestra información del tiempo actual en 5 ciudades. Está fue creada con React y la ayuda de la API de weatherbit.io.",
-    img: ["proy4-1", "proy4-2", "proy4-3", "proy4-4"],
+    img: ["proy4-1", "proy4-2"],
     enProceso: false,
   },
   {
@@ -51,7 +51,7 @@ export const listProyectos = [
     linkProyecto: "https://luisjva.github.io/tren-en-linea/",
     descripcion:
       "Juego de tres en línea creado con HTML, CSS y JavaScript, con la finalidad de practicar lógica de programación en el front-end.",
-    img: ["proy3-1", "proy3-2", "proy3-3", "proy3-4"],
+    img: ["proy3-1", "proy3-2", "proy3-3"],
     enProceso: false,
   },
   {
