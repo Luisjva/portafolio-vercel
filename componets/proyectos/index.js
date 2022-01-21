@@ -23,6 +23,8 @@ export default function Proyectos() {
     });
     setOrden(ordenInicial);
 
+    if (timerId) clearTimeout(timerId);
+
     let contenedor = document.querySelector(".contenedor__proyectos");
     setMedidas({
       height: contenedor.clientHeight,
@@ -37,17 +39,26 @@ export default function Proyectos() {
         width: contenedor.clientWidth,
       });
     });
+
+    timerId = setTimeout(() => {
+      reOrdenar(orden[1]);
+    });
   }, []);
 
   useEffect(() => {
     for (let i = 0; i < listProyectos.length; i++) {
       if (orden[0] === listProyectos[i].id) {
         if (i !== info) {
+          if (timerId) clearTimeout(timerId);
+
           setCargandoInfo(true);
           setTimeout(() => {
             setInfo(i);
             setCargandoInfo(false);
           }, 300);
+          timerId = setTimeout(() => {
+            reOrdenar(orden[1]);
+          }, 10000);
         }
       }
     }
