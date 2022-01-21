@@ -25,25 +25,6 @@ h6 {
   background-color: #fff;
 }
 
-.body {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 41.09px auto auto;
-  grid-template-areas:
-    "nav"
-    "contenedor"
-    "footer";
-  background-color: #fff;
-}
-
-main {
-  grid-area: main;
-}
-
-footer {
-  grid-area: footer;
-}
-
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -53,6 +34,8 @@ body {
   background: #fff;
 }
 
-.contenedor {
-  grid-area: contenedor;
+.responsive {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
 }

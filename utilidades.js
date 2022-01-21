@@ -7,7 +7,7 @@ export const listProyectos = [
     linkProyecto: "#",
     descripcion:
       "Blog completamente funcional creado desde 0, con panel de control para el administrador",
-    img: ["proy7-1", "proy7-2", "proy7-3", "proy7-4"],
+    img: "proy7.png",
     enProceso: true,
   } /*
   {
@@ -29,7 +29,7 @@ export const listProyectos = [
     linkProyecto: "http://a2ndocean.herokuapp.com/",
     descripcion:
       "Es un blog donde se puede navegar entre varias publicaciones, creado con Express Js con el motor de plantilla Pug.",
-    img: ["proy5-1", "proy5-2", "proy5-3"],
+    img: "proy5.png",
     enProceso: false,
   },
   {
@@ -40,7 +40,7 @@ export const listProyectos = [
     linkProyecto: "https://luisjva.github.io/weather-app/",
     descripcion:
       "Una aplicación que muestra información del tiempo actual en 5 ciudades. Está fue creada con React y la ayuda de la API de weatherbit.io.",
-    img: ["proy4-1", "proy4-2"],
+    img: "proy4.png",
     enProceso: false,
   },
   {
@@ -51,7 +51,7 @@ export const listProyectos = [
     linkProyecto: "https://luisjva.github.io/tren-en-linea/",
     descripcion:
       "Juego de tres en línea creado con HTML, CSS y JavaScript, con la finalidad de practicar lógica de programación en el front-end.",
-    img: ["proy3-1", "proy3-2", "proy3-3"],
+    img: "proy3.png",
     enProceso: false,
   },
   {
@@ -62,17 +62,7 @@ export const listProyectos = [
     linkProyecto: "https://luisjva.github.io/Maqueta1/",
     descripcion:
       "Esta maqueta de un sitio web simple fue creada con solo HTML y CSS.",
-    img: ["proy2-1", "proy2-2", "proy2-3", "proy2-4"],
-  },
-  {
-    id: 1,
-    nombre: "Portafolio",
-    tecnologias: ["Next js", "CSS"],
-    github: "https://github.com/Luisjva/portafolio-vercel",
-    linkProyecto: "https://portafolio-kappa.vercel.app/portafolio",
-    descripcion: "Mi portafolio (Esta página), fue creado con Next Js.",
-    img: ["proy1-1", "proy1-2", "proy1-3", "proy1-4"],
-    enProceso: false,
+    img: "proy1.png",
   },
 ];
 
@@ -81,16 +71,22 @@ export const listHabilidades = [
     tecnologia: "HTML",
     recursos: [
       {
-        nombre: "MDN: Lenguaje de etiquetas de hipertexto",
+        nombre: "Lenguaje de etiquetas de hipertexto",
+        fuente: "Curso de MDN",
         link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+        img: "/htmlmdn.png",
       },
       {
-        nombre: "w3schools: Tutorial de HTML",
+        nombre: "Tutorial de HTML",
+        fuente: "Curso de w3schools",
         link: "https://www.w3schools.com/html/default.asp",
+        img: "/htmlw3.png",
       },
       {
-        nombre: "Youtube: Curso de HTML5 desde CERO (Completo)",
+        nombre: "Curso de HTML5 desde CERO (Completo)",
+        fuente: "Curso en Youtube",
         link: "https://www.youtube.com/watch?v=kN1XP-Bef7w",
+        img: "/htmly.png",
       },
     ],
   },
@@ -98,16 +94,22 @@ export const listHabilidades = [
     tecnologia: "CSS",
     recursos: [
       {
-        nombre: "MDN: CSS",
+        nombre: "CSS",
+        fuente: "Curso de MDN",
         link: "https://developer.mozilla.org/es/docs/Web/CSS",
+        img: "/cssmdn.png",
       },
       {
-        nombre: "w3schools: Tutorial CSS",
+        nombre: "Tutorial CSS",
+        fuente: "Curso de w3schools",
         link: "https://www.w3schools.com/css/default.asp",
+        img: "/cssw3.png",
       },
       {
-        nombre: "Youtube: Curso de CSS desde CERO (Completo)",
+        nombre: "Curso de CSS desde CERO (Completo)",
+        fuente: "Curso en Youtube",
         link: "https://www.youtube.com/watch?v=OWKXEJN67FE",
+        img: "/cssy.png",
       },
     ],
   },
@@ -115,16 +117,22 @@ export const listHabilidades = [
     tecnologia: "JavaScript",
     recursos: [
       {
-        nombre: "MDN: JavaScript",
+        nombre: "JavaScript",
+        fuente: "Curso de MDN",
         link: "https://developer.mozilla.org/es/docs/Web/JavaScript",
+        img: "/jsmdn.png",
       },
       {
         nombre: "w3schools: Tutorial JavaScript",
+        fuente: "Curso de w3schools",
         link: "https://www.w3schools.com/js/default.asp",
+        img: "/jsw3.png",
       },
       {
-        nombre: "Youtube: Curso de JavaScript desde CERO (Completo)",
+        nombre: "Curso de JavaScript desde CERO (Completo)",
+        fuente: "Curso en Youtube",
         link: "https://www.youtube.com/watch?v=z95mZVUcJ-E&list=PLE8uP447fYpiBqMVF1hdWl9uFeVEeXRTm",
+        img: "/jsy.png",
       },
     ],
   },
@@ -134,11 +142,15 @@ export const listHabilidades = [
     recursos: [
       {
         nombre: "Documentación oficial",
+        fuente: undefined,
         link: "https://es.reactjs.org/docs/getting-started.html",
+        img: "/reactd.png",
       },
       {
-        nombre: "Youtube: Curso React.js",
+        nombre: "Curso React.js",
+        fuente: "Curso en Youtube",
         link: "https://www.youtube.com/watch?v=MPLN1ahXgcs&list=PLvq-jIkSeTUZ5XcUw8fJPTBKEHEKPMTKk",
+        img: "/reacty.png",
       },
     ],
   },
@@ -147,15 +159,21 @@ export const listHabilidades = [
     recursos: [
       {
         nombre: "Documentación oficial",
+        fuente: undefined,
         link: "https://nextjs.org/docs/getting-started",
+        img: "/nextd.png",
       },
       {
-        nombre: "Youtube: Curso de NextJs",
+        nombre: "Curso de NextJs",
+        fuente: "Curso en Youtube",
         link: "https://www.youtube.com/watch?v=M2gcOpfrsFw&list=PL_7HoiqMMaOeJe04VOdwRlrnU2cWjJKG5",
+        img: "/nexty.png",
       },
       {
-        nombre: "Youtube: Curso gratuito de NextJs y Firebase",
+        nombre: "Curso gratuito de NextJs y Firebase",
+        fuente: "Curso en Youtube",
         link: "https://www.youtube.com/watch?v=2jxc8DMzt0I&list=PLV8x_i1fqBw1VR86y4C72xMGJ8ifjBwJ6",
+        img: "/nexty2.png",
       },
     ],
   },
@@ -163,8 +181,10 @@ export const listHabilidades = [
     tecnologia: "Git",
     recursos: [
       {
-        nombre: "Youtube: Curso Práctico de Git Y GutHub ",
+        nombre: "Curso Práctico de Git Y GutHub ",
+        fuente: "Curso en Youtube",
         link: "https://www.youtube.com/watch?v=HiXLkL42tMU",
+        img: "/git.png",
       },
     ],
   },
@@ -173,11 +193,15 @@ export const listHabilidades = [
     recursos: [
       {
         nombre: "Documentación oficial",
-        link: "https://nodejs.org/en/download/",
+        fuente: undefined,
+        link: "https://nodejs.org/en/docs/",
+        img: "/noded.png",
       },
       {
-        nombre: "Youtube: Curso de Node",
+        nombre: "Curso de Node",
+        fuente: "Curso en Youtube",
         link: "https://www.youtube.com/watch?v=mG4U9t5nWG8&list=PLPl81lqbj-4IEnmCXEJeEXPepr8gWtsl6",
+        img: "/nodey.png",
       },
     ],
   },
@@ -185,9 +209,18 @@ export const listHabilidades = [
     tecnologia: "PHP",
     recursos: [
       {
-        nombre: "Youtube: Aprende a programar en PHP y MySQL",
+        nombre: "Aprende a programar en PHP y MySQL",
+        fuente: "Curso en Youtube",
         link: "https://www.youtube.com/watch?v=GQCFWzkRcBc&list=PLMCtO4953x-7S0RhIEoPHifalcGAwwKHt&index=1",
+        img: "/phpy.png",
       },
     ],
   },
 ];
+
+export const colores = {
+  principal: "#373b44",
+  secundario: "#4077d1",
+  blanco: "#fff",
+  negro: "#000",
+};

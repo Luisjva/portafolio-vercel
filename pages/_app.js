@@ -1,8 +1,7 @@
 import "../normalize.css";
 import "../estilos.css";
-import Nav from "../componets/nav";
 import Head from "next/head";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const MedidasContext = createContext();
 
@@ -28,9 +27,8 @@ export default function MyApp({ Component, pageProps }) {
           url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&family=Yanone+Kaffeesatz&display=swap');
         </style>
       </Head>
-      <Nav />
       <MedidasContext.Provider value={medidas}>
-        <div className="contenedor">
+        <div>
           <Component {...pageProps} />
         </div>
       </MedidasContext.Provider>
