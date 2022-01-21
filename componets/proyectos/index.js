@@ -23,8 +23,6 @@ export default function Proyectos() {
     });
     setOrden(ordenInicial);
 
-    if (timerId) clearTimeout(timerId);
-
     let contenedor = document.querySelector(".contenedor__proyectos");
     setMedidas({
       height: contenedor.clientHeight,
@@ -39,10 +37,6 @@ export default function Proyectos() {
         width: contenedor.clientWidth,
       });
     });
-
-    timerId = setTimeout(() => {
-      reOrdenar(orden[1]);
-    }, 10000);
   }, []);
 
   useEffect(() => {
@@ -56,9 +50,6 @@ export default function Proyectos() {
             setInfo(i);
             setCargandoInfo(false);
           }, 300);
-          timerId = setTimeout(() => {
-            reOrdenar(orden[1]);
-          }, 10000);
         }
       }
     }
