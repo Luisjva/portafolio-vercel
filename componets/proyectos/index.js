@@ -49,7 +49,7 @@ export default function Proyectos() {
     for (let i = 0; i < listProyectos.length; i++) {
       if (orden[0] === listProyectos[i].id) {
         if (i !== info) {
-          if (timerId) clearTimeout(timerId);
+          clearTimeout(timerId);
 
           setCargandoInfo(true);
           setTimeout(() => {
