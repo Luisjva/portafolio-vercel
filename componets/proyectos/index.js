@@ -42,7 +42,7 @@ export default function Proyectos() {
 
     timerId = setTimeout(() => {
       reOrdenar(orden[1]);
-    });
+    }, 10000);
   }, []);
 
   useEffect(() => {
