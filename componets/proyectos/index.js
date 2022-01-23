@@ -1,9 +1,10 @@
+import { createContext, useEffect, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+
 import { colores, listHabilidades } from "../../utilidades";
 import ContImg from "./cont-img";
 import { listProyectos } from "../../utilidades";
-
-import { createContext, useEffect, useState } from "react";
-import Link from "next/link";
 
 export const OrdenContext = createContext();
 export const MedidasContext = createContext();
@@ -14,7 +15,9 @@ export default function Proyectos() {
   const [medidas, setMedidas] = useState({ height: 500, width: 300 });
   const [cargandoInfo, setCargandoInfo] = useState(false);
   const [info, setInfo] = useState(0);
-  let timerId;
+
+  const router = useRouter();
+  const { locale } = router;
 
   useEffect(() => {
     let ordenInicial = [];
@@ -26,7 +29,7 @@ export default function Proyectos() {
     let contenedor = document.querySelector(".contenedor__proyectos");
     setMedidas({
       height: contenedor.clientHeight,
-      width: contenedor.clientWidth,
+      width: innerWidth,
     });
     window.addEventListener("resize", () => {
       setAlturaInfo(innerWidth * 0.6 * 1.77);
@@ -34,7 +37,7 @@ export default function Proyectos() {
       let contenedor = document.querySelector(".contenedor__proyectos");
       setMedidas({
         height: contenedor.clientHeight,
-        width: contenedor.clientWidth,
+        width: innerWidth,
       });
     });
   }, []);
@@ -43,8 +46,6 @@ export default function Proyectos() {
     for (let i = 0; i < listProyectos.length; i++) {
       if (orden[0] === listProyectos[i].id) {
         if (i !== info) {
-          clearTimeout(timerId);
-
           setCargandoInfo(true);
           setTimeout(() => {
             setInfo(i);
@@ -82,23 +83,33 @@ export default function Proyectos() {
           </MedidasContext.Provider>
         </OrdenContext.Provider>
         <div className={cargandoInfo ? "info info--cargando" : "info"}>
-          <h3>{listProyectos[info].nombre}</h3>
+          <h3>
+            {locale === "es"
+              ? listProyectos[info].nombre
+              : listProyectos[info].name}
+          </h3>
           <ul className="info-tecnologias">
             {listProyectos[info].tecnologias.map((tecnologia) => {
               return <li key={tecnologia}>{tecnologia}</li>;
             })}
           </ul>
-          <p>{listProyectos[info].descripcion}</p>
+          <p>
+            {locale === "es"
+              ? listProyectos[info].descripcion
+              : listProyectos[info].description}
+          </p>
           <div className="info__link">
             {listProyectos[info].enProceso ? (
-              <a className="no-tocar">En proceso</a>
+              <a className="no-tocar">
+                {locale === "es" ? "En proceso" : "In process"}
+              </a>
             ) : (
               <>
                 <Link href={listProyectos[info].github}>
-                  <a>Ver código</a>
+                  <a>{locale === "es" ? "Ver código" : "See code"}</a>
                 </Link>
                 <Link href={listProyectos[info].linkProyecto}>
-                  <a>Ver proyecto</a>
+                  <a>{locale === "es" ? "Ver proyecto" : "See project"}</a>
                 </Link>
               </>
             )}
@@ -114,8 +125,9 @@ export default function Proyectos() {
           );
           height: 90vh;
           max-height: 650px;
+          min-height: 490px;
           overflow: hidden;
-          width: 100%;
+          width: 100vw;
         }
 
         .contenido__proyectos {

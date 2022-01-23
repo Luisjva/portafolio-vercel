@@ -1,11 +1,23 @@
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Contacto() {
+  const router = useRouter();
+  const { locale } = router;
+
   return (
     <div className="contacto">
-      <p>No esperes más para tener la página que quieres.</p>
-      <p>Contáctame ahora!!!</p>
+      {locale === "es" ? (
+        <>
+          <p>No esperes más para tener la página que quieres.</p>
+          <p>Contáctame ahora!!!</p>
+        </>
+      ) : (
+        <>
+          <p>Do not wait any longer to have the page you want.</p>
+          <p>Contact me now!!!</p>
+        </>
+      )}
 
       <div>
         <a href="mailto:luisjva16@gmail.com">
@@ -16,7 +28,10 @@ export default function Contacto() {
             height="100"
           />
         </a>
-        <a href="https://www.instagram.com/luisjva.es/" target="_blank">
+        <a
+          href={`https://www.instagram.com/luisjva.${locale}/`}
+          target="_blank"
+        >
           <Image
             src="/logoinstagram.svg"
             alt="Picture of the author"
@@ -31,6 +46,7 @@ export default function Contacto() {
           display: grid;
           margin-top: 1.5rem;
           margin-bottom: 3rem;
+          width: 100%;
         }
 
         p {
@@ -47,6 +63,7 @@ export default function Contacto() {
           display: flex;
           justify-content: space-around;
           width: 400px;
+          max-width: 100vw;
           margin: auto;
         }
 

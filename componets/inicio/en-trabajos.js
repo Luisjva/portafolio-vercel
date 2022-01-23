@@ -1,31 +1,73 @@
+import { useRouter } from "next/router";
+import Image from "next/image";
+
 import { colores } from "../../utilidades";
 
 export default function EnTrabajos() {
+  const router = useRouter();
+  const { locale } = router;
+
   return (
     <div className="en-trabajos">
       <div className="responsive">
-        <h2>En mis trabajos siempre:</h2>
+        <h2>
+          {locale === "es" ? "En mis trabajos siempre:" : "In my jobs always:"}
+        </h2>
         <div className="en-trabajos__items">
           <div className="en-trabajos__item en-trabajos__item-1">
-            <h3>Carga de pagina rapida</h3>
+            <div>
+              <Image
+                src="/header-index.jpg"
+                alt="foto del autor"
+                width={1000}
+                height={1000 / 1.5}
+              />
+            </div>
+            <h3>
+              {locale === "es" ? "Carga de pagina rapida" : "fast page load"}
+            </h3>
             <p>
-              Hoy en día el 57% de los usuarios abandonan la web si tarda más de
-              3 segundos en cargar. Por esto su negocio necesita la pagina mas
-              rapida posible.
+              {locale === "es"
+                ? "Hoy en día el 57% de los usuarios abandonan la web si tarda más de 3 segundos en cargar. Por esto su negocio necesita la pagina mas rapida posible."
+                : "Today 57% of users leave the web if it takes more than 3 seconds to load. This is why your business needs the fastest page possible."}
             </p>
           </div>
           <div className="en-trabajos__item en-trabajos__item-2">
-            <h3>Responsive design</h3>
+            <div>
+              <Image
+                src="/responsive.jpg"
+                alt="foto del autor"
+                width={500}
+                height={500 / 1.5}
+              />
+            </div>
+            <h3>
+              {locale === "es" ? "Responsive design" : "Responsive design"}
+            </h3>
             <p>
-              Cuando un usuario entra a tu web, quieres que no importa desde que
-              dispositivo entre, la pagina se vea perfecta
+              {locale === "es"
+                ? "Cuando un usuario entra a tu web, quieres que no importa desde que dispositivo entre, la pagina se vea perfecta."
+                : "When a user enters your website, you want the page to look perfect no matter what device they enter from."}
             </p>
           </div>
           <div className="en-trabajos__item en-trabajos__item-3">
-            <h3>Uso sus colores corporativos para la creación de la página</h3>
+            <div>
+              <Image
+                src="/colores.jpg"
+                alt="foto del autor"
+                width={500}
+                height={500 / 1.5}
+              />
+            </div>
+            <h3>
+              {locale === "es"
+                ? "Uso sus colores corporativos para la creación de la página"
+                : "Use your corporate colors to create the page"}
+            </h3>
             <p>
-              Estó hará que los usuarios al entrar en su pagina se identifiquen
-              con los colores de su negocio.
+              {locale === "es"
+                ? "Estó hará que los usuarios al entrar en su pagina se identifiquen con los colores de su negocio."
+                : "This will make users identify themselves with the colors of your business when entering your page."}
             </p>
           </div>
         </div>
@@ -39,6 +81,7 @@ export default function EnTrabajos() {
           );
           color: #fff;
           padding: 1rem;
+          width: 100vw;
         }
 
         .en-trabajos > div > h2 {
@@ -58,42 +101,40 @@ export default function EnTrabajos() {
           text-align: center;
           padding: 0.5rem 0.7rem;
           margin: 0.5rem;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .en-trabajos__item > div {
+          background: #0007;
+          height: 100%;
+          position: absolute;
+          width: 100%;
+          left: 0;
+          top: 0;
+          transform: translateY(-50%);
         }
 
         .en-trabajos__item > h3 {
           font-size: 1.3rem;
+          position: relative;
+          z-index: 100;
+        }
+
+        .en-trabajos__item > p {
+          position: relative;
+          z-index: 100;
         }
 
         .en-trabajos__item-1 {
-          background: linear-gradient(
-              ${colores.principal}aa,
-              ${colores.principal}aa
-            ),
-            url("/header-index.jpg");
-          background-size: cover;
-          background-position: center;
           grid-area: carga;
         }
 
         .en-trabajos__item-2 {
-          background: linear-gradient(
-              ${colores.principal}aa,
-              ${colores.principal}aa
-            ),
-            url("/responsive.png");
-          background-size: cover;
-          background-position: center;
           grid-area: respo;
         }
 
         .en-trabajos__item-3 {
-          background: linear-gradient(
-              ${colores.principal}aa,
-              ${colores.principal}aa
-            ),
-            url("/colores.png");
-          background-size: cover;
-          background-position: center;
           grid-area: color;
         }
 

@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function SobreMi() {
-  const [width, setWidth] = useState(300);
+  const [width, setWidth] = useState(0);
+
+  const router = useRouter();
+  const { locale } = router;
 
   useEffect(() => {
     setWidth(innerWidth);
+
+    console.log(innerWidth);
 
     window.addEventListener("resize", () => {
       setWidth(innerWidth);
@@ -14,7 +20,7 @@ export default function SobreMi() {
 
   return (
     <div className="sobre-mi">
-      <h2>Sobre mi</h2>
+      <h2>{locale === "es" ? "Sobre mi" : "About me"}</h2>
       <div className="sobre-mi__img">
         <Image
           src={`/yo.png`}
@@ -24,17 +30,32 @@ export default function SobreMi() {
         />
       </div>
       <div className="sobre-mi__text">
-        <p>
-          Mi nombre es Luis Villegas, soy Diseñador y Programador de páginas
-          web.
-          <br />
-          <br />
-          Mi misión es ayudar a EMPRENDEDORES AUTÓNOMOS y PEQUEÑAS EMPRESAS a
-          tener una web moderna y fresca para mejorar su imagen y sus ventas.
-          <br />
-          <br />
-          ¡Entonces, qué!...¿Hablamos?
-        </p>
+        {locale === "es" ? (
+          <p>
+            Mi nombre es Luis Villegas, soy Diseñador y Programador de páginas
+            web.
+            <br />
+            <br />
+            Mi misión es ayudar a EMPRENDEDORES AUTÓNOMOS y PEQUEÑAS EMPRESAS a
+            tener una web moderna y fresca para mejorar su imagen y sus ventas.
+            <br />
+            <br />
+            ¡Entonces, qué!...¿Hablamos?
+          </p>
+        ) : (
+          <p>
+            My name is Luis Villegas, I am a Designer and Programmer of web
+            pages.
+            <br />
+            <br />
+            My mission is to help SELF-EMPLOYED ENTREPRENEURS and SMALL
+            BUSINESSES to have a modern and fresh website to improve their image
+            and sales.
+            <br />
+            <br />
+            So, what!... Shall we talk?
+          </p>
+        )}
       </div>
       <style jsx>{`
         .sobre-mi {
@@ -45,6 +66,7 @@ export default function SobreMi() {
             "text";
           grid-template-columns: 1fr;
           margin-top: 1.5rem;
+          width: 100%;
         }
 
         .sobre-mi > h2 {

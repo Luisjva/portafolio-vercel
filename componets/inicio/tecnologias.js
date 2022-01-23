@@ -1,14 +1,21 @@
+import { useRouter } from "next/router";
+
 import { colores, listHabilidades } from "../../utilidades";
 import Tecnologia from "./tecnologia";
 
 export default function Tecnologias() {
+  const router = useRouter();
+  const { locale } = router;
+
   return (
     <div className="tecnologias">
-      <h2>Tecnologias</h2>
+      <h2>{locale === "es" ? "Tecnologias" : "Technologies"}</h2>
 
       <ul>
         {listHabilidades.map((habilidad) => {
-          return <Tecnologia habilidad={habilidad} />;
+          return (
+            <Tecnologia key={habilidad.tecnologia} habilidad={habilidad} />
+          );
         })}
       </ul>
       <style jsx>{`
@@ -16,6 +23,8 @@ export default function Tecnologias() {
           display: grid;
           margin-top: 1.5rem;
           margin-bottom: 0;
+          width: 100vw;
+          max-width: 900px;
         }
 
         h2 {

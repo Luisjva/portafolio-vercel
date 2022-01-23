@@ -1,10 +1,14 @@
-import { colores } from "../../utilidades";
-
-import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
+
+import { colores } from "../../utilidades";
 
 export default function Tecnologia({ habilidad }) {
   const [abierto, setAbierto] = useState(false);
+
+  const router = useRouter();
+  const { locale } = router;
 
   const abrir = () => {
     setAbierto(abierto ? false : true);
@@ -33,17 +37,21 @@ export default function Tecnologia({ habilidad }) {
       >
         {habilidad.recursos.map((recurso) => {
           return (
-            <a href={recurso.link} target="_blank">
-              <div
-                className="tecnologia__recurso"
-                style={{
-                  background: `linear-gradient(${colores.principal}77,${colores.principal}77), url(${recurso.img});`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <h4>{recurso.nombre}</h4>
-                {recurso.fuente && <span>{recurso.fuente}</span>}
+            <a key={recurso.link} href={recurso.link} target="_blank">
+              <div className="tecnologia__recurso">
+                <div className="tecnologia__recurso__img">
+                  <div></div>
+                  <Image
+                    src={recurso.img}
+                    alt="Picture of the author"
+                    width={380}
+                    height={380 / 1.93}
+                  />
+                </div>
+                <h4>{locale === "es" ? recurso.nombre : recurso.name}</h4>
+                {recurso.fuente && (
+                  <span>{locale === "es" ? recurso.fuente : recurso.from}</span>
+                )}
               </div>
             </a>
           );
@@ -102,10 +110,6 @@ export default function Tecnologia({ habilidad }) {
 
         .tecnologia__recurso {
           align-items: center;
-          background: linear-gradient(
-            ${colores.principal}77,
-            ${colores.principal}77
-          );
           border-radius: 15px;
           color: #fff;
           display: flex;
@@ -114,10 +118,28 @@ export default function Tecnologia({ habilidad }) {
           margin: 0.5rem 0;
           min-height: 70.61px;
           padding: 1rem;
+          position: relative;
           transition: 0.3s;
+          overflow: hidden;
         }
 
-        .tecnologia__recurso--abierto {
+        .tecnologia__recurso__img {
+          height: auto;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+
+        .tecnologia__recurso__img > div {
+          background: linear-gradient(
+            ${colores.principal}77,
+            ${colores.principal}77
+          );
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          z-index: 50;
         }
 
         .tecnologia__recurso:hover {
@@ -128,6 +150,13 @@ export default function Tecnologia({ habilidad }) {
           font-size: 1.1rem;
           margin-block-start: 0;
           margin-block-end: 0;
+          z-index: 100;
+          position: relative;
+        }
+
+        .tecnologia__recurso > span {
+          z-index: 100;
+          position: relative;
         }
 
         @media screen and (min-width: 600px) {
