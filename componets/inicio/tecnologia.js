@@ -44,8 +44,8 @@ export default function Tecnologia({ habilidad }) {
                   <Image
                     src={recurso.img}
                     alt="Picture of the author"
-                    width={380}
-                    height={380 / 1.93}
+                    width={600}
+                    height={600 / 1.93}
                   />
                 </div>
                 <h4>{locale === "es" ? recurso.nombre : recurso.name}</h4>
@@ -133,8 +133,8 @@ export default function Tecnologia({ habilidad }) {
 
         .tecnologia__recurso__img > div {
           background: linear-gradient(
-            ${colores.principal}77,
-            ${colores.principal}77
+            ${colores.principal}aa,
+            ${colores.principal}aa
           );
           height: 100%;
           width: 100%;

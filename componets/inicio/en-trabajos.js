@@ -16,6 +16,7 @@ export default function EnTrabajos() {
         <div className="en-trabajos__items">
           <div className="en-trabajos__item en-trabajos__item-1">
             <div>
+              <div></div>
               <Image
                 src="/header-index.jpg"
                 alt="foto del autor"
@@ -34,11 +35,12 @@ export default function EnTrabajos() {
           </div>
           <div className="en-trabajos__item en-trabajos__item-2">
             <div>
+              <div></div>
               <Image
                 src="/responsive.jpg"
                 alt="foto del autor"
-                width={500}
-                height={500 / 1.5}
+                width={650}
+                height={650 / 1.5}
               />
             </div>
             <h3>
@@ -52,11 +54,12 @@ export default function EnTrabajos() {
           </div>
           <div className="en-trabajos__item en-trabajos__item-3">
             <div>
+              <div></div>
               <Image
                 src="/colores.jpg"
                 alt="foto del autor"
-                width={500}
-                height={500 / 1.5}
+                width={650}
+                height={650 / 1.5}
               />
             </div>
             <h3>
@@ -106,13 +109,25 @@ export default function EnTrabajos() {
         }
 
         .en-trabajos__item > div {
-          background: #0007;
-          height: 100%;
+          height: auto;
           position: absolute;
           width: 100%;
           left: 0;
+          top: 50%;
+          transform: translatey(-50%);
+        }
+
+        .en-trabajos__item > div > div {
+          background: linear-gradient(
+            ${colores.principal}aa,
+            ${colores.principal}aa
+          );
+          height: 100%;
+          position: absolute;
+          left: 0;
           top: 0;
-          transform: translateY(-50%);
+          width: 100%;
+          z-index: 50;
         }
 
         .en-trabajos__item > h3 {
