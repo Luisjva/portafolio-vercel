@@ -11,7 +11,9 @@ export default function EnTrabajos() {
     <div className="en-trabajos">
       <div className="responsive">
         <h2>
-          {locale === "es" ? "En mis trabajos siempre:" : "In my jobs always:"}
+          {locale === "es"
+            ? "En mis trabajos siempre:"
+            : "In my work you´ll find:"}
         </h2>
         <div className="en-trabajos__items">
           <div className="en-trabajos__item en-trabajos__item-1">
@@ -25,7 +27,7 @@ export default function EnTrabajos() {
               />
             </div>
             <h3>
-              {locale === "es" ? "Carga de pagina rapida" : "fast page load"}
+              {locale === "es" ? "Pagina de carga rapido" : "Quick load page"}
             </h3>
             <p>
               {locale === "es"
@@ -48,8 +50,8 @@ export default function EnTrabajos() {
             </h3>
             <p>
               {locale === "es"
-                ? "Cuando un usuario entra a tu web, quieres que no importa desde que dispositivo entre, la pagina se vea perfecta."
-                : "When a user enters your website, you want the page to look perfect no matter what device they enter from."}
+                ? "Cuando un usuario entra a tu web, quieres que sin importar desde que dispositivo entre, la pagina se vea perfecta."
+                : "When an user enters your website, you want the page to look perfect no matter what device they´re using."}
             </p>
           </div>
           <div className="en-trabajos__item en-trabajos__item-3">
@@ -65,12 +67,12 @@ export default function EnTrabajos() {
             <h3>
               {locale === "es"
                 ? "Uso sus colores corporativos para la creación de la página"
-                : "Use your corporate colors to create the page"}
+                : "Use your brand colors on your website"}
             </h3>
             <p>
               {locale === "es"
                 ? "Estó hará que los usuarios al entrar en su pagina se identifiquen con los colores de su negocio."
-                : "This will make users identify themselves with the colors of your business when entering your page."}
+                : "This will make users identify themselves with the colors of your business when using your website."}
             </p>
           </div>
         </div>

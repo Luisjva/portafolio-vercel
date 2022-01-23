@@ -50,7 +50,7 @@ export const listProyectos = [
     descripcion:
       "Una aplicación que muestra información del tiempo actual en 5 ciudades. Está fue creada con React y la ayuda de la API de weatherbit.io.",
     description:
-      "An application that displays current weather information in 5 cities. It was created with React and the help of the weatherbit.io API.",
+      "An app that displays current weather information in 5 cities. It was created with React and the help of the weatherbit.io API.",
     img: "proy4.png",
     enProceso: false,
   },
@@ -77,8 +77,7 @@ export const listProyectos = [
     linkProyecto: "https://luisjva.github.io/Maqueta1/",
     descripcion:
       "Esta maqueta de un sitio web simple fue creada con solo HTML y CSS.",
-    description:
-      "This simple website mockup was created with just HTML and CSS.",
+    description: "This simple website mockup was created with HTML and CSS.",
     img: "proy1.png",
   },
 ];
