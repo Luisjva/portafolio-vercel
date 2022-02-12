@@ -103,6 +103,8 @@ export default function SobreMi() {
               "titu titu"
               "img  text";
             grid-template-columns: 1fr 1.7fr;
+            margin: 1.5rem auto 0 auto;
+            max-width: 750px;
           }
 
           .sobre-mi__text > p {

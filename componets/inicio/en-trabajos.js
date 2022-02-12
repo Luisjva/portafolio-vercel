@@ -46,7 +46,9 @@ export default function EnTrabajos() {
               />
             </div>
             <h3>
-              {locale === "es" ? "Responsive design" : "Responsive design"}
+              {locale === "es"
+                ? "Paginas adaptadas a cualquier dispositivo"
+                : "Responsive design"}
             </h3>
             <p>
               {locale === "es"

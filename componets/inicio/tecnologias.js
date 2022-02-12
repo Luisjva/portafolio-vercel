@@ -9,7 +9,11 @@ export default function Tecnologias() {
 
   return (
     <div className="tecnologias">
-      <h2>{locale === "es" ? "Tecnologias" : "Technologies"}</h2>
+      <h2>
+        {locale === "es"
+          ? "Tecnologias: Para que son y proyectos con cada una"
+          : "Technologies"}
+      </h2>
 
       <ul>
         {listHabilidades.map((habilidad) => {
@@ -32,6 +36,8 @@ export default function Tecnologias() {
           text-align: center;
           margin-block-start: 0;
           margin-block-end: 0.5rem;
+          margin-left: 10%;
+          margin-right: 10%;
         }
 
         .tecnologias > ul {

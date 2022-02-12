@@ -1,14 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-import { colores } from "../../utilidades";
+import { colores, listProyectos } from "../../utilidades";
 
 export default function Tecnologia({ habilidad }) {
   const [abierto, setAbierto] = useState(false);
+  const [listaProyectos, setListaProyectos] = useState(undefined);
 
   const router = useRouter();
   const { locale } = router;
+
+  useEffect(() => {
+    let proyectosAqui = [];
+    listProyectos.map((proyecto) => {
+      if (habilidad.idProyectos.includes(proyecto.id)) {
+        proyectosAqui.push(proyecto);
+      }
+    });
+    setListaProyectos(proyectosAqui);
+  }, []);
 
   const abrir = () => {
     setAbierto(abierto ? false : true);
@@ -31,31 +42,47 @@ export default function Tecnologia({ habilidad }) {
       <div
         className={
           abierto
+            ? "tecnologia__info"
+            : "tecnologia__info tecnologia__info--cerrado"
+        }
+      >
+        <p dangerouslySetInnerHTML={{ __html: habilidad.descripcion }}></p>
+      </div>
+      <div
+        className={
+          abierto
             ? "tecnologia__recursos"
             : "tecnologia__recursos tecnologia__recursos--cerrado"
         }
       >
-        {habilidad.recursos.map((recurso) => {
-          return (
-            <a key={recurso.link} href={recurso.link} target="_blank">
-              <div className="tecnologia__recurso">
-                <div className="tecnologia__recurso__img">
-                  <div></div>
-                  <Image
-                    src={recurso.img}
-                    alt="Picture of the author"
-                    width={600}
-                    height={600 / 1.93}
-                  />
+        {listaProyectos &&
+          listaProyectos.map((proyecto) => {
+            return (
+              <a
+                key={proyecto.linkProyecto}
+                href={proyecto.linkProyecto}
+                target="_blank"
+              >
+                <div className="tecnologia__recurso">
+                  <div className="tecnologia__recurso__img">
+                    <div></div>
+                    <Image
+                      src={"/" + proyecto.img}
+                      alt="Picture of the author"
+                      width={600}
+                      height={600 / 0.5625}
+                    />
+                  </div>
+                  <h4>{locale === "es" ? proyecto.nombre : proyecto.name}</h4>
+                  <span>
+                    {locale === "es"
+                      ? proyecto.descripcionCorta
+                      : proyecto.shortDescription}
+                  </span>
                 </div>
-                <h4>{locale === "es" ? recurso.nombre : recurso.name}</h4>
-                {recurso.fuente && (
-                  <span>{locale === "es" ? recurso.fuente : recurso.from}</span>
-                )}
-              </div>
-            </a>
-          );
-        })}
+              </a>
+            );
+          })}
       </div>
       <style jsx>{`
         li {
@@ -96,6 +123,21 @@ export default function Tecnologia({ habilidad }) {
           transform: rotate(180deg);
         }
 
+        .tecnologia__info {
+          transition: 0.1s;
+          padding-top: 1rem;
+          padding: 0 1rem;
+          margin: auto;
+          max-width: 650px;
+          text-align: center;
+        }
+
+        .tecnologia__info--cerrado {
+          overflow: hidden;
+          height: 0;
+          padding: 0 1rem;
+        }
+
         .tecnologia__recursos {
           transition: 0.1s;
           padding-top: 1rem;
@@ -121,6 +163,7 @@ export default function Tecnologia({ habilidad }) {
           position: relative;
           transition: 0.3s;
           overflow: hidden;
+          height: 90px;
         }
 
         .tecnologia__recurso__img {
@@ -157,6 +200,7 @@ export default function Tecnologia({ habilidad }) {
         .tecnologia__recurso > span {
           z-index: 100;
           position: relative;
+          text-align: center;
         }
 
         @media screen and (min-width: 600px) {
