@@ -1,6 +1,14 @@
-import Head from "next/head"
+import Head from "next/head";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Custom404() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/");
+  }, []);
+
   return (
     <div className="cuerpo">
       <Head>
@@ -9,7 +17,6 @@ export default function Custom404() {
       <main>
         <img src="/404.svg" />
         <p>La pagina que busco no existe</p>
-
       </main>
       <style jsx>{`
         .cuerpo {
@@ -25,5 +32,5 @@ export default function Custom404() {
         }
       `}</style>
     </div>
-  )
+  );
 }

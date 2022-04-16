@@ -17,15 +17,6 @@ export default function EnTrabajos() {
         </h2>
         <div className="en-trabajos__items">
           <div className="en-trabajos__item en-trabajos__item-1">
-            <div>
-              <div></div>
-              <Image
-                src="/header-index.jpg"
-                alt="foto del autor"
-                width={1000}
-                height={1000 / 1.5}
-              />
-            </div>
             <h3>
               {locale === "es" ? "Pagina de carga rapido" : "Quick load page"}
             </h3>
@@ -36,15 +27,6 @@ export default function EnTrabajos() {
             </p>
           </div>
           <div className="en-trabajos__item en-trabajos__item-2">
-            <div>
-              <div></div>
-              <Image
-                src="/responsive.jpg"
-                alt="foto del autor"
-                width={650}
-                height={650 / 1.5}
-              />
-            </div>
             <h3>
               {locale === "es"
                 ? "Paginas adaptadas a cualquier dispositivo"
@@ -57,15 +39,6 @@ export default function EnTrabajos() {
             </p>
           </div>
           <div className="en-trabajos__item en-trabajos__item-3">
-            <div>
-              <div></div>
-              <Image
-                src="/colores.jpg"
-                alt="foto del autor"
-                width={650}
-                height={650 / 1.5}
-              />
-            </div>
             <h3>
               {locale === "es"
                 ? "Uso sus colores corporativos para la creación de la página"
@@ -121,19 +94,6 @@ export default function EnTrabajos() {
           transform: translatey(-50%);
         }
 
-        .en-trabajos__item > div > div {
-          background: linear-gradient(
-            ${colores.principal}aa,
-            ${colores.principal}aa
-          );
-          height: 100%;
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          z-index: 50;
-        }
-
         .en-trabajos__item > h3 {
           font-size: 1.3rem;
           position: relative;
@@ -147,14 +107,35 @@ export default function EnTrabajos() {
 
         .en-trabajos__item-1 {
           grid-area: carga;
+          background: linear-gradient(
+              ${colores.principal}aa,
+              ${colores.principal}aa
+            ),
+            url("/header-index.jpg");
+          background-position: center;
+          background-size: cover;
         }
 
         .en-trabajos__item-2 {
           grid-area: respo;
+          background: linear-gradient(
+              ${colores.principal}aa,
+              ${colores.principal}aa
+            ),
+            url("/responsive.jpg");
+          background-position: center;
+          background-size: cover;
         }
 
         .en-trabajos__item-3 {
           grid-area: color;
+          background: linear-gradient(
+              ${colores.principal}aa,
+              ${colores.principal}aa
+            ),
+            url("/colores.jpg");
+          background-position: center;
+          background-size: cover;
         }
 
         @media screen and (min-width: 500px) {

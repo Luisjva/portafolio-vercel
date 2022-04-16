@@ -26,6 +26,7 @@ export default function Img({ proyecto }) {
         src={`/${proyecto.img}`}
         alt="Picture of the author"
         layout="fill"
+        priority
       />
       <style jsx>{`
         .proy-img {

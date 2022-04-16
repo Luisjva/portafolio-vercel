@@ -25,8 +25,8 @@ export default function SobreMi() {
         <Image
           src={`/yo.png`}
           alt="Picture of the author"
-          width={width < 500 ? 150 / 1.255 : 250 / 1.255}
-          height={width < 500 ? 150 : 250}
+          width={width < 500 ? 200 / 1.255 : 250 / 1.255}
+          height={width < 500 ? 200 : 250}
         />
       </div>
       <div className="sobre-mi__text">
@@ -62,8 +62,8 @@ export default function SobreMi() {
           display: grid;
           grid-template-areas:
             "titu"
-            "img"
-            "text";
+            "text"
+            "img";
           grid-template-columns: 1fr;
           margin-top: 1.5rem;
           width: 100%;

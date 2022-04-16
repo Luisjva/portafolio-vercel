@@ -131,11 +131,11 @@ export default function Proyectos() {
         }
 
         .contenido__proyectos {
-          width: 100%;
-          max-width: 700px;
-          margin: auto;
           height: 100%;
+          margin: auto;
+          max-width: 900px;
           position: relative;
+          width: 100%;
         }
 
         /*info*/
