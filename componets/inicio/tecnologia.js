@@ -14,7 +14,7 @@ export default function Tecnologia({ habilidad }) {
   useEffect(() => {
     let proyectosAqui = [];
     listProyectos.map((proyecto) => {
-      if (habilidad.idProyectos.includes(proyecto.id)) {
+      if (proyecto.tecnologias.includes(habilidad.tecnologia)) {
         proyectosAqui.push(proyecto);
       }
     });

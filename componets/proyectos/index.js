@@ -105,12 +105,12 @@ export default function Proyectos() {
               </a>
             ) : (
               <>
-                <Link href={listProyectos[info].github}>
-                  <a>{locale === "es" ? "Ver código" : "See code"}</a>
-                </Link>
-                <Link href={listProyectos[info].linkProyecto}>
-                  <a>{locale === "es" ? "Ver proyecto" : "See project"}</a>
-                </Link>
+                <a href={listProyectos[info].github} target="_blank">
+                  {locale === "es" ? "Ver código" : "See code"}
+                </a>
+                <a href={listProyectos[info].linkProyecto} target="_blank">
+                  {locale === "es" ? "Ver proyecto" : "See project"}
+                </a>
               </>
             )}
           </div>
@@ -171,14 +171,15 @@ export default function Proyectos() {
           list-style-type: none;
           padding-inline-start: 0;
           margin-block-start: 0;
-          margin-block-end: 0;
+          margin-block-end: 0.5rem;
         }
 
         .info > ul > li {
           background: #fff3;
-          padding: 0.3rem 0.5rem;
-          margin: 0.3rem 0.6rem 0.3rem 0;
           border-radius: 5px;
+          font-size: 0.8rem;
+          margin: 0.3em 0.6em 0.3em 0;
+          padding: 0.3em 0.5em;
         }
 
         .info__link {

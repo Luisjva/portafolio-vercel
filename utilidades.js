@@ -1,9 +1,25 @@
 export const listProyectos = [
   {
+    id: 8,
+    nombre: "Portafolio de Joras Ruz",
+    name: "Joras Ruz Portfolio",
+    tecnologias: ["HTML", "CSS", "JavaScript", "React", "Next"],
+    github: "https://github.com/Luisjva/portafolio-ruz",
+    linkProyecto: "https://portafolio-ruz.vercel.app//",
+    descripcion:
+      "Este es un portafolio creado para un diseñador local, en el cual se presentan algunos de sus diseños más resientes",
+    description:
+      "This is a portfolio created for a local designer, in which some of his most recent designs are presented.",
+    descripcionCorta: "Trabajo para un cliente",
+    shortDescription: "I work for a client",
+    img: "proy8.png",
+    enProceso: false,
+  },
+  {
     id: 7,
     nombre: "El restaurante",
     name: "The restaurant",
-    tecnologias: ["CSS", "React", "Next"],
+    tecnologias: ["HTML", "CSS", "JavaScript", "React", "Next"],
     github: "https://github.com/Luisjva/restaurant",
     linkProyecto: "https://restaurant-three-beta.vercel.app/",
     descripcion:
@@ -19,7 +35,7 @@ export const listProyectos = [
     id: 6,
     nombre: "DevBlog",
     name: "DevBlog",
-    tecnologias: ["PHP", "CSS", "MySQL"],
+    tecnologias: ["HTML", "PHP", "CSS", "MySQL"],
     github: "#",
     linkProyecto: "#",
     descripcion:
@@ -48,7 +64,7 @@ export const listProyectos = [
     id: 4,
     nombre: "2nd Oceand",
     name: "Blog",
-    tecnologias: ["Pug", "CSS", "Node js", "Express"],
+    tecnologias: ["Pug", "CSS", "Node", "Express"],
     github: "https://github.com/Luisjva/2ndOcean",
     linkProyecto: "http://a2ndocean.herokuapp.com/",
     descripcion:
@@ -64,7 +80,7 @@ export const listProyectos = [
     id: 3,
     nombre: "Aplicación del clima",
     name: "Wheather app",
-    tecnologias: ["React", "CSS", "API de weatherbit.io"],
+    tecnologias: ["HTML", "React", "CSS", "JavaScript", "API de weatherbit.io"],
     github: "https://github.com/Luisjva/weather-app",
     linkProyecto: "https://luisjva.github.io/weather-app/",
     descripcion:
@@ -114,7 +130,6 @@ export const listHabilidades = [
     descripcion: `HTML es el esqueleto de toda la web.
     <br/><br/>
     Este es el componente más básico de la Web. Define el significado y la estructura del contenido web. Además de HTML, generalmente se utilizan otras tecnologías para describir la apariencia de una página web (CSS) o la funcionalidad (JavaScript).`,
-    idProyectos: [1, 2, 3, 4, 6, 7],
     recursos: [
       {
         nombre: "Lenguaje de etiquetas de hipertexto",
@@ -147,7 +162,6 @@ export const listHabilidades = [
     descripcion: `CSS son los estilos de tu pagina web.
     <br/><br/>
     Mientras que los comandos HTML le indican al navegador que ciertas partes del texto son títulos, subtítulos, enlaces o párrafos, CSS es lo que le dice, entre otras cosas, qué fuente, tamaño, color o alineación debe tener un elemento de la página.`,
-    idProyectos: [1, 2, 3, 4, 6, 7],
     recursos: [
       {
         nombre: "CSS",
@@ -180,7 +194,6 @@ export const listHabilidades = [
     descripcion: `JavaScript le da funcionalidad a una pagina web.
     <br/><br/>
     Con este lenguaje de programación podemos crear efectos y animaciones sin ninguna interacción, o respondiendo a eventos causados por el propio usuario tales como botones pulsados, entre otros.`,
-    idProyectos: [2, 3, 4, 7],
     recursos: [
       {
         nombre: "JavaScript",
@@ -208,13 +221,11 @@ export const listHabilidades = [
       },
     ],
   },
-
   {
     tecnologia: "React",
     descripcion: `React Js es una herramienta creada por Facebook para desarrollar interfaces de usuario.
     <br/><br/>
     Esta aporta una serie de claras ventajas frente a la forma clásica de realizar una web, sus facilidades para el desarrollo unido al rendimiento, la flexibilidad y organización del código la convierten en una de las mejores opciones.`,
-    idProyectos: [3, 7],
     recursos: [
       {
         nombre: "Documentación oficial",
@@ -239,7 +250,6 @@ export const listHabilidades = [
     descripcion: `Next es React para producción.
     <br/><br/>
     Este es tomar todas las ventajas de usar React, pero sumando que tendrás optimización de imágenes(para mejorar la velocidad de carga de la página), dominios internacionales (por si tú página es abierta desde varios países, en el país que se abra este en el idioma correcto), entre otras cosas que mejoraran el rendimiento de tú página.`,
-    idProyectos: [3, 7],
     recursos: [
       {
         nombre: "Documentación oficial",
@@ -272,7 +282,6 @@ export const listHabilidades = [
     descripcion: `Node es JavaScript, del lado del servidor
     <br/><br/>
     La programación de lado-servidor nos permite por el contrario almacenar la información en una base de datos y devolver ficheros HTML y de otros tipos (ej, PDFs, imágenes, etc.). También es posible devolver simplemente datos (lista de productos, comidas de un menu, fotos de un portafolio, etc.)`,
-    idProyectos: [4],
     recursos: [
       {
         nombre: "Documentación oficial",
