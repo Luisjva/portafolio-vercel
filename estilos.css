@@ -34,6 +34,10 @@ body {
   background: #fff;
 }
 
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
 .responsive {
   width: 100%;
   max-width: 900px;

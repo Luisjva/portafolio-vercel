@@ -4,9 +4,10 @@ import { useRouter } from "next/router";
 
 import Contacto from "../componets/general/contacto";
 import EnTrabajos from "../componets/inicio/en-trabajos";
-import SobreMi from "../componets/inicio/sobre-mi";
+import Header from "../componets/inicio/header";
 import Tecnologias from "../componets/inicio/tecnologias";
 import Proyectos from "../componets/proyectos";
+import Testimonios from "../componets/general/testimonios";
 
 export default function Index() {
   const router = useRouter();
@@ -23,14 +24,17 @@ export default function Index() {
       <Head>
         <title>{tit} | Luis Villegas</title>
       </Head>
-      <Proyectos />
       <div className="responsive">
-        <SobreMi />
+        <Header />
       </div>
-      <EnTrabajos />
+      <Proyectos />
       <div className="responsive">
         <Tecnologias />
         <Contacto />
+      </div>
+      <EnTrabajos />
+      <div className="responsive">
+        <Testimonios />
       </div>
     </div>
   );
