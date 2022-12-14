@@ -48,7 +48,7 @@ export default function Nav() {
           position: fixed;
           top: 3vw;
           transform: translateX(-50%); 
-          width: 98vw;
+          width: 96vw;
           z-index: 200;
 
           backdrop-filter: blur(3px);
