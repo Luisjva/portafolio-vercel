@@ -1,31 +1,12 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-
-const contactos = [
-  {
-    nombre: "Instagram",
-    link: `https://www.instagram.com/luisjva.`,
-    img: "logo-ig.png",
-  },{
-    nombre: "Telegram",
-    link: "https://t.me/+584124248787",
-    img: "logo-telegram.png",
-  },{
-    nombre: "Linkedin",
-    link: "https://www.linkedin.com/in/luisvillegasj",
-    img: "logo-linkedin.png",
-  },{
-    nombre: "Correo",
-    link: "mailto:luisjva.16@gmail.com",
-    img: "logo-gmail.png",
-  }
-]
+import {contactos} from "./../../utilidades"
 
 function Contacto({img, link}) {
   return (
     <a href={link} target="_blank" className="contacto">
       <div className="contacto__bg">
-
+        <Image src={`/${img}`} width={80} height={80} />
       </div>
       <style jsx>{`
         .contacto {
@@ -34,11 +15,7 @@ function Contacto({img, link}) {
         }
 
         .contacto__bg {
-          width: 80px;
-          background: url(${img});
-          background-size: cover;
           filter: grayscale(50%);
-          height: 80px;
           transition: .5s;
         }
 

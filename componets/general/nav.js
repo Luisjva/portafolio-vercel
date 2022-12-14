@@ -10,84 +10,78 @@ export default function Nav() {
 
   return (
     <div className="nav">
+      <div className="nav__left">
+        <span>{locale == "es" ? "Idioma" : "Language"}</span>
+        <Link href="/" locale="es">
+          <span className={locale == "es" ? "nav__a--activo nav__a" : "nav__a nav__a--cerrado"}>ES</span>
+        </Link>
+        <Link href="/" locale="en">
+          <span className={locale == "en" ? "nav__a--activo nav__a" : "nav__a nav__a--cerrado"}>EN</span>
+        </Link>
+      </div>
       <Link href="/">
-        <Image src="/logo.png" width="45" height="45" />
+        <Image style={{filter: "invert(90%)"}} src="/logo.png" width="48" height="48" />
       </Link>
       <div className="nav__right">
-        <div className="nav__pages">
-          <Link href="/projects">
-            <span className="a">{locale == "en" ? "Projects" : "Proyectos"}</span>
-          </Link>
-          <Link href="/client">
-            <span className="a">{locale == "en" ? "Client" : "Clientes"}</span>
-          </Link>
-        </div>
-        <div className="idiomas">
-          <Link href="/" locale="en">
-            <span className={locale == "en" ? "a--activo a" : "a"}>EN</span>
-          </Link>
-          <Link href="/" locale="es">
-            <span className={locale == "es" ? "a--activo a" : "a"}>ES</span>
-          </Link>
-        </div>
+        <Link href="/projects">
+          <span className="nav__a nav__a--cerrado">{locale == "es" ? "Proyectos" : "Projects"}</span>
+        </Link>
+        <Link href="/client">
+          <span className="nav__a nav__a--cerrado">{locale == "es" ? "Clientes" : "Clients"}</span>
+        </Link>
       </div>
       <style jsx>{`
         .nav {
           align-items: center;
-          display: flex;
+          background: #fff7;
+          border-radius: 10px;
+          box-shadow: 3px 3px 15px #0007;
+          display: grid;
+          font-family: "Yanone Kaffeesatz", sans-serif;
+          font-weight: 800;
+          grid-template-columns: 1fr auto 1fr;
           justify-content: space-between;
-          height: auto;
-          padding: 0.05rem 0.5rem;
-          width: 100vw;
-          background: linear-gradient(
-            90deg,
-            ${colores.principal},
-            ${colores.secundario}
-          );
+          left: 50%;
+          padding: .1rem .5rem;
           position: fixed;
-          top: 0;
-          left: 0;
+          top: 1vw;
+          transform: translateX(-50%); 
+          width: 98vw;
           z-index: 200;
+
+          backdrop-filter: blur(3px);
         }
 
-        .idiomas {
-          align-items: center;
+        .nav__left {
           display: flex;
-          justify-content: space-around;
-          height: 100%;
-          width: 65px;
+          gap: .3rem;
         }
 
-        .a {
-          background: #fff4;
+        .nav__left > span {
+          margin-right: .2rem;
+        }
+
+        .nav__a {
+          padding: .25rem;
+          transition: .3s;
           border-radius: 5px;
-          color: #fff;
-          margin: .3rem;
-          padding: 0.3rem 0.3rem 0.2rem 0.3rem;
-          text-decoration: none;
-          transition: 0.3s;
+          color: #000;
         }
 
-        .a:hover {
-          background: #fff6;
+        .nav__a--cerrado:hover {
+          box-shadow: 2px 2px 5px #0005;
         }
 
-        .a--activo {
-          background: #fff8;
-        }
-
-        .a--activo:hover {
-          background: #fff8;
+        .nav__a--activo {
+          box-shadow: 2px 2px 5px #0005;
+          background: #0001;
+          cursor: default;
         }
 
         .nav__right {
           display: flex;
-          justify-content: center;
+          justify-content: right;
           align-items: center;
-        }
-
-        .nav__pages {
-          margin-right: 1rem;
         }
       `}</style>
     </div>

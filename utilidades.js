@@ -323,3 +323,23 @@ export const colores = {
   blanco: "#fff",
   negro: "#000",
 };
+
+export const contactos = [
+  {
+    nombre: "Instagram",
+    link: `https://www.instagram.com/luisjva.`,
+    img: "logo-ig.png",
+  },{
+    nombre: "Telegram",
+    link: "https://t.me/+584124248787",
+    img: "logo-telegram.png",
+  },{
+    nombre: "Linkedin",
+    link: "https://www.linkedin.com/in/luisvillegasj",
+    img: "logo-linkedin.png",
+  },{
+    nombre: "Correo",
+    link: "mailto:luisjva.16@gmail.com",
+    img: "logo-gmail.png",
+  }
+]
