@@ -25,7 +25,10 @@ export default function Img({ proyecto }) {
       <Image
         src={`/${proyecto.img}`}
         alt="Picture of the author"
-        layout="fill"
+        height={440}
+        width={258.81}
+        style={{width: "100%",height: "100%",
+          objectFit: "cover", objectPosition: "top"}}
         priority
       />
       <style jsx>{`

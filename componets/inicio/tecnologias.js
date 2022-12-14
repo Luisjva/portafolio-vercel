@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 import { colores, listHabilidades } from "../../utilidades";
 import Tecnologia from "./tecnologia";
@@ -7,15 +8,17 @@ export default function Tecnologias() {
   const router = useRouter();
   const { locale } = router;
 
+  const [width, setWidth] = useState(100);
+
   return (
-    <div className="tecnologias">
+    <div className="tecnologias responsive">
       <h2>
         {locale === "es"
           ? "Tecnologias: Para que son y proyectos con cada una"
           : "Technologies"}
       </h2>
 
-      <ul>
+      <ul className="tecnologias__ul-1">
         {listHabilidades.map((habilidad) => {
           return (
             <Tecnologia key={habilidad.tecnologia} habilidad={habilidad} />
@@ -40,7 +43,7 @@ export default function Tecnologias() {
           margin-right: 10%;
         }
 
-        .tecnologias > ul {
+        .tecnologias > .tecnologias__ul-1 {
           list-style-type: none;
           padding-inline-start: 0;
           margin-block-start: 0;
@@ -48,7 +51,7 @@ export default function Tecnologias() {
           margin: 0 1rem;
         }
 
-        .tecnologias > ul > li {
+        .tecnologias > .tecnologias__ul-1 > li {
           background: ${colores.principal}11;
           border-radius: 10px;
           padding: 0.5rem 1rem;
@@ -56,7 +59,7 @@ export default function Tecnologias() {
           transform: 0.3s;
         }
 
-        .tecnologias > ul > li > h3 {
+        .tecnologias > .tecnologias__ul-1 > li > h3 {
           font-size: 1.3rem;
           margin-block-start: 0;
           margin-block-end: 0;

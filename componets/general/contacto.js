@@ -1,16 +1,79 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-export default function Contacto() {
+const contactos = [
+  {
+    nombre: "Instagram",
+    link: `https://www.instagram.com/luisjva.`,
+    img: "logo-ig.png",
+  },{
+    nombre: "Telegram",
+    link: "https://t.me/+584124248787",
+    img: "logo-telegram.png",
+  },{
+    nombre: "Linkedin",
+    link: "https://www.linkedin.com/in/luisvillegasj",
+    img: "logo-linkedin.png",
+  },{
+    nombre: "Correo",
+    link: "mailto:luisjva.16@gmail.com",
+    img: "logo-gmail.png",
+  }
+]
+
+function Contacto({img, link}) {
+  return (
+    <a href={link} target="_blank" className="contacto">
+      <div className="contacto__bg">
+
+      </div>
+      <style jsx>{`
+        .contacto {
+          position: relative;
+          padding: 1rem;
+        }
+
+        .contacto__bg {
+          width: 80px;
+          background: url(${img});
+          background-size: cover;
+          filter: grayscale(50%);
+          height: 80px;
+          transition: .5s;
+        }
+
+        .contacto:hover .contacto__bg {
+          filter: grayscale(0%);
+          transform: scale(1.05);
+        }
+
+        .contacto > span {
+          font-size: 1.75rem;
+          text-align: center;
+          margin-block-start: 0;
+          margin-block-end: 0.5rem;
+          font-weight: bold;
+          font-family: "Yanone Kaffeesatz",sans-serif;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      `}</style>
+    </a>
+  )
+}
+
+export default function Contactos() {
   const router = useRouter();
   const { locale } = router;
 
   return (
-    <div className="contacto">
+    <div className="contactos">
       {locale === "es" ? (
         <>
           <p>No esperes más para tener la página que quieres.</p>
-          <p>Contáctame ahora!!!</p>
+          <p>Contácteme ahora!!!</p>
         </>
       ) : (
         <>
@@ -20,29 +83,21 @@ export default function Contacto() {
       )}
 
       <div>
-        <a href="mailto:luisjva16@gmail.com">
-          <Image
-            src="/Mail.svg"
-            alt="Picture of the author"
-            width="100"
-            height="100"
-          />
-        </a>
-        <a
-          href={`https://www.instagram.com/luisjva.${locale}/`}
-          target="_blank"
-        >
-          <Image
-            src="/logoinstagram.svg"
-            alt="Picture of the author"
-            width="68"
-            height="68"
-          />
-        </a>
+        {contactos.map((contacto)=>{
+          if(contacto.nombre == "Instagram") {
+            return(
+              <Contacto key={contacto.nombre} link={contacto.link + locale + "/"} img={contacto.img} titulo={contacto.nombre}/>
+            )
+          } else {
+            return(
+              <Contacto key={contacto.nombre} link={contacto.link} img={contacto.img} titulo={contacto.nombre}/>
+            )
+          }
+        })}
       </div>
 
       <style jsx>{`
-        .contacto {
+        .contactos {
           display: grid;
           margin-top: 1.5rem;
           margin-bottom: 3rem;
@@ -56,22 +111,27 @@ export default function Contacto() {
           margin-block-end: 0.5rem;
           font-weight: bold;
           font-family: "Yanone Kaffeesatz", sans-serif;
-        }
-
-        .contacto > div {
-          align-items: center;
-          display: flex;
-          justify-content: space-around;
-          width: 400px;
-          max-width: 100vw;
+          width: 90%;
+          max-width: 400px;
+          padding-top: 1rem;
           margin: auto;
         }
 
-        .contacto > div * {
+        .contactos > div {
+          align-items: center;
+          display: flex;
+          flex-flow: wrap;
+          justify-content: space-around;
+          width: 80%;
+          max-width: 600px;
+          margin: auto;
+        }
+
+        .contactos > div * {
           transition: 0.3s;
         }
 
-        .contacto > div *:hover {
+        .contactos > div *:hover {
           transform: scale(1.1);
         }
       `}</style>

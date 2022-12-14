@@ -23,7 +23,14 @@ export default function Header() {
         </h1>
         <div className="header__line"></div>
         <div className="header__text">
-          {locale === "es" ? <p>algo</p> : <p>something</p>}
+          <p>
+            {
+              locale === "es" ? 
+                "Me dedico a ser programador frontend, especializado en tecnologías como: ": 
+                "I dedicate myself to being a frontend programmer, specialized in technologies such as: "
+            }
+            Javascript, React js, Next js
+          </p>
         </div>
         <div className="header__btn">
           <button onClick={handleClick}
