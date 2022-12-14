@@ -19,9 +19,11 @@ export default function Nav() {
           <span className={locale == "en" ? "nav__a--activo nav__a" : "nav__a nav__a--cerrado"}>EN</span>
         </Link>
       </div>
-      <Link href="/">
-        <Image style={{filter: "invert(90%)"}} src="/logo.png" width="48" height="48" />
-      </Link>
+      <div className="nav__center">
+        <Link href="/">
+          <Image style={{filter: "invert(90%)"}} src="/logo.png" width="48" height="48" />
+        </Link>
+      </div>
       <div className="nav__right">
         <Link href="/projects">
           <span className="nav__a nav__a--cerrado">{locale == "es" ? "Proyectos" : "Projects"}</span>
@@ -44,7 +46,7 @@ export default function Nav() {
           left: 50%;
           padding: .1rem .5rem;
           position: fixed;
-          top: 1vw;
+          top: 3vw;
           transform: translateX(-50%); 
           width: 98vw;
           z-index: 200;
@@ -78,10 +80,32 @@ export default function Nav() {
           cursor: default;
         }
 
+        .nav__center {
+          transition: .3s;
+        }
+
+        .nav__center:hover {
+          transform: scale(1.1);
+        }
+
         .nav__right {
           display: flex;
           justify-content: right;
           align-items: center;
+        }
+        
+        @media screen and ( max-width: 350px) {
+          .nav {
+            font-size: 0.9rem
+          }
+        }
+
+        @media screen and (min-width: 500px) {
+          .nav {
+            max-width: 920px;
+            top: 15px;
+            padding: .1rem 1.5rem;
+          } 
         }
       `}</style>
     </div>
