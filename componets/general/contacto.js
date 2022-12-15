@@ -2,11 +2,11 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import {contactos} from "./../../utilidades"
 
-function Contacto({img, link}) {
+function Contacto({img, link, nombre}) {
   return (
     <a href={link} target="_blank" className="contacto">
       <div className="contacto__bg">
-        <Image src={`/${img}`} width={80} height={80} />
+        <Image alt={`Logo-${nombre}`} src={`/${img}`} width={80} height={80} />
       </div>
       <style jsx>{`
         .contacto {

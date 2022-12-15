@@ -25,8 +25,8 @@ export default function Img({ proyecto }) {
       <Image
         src={`/${proyecto.img}`}
         alt="Picture of the author"
-        height={440}
-        width={258.81}
+        height={220}
+        width={129.4}
         style={{width: "100%",height: "100%",
           objectFit: "cover", objectPosition: "top"}}
         priority

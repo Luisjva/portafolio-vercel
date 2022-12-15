@@ -21,7 +21,7 @@ export default function Nav() {
       </div>
       <div className="nav__center">
         <Link href="/">
-          <Image style={{filter: "invert(90%)"}} src="/logo.png" width="48" height="48" />
+          <Image alt="Logo de Luisjva" style={{filter: "invert(90%)"}} src="/logo.png" width="48" height="48" />
         </Link>
       </div>
       <div className="nav__right">

@@ -18,7 +18,7 @@ export default function Projects () {
               <title>Projects | Luis Villegas</title>
           </Head>
         <div className="responsive">
-              <p>Aquí va una descripción de cada proyecto pero mas extensa con las tecnologias que usaste</p>
+              <p>Aquí va una descripción de cada proyecto pero mas extensa con las tecnologías que usaste</p>
           </div>  
       </div>
     )

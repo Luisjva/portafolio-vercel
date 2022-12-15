@@ -82,11 +82,11 @@ export default function Proyectos() {
           </MedidasContext.Provider>
         </OrdenContext.Provider>
         <div className={cargandoInfo ? "info info--cargando" : "info"}>
-          <h3>
+          <p className="titulo">
             {locale === "es"
               ? listProyectos[info].nombre
               : listProyectos[info].name}
-          </h3>
+          </p>
           <ul className="info-tecnologias">
             {listProyectos[info].tecnologias.map((tecnologia) => {
               return <li key={tecnologia}>{tecnologia}</li>;
@@ -154,10 +154,11 @@ export default function Proyectos() {
           opacity: 0;
         }
 
-        .info > h3 {
+        .info > .titulo {
           font-size: 1.3rem;
           margin-block-start: 1rem;
           margin-block-end: 0;
+          font-weight: 800;
         }
 
         .info > p {

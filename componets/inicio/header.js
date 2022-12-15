@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <div className="header__contenedor">
       <div className="header">
-        <Image src="/logo-negro.png" width="75" height="75" />
+        <Image alt="Logo de Luisjva" src="/logo-negro.png" width="75" height="75" />
         <h1>
           {locale === "es"
             ? "Hola, soy "
@@ -41,7 +41,7 @@ export default function Header() {
         </div>
       </div>
       <div className="header__img">
-        <Image src="/header.svg" fill />
+        <Image alt="Imagen del header" src="/header.svg" fill />
       </div>
       <style jsx>{`
         .header__contenedor {
