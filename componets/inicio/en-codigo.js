@@ -32,7 +32,7 @@ export default function EnCodigo() {
         <div className="en-codigo__habilidades">
           {habilidades.map(({habilidad, descripcion, img}, index)=> {
             return (
-              <div className={`en-codigo__habilidad en-codigo__habilidad--${index}`}>
+              <div key={habilidad} className={`en-codigo__habilidad en-codigo__habilidad--${index}`}>
                 <Image alt={habilidad} src={img} width={80} height={80} />
                 <div>
                   <h3>{habilidad}</h3>
