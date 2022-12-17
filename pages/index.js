@@ -6,6 +6,7 @@ import Header from "../componets/inicio/header";
 import Tecnologias from "../componets/inicio/tecnologias";
 import Proyectos from "../componets/proyectos";
 import Testimonios from "../componets/general/testimonios";
+import EnCodigo from "../componets/inicio/en-codigo";
 
 export default function Index() {
 
@@ -21,11 +22,17 @@ export default function Index() {
       <div className="responsive">
         <Contactos />
       </div>
-      <EnTrabajos />
+      <EnCodigo/>
       <Tecnologias />
       <div className="responsive">
         <Testimonios />
       </div>
+
+      <style jsx>{`
+        .cuerpo {
+          margin-top: 60px;
+        }  
+      `}</style>
     </div>
   );
 }

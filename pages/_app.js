@@ -35,11 +35,6 @@ export default function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </div>
       </MedidasContext.Provider>
-      <style jsx>{`
-        .content {
-          margin-top: 50px;
-        }
-      `}</style>
     </div>
   );
 }
