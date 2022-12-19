@@ -27,7 +27,7 @@ export default function Tecnologias() {
     const li4 = document.querySelector(".tecnologia__ul__li__4");
     const li5 = document.querySelector(".tecnologia__ul__li__5");
 
-    setTimeout(() => {      
+    setTimeout(() => {
       li0.classList.toggle("tecnologia__ul__li__0--1");
       li1.classList.toggle("tecnologia__ul__li__1--1");
       li2.classList.toggle("tecnologia__ul__li__2--1");
@@ -36,8 +36,28 @@ export default function Tecnologias() {
       li5.classList.toggle("tecnologia__ul__li__5--1");
 
       setChange(change == false ? true : false)
-    }, 5000);
+    }, 6000);
   },[change])
+
+  const open = (number) => {
+    const li0 = document.querySelector(".tecnologia__ul__li__0");
+    const li1 = document.querySelector(".tecnologia__ul__li__1");
+    const li2 = document.querySelector(".tecnologia__ul__li__2");
+    const li3 = document.querySelector(".tecnologia__ul__li__3");
+    const li4 = document.querySelector(".tecnologia__ul__li__4");
+    const li5 = document.querySelector(".tecnologia__ul__li__5");
+    
+    li0.classList.remove("tecnologia__ul__li--open");
+    li1.classList.remove("tecnologia__ul__li--open");
+    li2.classList.remove("tecnologia__ul__li--open");
+    li3.classList.remove("tecnologia__ul__li--open");
+    li4.classList.remove("tecnologia__ul__li--open");
+    li5.classList.remove("tecnologia__ul__li--open");
+
+    const li = document.querySelector(`.tecnologia__ul__li__${number}`);
+
+    li.classList.add("tecnologia__ul__li--open");
+  }
 
   return (
     <div className="tecnologias responsive">
@@ -50,7 +70,7 @@ export default function Tecnologias() {
       <ul className="tecnologias__ul">
         {listHabilidades.map((habilidad, index)=> {
           return(
-            <li key={habilidad.tecnologia} className={`tecnologia__ul__li tecnologia__ul__li__${index}`}>
+            <li onClick={()=>open(index)} key={habilidad.tecnologia} className={`tecnologia__ul__li tecnologia__ul__li__${index}`}>
               <h3>{habilidad.tecnologia}</h3>
             </li>
           )
@@ -163,7 +183,11 @@ export default function Tecnologias() {
         }
 
         .tecnologia__ul__li--open {
-          
+          top: 10%;
+          left: 10%;
+          width: 80%;
+          height: 80%;
+          z-index: 150;
         }
       `}</style>
     </div>
