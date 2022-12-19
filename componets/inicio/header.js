@@ -68,6 +68,7 @@ export default function Header() {
           text-align: center;
           margin-block-start: 0;
           margin-block-end: 0;
+          font-weight: 600;
         }
 
         .header > h1 > span {

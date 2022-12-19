@@ -158,7 +158,8 @@ export default function Proyectos() {
           font-size: 1.3rem;
           margin-block-start: 1rem;
           margin-block-end: 0;
-          font-weight: 800;
+          font-weight: 600;
+          font-family: "Yanone Kaffeesatz", sans-serif;
         }
 
         .info > p {

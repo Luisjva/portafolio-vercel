@@ -58,6 +58,17 @@ export default function Tecnologias() {
 
     li.classList.add("tecnologia__ul__li--open");
   }
+  
+  const close = (e, number) => {
+    const li = document.querySelector(`.tecnologia__ul__li__${number}`);
+
+    console.log(li);
+
+    setTimeout(() => {
+      li.classList.remove("tecnologia__ul__li--open")
+    }, 50);
+
+  }
 
   return (
     <div className="tecnologias responsive">
@@ -72,6 +83,8 @@ export default function Tecnologias() {
           return(
             <li onClick={()=>open(index)} key={habilidad.tecnologia} className={`tecnologia__ul__li tecnologia__ul__li__${index}`}>
               <h3>{habilidad.tecnologia}</h3>
+              <span onClick={(e)=>close(e, index)}>x</span>
+              <p dangerouslySetInnerHTML={{__html: habilidad.descripcion}}></p>
             </li>
           )
         })}
@@ -92,6 +105,7 @@ export default function Tecnologias() {
           margin-block-end: 0.5rem;
           margin-left: 10%;
           margin-right: 10%;
+          font-weight: 800;
         }
 
         .tecnologias__ul {
@@ -107,15 +121,19 @@ export default function Tecnologias() {
         }
 
         .tecnologia__ul__li {
-          border-radius: 15px;
           background: #0007;
+          background: Linear-gradient(${colores.principal}, ${colores.secundario});
+          border-radius: 15px;
+          box-shadow: 5px 5px 10px #0007;
+          color:#fff;
+          padding: 1rem;
           position: absolute;
           transition: 1s;
-          padding: 1rem
         }
 
         .tecnologia__ul__li h3 {
           margin-block-start: 0;
+          font-weight: 400;
         }
         
         .tecnologia__ul__li__0 {
@@ -182,12 +200,62 @@ export default function Tecnologias() {
           width: ${(width * 2.1) / 3.2}px;
         }
 
+        .tecnologia__ul__li > span,
+        .tecnologia__ul__li > p {
+          display: none;
+        }
+
         .tecnologia__ul__li--open {
-          top: 10%;
-          left: 10%;
-          width: 80%;
-          height: 80%;
+          top: 5%;
+          left: 5%;
+          width: 90%;
+          height: 90%;
           z-index: 150;
+          background: ${colores.principal}bb;
+          font-size: 1.3rem;
+          overflow: auto;
+
+          backdrop-filter: blur(3px);
+        }
+        
+        .tecnologia__ul__li--open > p {
+          display: block;
+        }
+
+        .tecnologia__ul__li--open > span {
+          display: inline;
+          position: absolute;
+          top: 1rem;
+          right: 1.2rem;
+          font-weight: 800;
+          font-size: 1.5rem;
+          cursor: pointer;
+        }
+
+        @media screen and (min-width: 500px) {
+          .tecnologia__ul__li--open {
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            z-index: 150;
+            padding: 2rem;
+          }
+
+          .tecnologia__ul__li {
+            font-size: 1.3rem;
+            
+          }
+        }
+
+        @media screen and (min-width: 650px) {
+          .tecnologia__ul__li--open {
+            top: 10%;
+            left: 20%;
+            width: 60%;
+            height: 80%;
+            z-index: 150;
+          }
         }
       `}</style>
     </div>
