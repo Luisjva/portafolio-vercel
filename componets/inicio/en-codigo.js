@@ -12,7 +12,7 @@ const habilidades = [
     img: "/mt-optimizado.svg"
   },
   {
-    habilidad: "Buenas practicas",
+    habilidad: "Buenas prácticas",
     descripcion: "Al escribir código, siempre debemos pensar en que este puede ser cambiado en un futuro, por ellos escribir código con buenas practicas, ahora tiempo y trabajo a futuro.",
     img: "/mt-practicas.svg"
   },

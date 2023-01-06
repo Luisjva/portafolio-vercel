@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import { colores, listHabilidades } from "../../utilidades";
+import { colores, listHabilidades } from "../../../utilidades";
+import Cursos from "./cursos";
 
 export default function Tecnologias() {
   const router = useRouter();
@@ -74,7 +75,7 @@ export default function Tecnologias() {
     <div className="tecnologias responsive">
       <h2>
         {locale === "es"
-          ? "Tecnologias: Para que son y proyectos con cada una"
+          ? "Tecnologías: Para que son y proyectos con cada una"
           : "Technologies"}
       </h2>
 
@@ -84,7 +85,11 @@ export default function Tecnologias() {
             <li onClick={()=>open(index)} key={habilidad.tecnologia} className={`tecnologia__ul__li tecnologia__ul__li__${index}`}>
               <h3>{habilidad.tecnologia}</h3>
               <span onClick={(e)=>close(e, index)}>x</span>
-              <p dangerouslySetInnerHTML={{__html: habilidad.descripcion}}></p>
+              <div className="tecnologia__ul__li__content">
+                <p dangerouslySetInnerHTML={{__html: habilidad.descripcion}}></p>
+                <h4>Algunas los cursos que he realizado con esta tecnología son:</h4>
+                <Cursos recursos={habilidad.recursos}/>
+              </div>
             </li>
           )
         })}
@@ -133,6 +138,7 @@ export default function Tecnologias() {
 
         .tecnologia__ul__li h3 {
           margin-block-start: 0;
+          margin-block-end: 0;
           font-weight: 400;
         }
         
@@ -201,7 +207,7 @@ export default function Tecnologias() {
         }
 
         .tecnologia__ul__li > span,
-        .tecnologia__ul__li > p {
+        .tecnologia__ul__li__content {
           display: none;
         }
 
@@ -212,13 +218,15 @@ export default function Tecnologias() {
           height: 90%;
           z-index: 150;
           background: ${colores.principal}bb;
+          display: grid;
+          grid-template-rows: auto 1fr;
           font-size: 1.3rem;
           overflow: auto;
 
           backdrop-filter: blur(3px);
         }
         
-        .tecnologia__ul__li--open > p {
+        .tecnologia__ul__li--open > .tecnologia__ul__li__content {
           display: block;
         }
 
@@ -231,6 +239,20 @@ export default function Tecnologias() {
           font-size: 1.5rem;
           cursor: pointer;
         }
+        
+        .tecnologia__ul__li--open h3 {
+          font-size: 1.9rem;
+          font-weight: 800;
+        }
+
+        h4 {
+          font-size: 1.55rem;
+        }
+
+        .tecnologia__ul__li__content {
+          height: 100%;
+          overflow: auto;
+        }
 
         @media screen and (min-width: 500px) {
           .tecnologia__ul__li--open {
@@ -239,7 +261,7 @@ export default function Tecnologias() {
             width: 80%;
             height: 80%;
             z-index: 150;
-            padding: 2rem;
+            padding: 1.5rem;
           }
 
           .tecnologia__ul__li {

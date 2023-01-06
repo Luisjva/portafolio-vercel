@@ -1,9 +1,8 @@
 import Head from "next/head";
 
 import Contactos from "../componets/general/contacto";
-import EnTrabajos from "../componets/inicio/en-trabajos";
 import Header from "../componets/inicio/header";
-import Tecnologias from "../componets/inicio/tecnologias";
+import Tecnologias from "../componets/general/tecnologias/index";
 import Proyectos from "../componets/proyectos";
 import Testimonios from "../componets/general/testimonios";
 import EnCodigo from "../componets/inicio/en-codigo";
