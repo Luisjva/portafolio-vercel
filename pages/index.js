@@ -8,7 +8,6 @@ import Testimonios from "../componets/general/testimonios";
 import EnCodigo from "../componets/inicio/en-codigo";
 
 export default function Index() {
-
   return (
     <div className="cuerpo">
       <Head>
@@ -17,20 +16,20 @@ export default function Index() {
       <div className="responsive">
         <Header />
       </div>
-      <Proyectos/>
+      <Proyectos />
       <div className="responsive">
         <Contactos />
       </div>
-      <EnCodigo/>
+      <EnCodigo />
       <Tecnologias />
-      <div className="responsive">
+      {/*<div className="responsive">
         <Testimonios />
-      </div>
+      </div>*/}
 
       <style jsx>{`
         .cuerpo {
           margin-top: 60px;
-        }  
+        }
       `}</style>
     </div>
   );

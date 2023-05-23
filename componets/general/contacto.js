@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
-import {contactos} from "./../../utilidades"
+import { contactos } from "./../../utilidades";
 
-function Contacto({img, link, nombre}) {
+function Contacto({ img, link, nombre }) {
   return (
     <a href={link} target="_blank" className="contacto">
       <div className="contacto__bg">
@@ -16,7 +16,7 @@ function Contacto({img, link, nombre}) {
 
         .contacto__bg {
           filter: grayscale(50%);
-          transition: .5s;
+          transition: 0.5s;
         }
 
         .contacto:hover .contacto__bg {
@@ -30,7 +30,7 @@ function Contacto({img, link, nombre}) {
           margin-block-start: 0;
           margin-block-end: 0.5rem;
           font-weight: bold;
-          font-family: "Yanone Kaffeesatz",sans-serif;
+          font-family: "Yanone Kaffeesatz", sans-serif;
           position: absolute;
           top: 50%;
           left: 50%;
@@ -38,7 +38,7 @@ function Contacto({img, link, nombre}) {
         }
       `}</style>
     </a>
-  )
+  );
 }
 
 export default function Contactos() {
@@ -60,15 +60,25 @@ export default function Contactos() {
       )}
 
       <div>
-        {contactos.map((contacto)=>{
-          if(contacto.nombre == "Instagram") {
-            return(
-              <Contacto key={contacto.nombre} link={contacto.link + locale + "/"} img={contacto.img} titulo={contacto.nombre}/>
-            )
+        {contactos.map((contacto) => {
+          if (contacto.nombre == "Instagram") {
+            return (
+              <Contacto
+                key={contacto.nombre}
+                link={contacto.link + locale + "/"}
+                img={contacto.img}
+                titulo={contacto.nombre}
+              />
+            );
           } else {
-            return(
-              <Contacto key={contacto.nombre} link={contacto.link} img={contacto.img} titulo={contacto.nombre}/>
-            )
+            return (
+              <Contacto
+                key={contacto.nombre}
+                link={contacto.link}
+                img={contacto.img}
+                titulo={contacto.nombre}
+              />
+            );
           }
         })}
       </div>
@@ -99,7 +109,7 @@ export default function Contactos() {
           display: flex;
           flex-flow: wrap;
           justify-content: space-around;
-          width: 80%;
+          width: 50%;
           max-width: 600px;
           margin: auto;
         }
